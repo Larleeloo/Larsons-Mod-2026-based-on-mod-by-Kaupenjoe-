@@ -2,6 +2,7 @@ package net.kaupenjoe.tutorialmod.entity.custom;
 
 import net.kaupenjoe.tutorialmod.entity.ModEntities;
 import net.kaupenjoe.tutorialmod.entity.ai.PorcupineAttackGoal;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
@@ -20,9 +21,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -71,6 +74,28 @@ public class PorcupineEntity extends AnimalEntity {
         super.tick();
         if(this.getWorld().isClient()) {
             setupAnimationStates();
+        }
+
+        if(!this.getWorld().isClient()) {
+            destroyNearbyTreeBlocks();
+        }
+    }
+
+    private void destroyNearbyTreeBlocks() {
+        BlockPos entityPos = this.getBlockPos();
+        int radius = 1;
+
+        for (int x = -radius; x <= radius; x++) {
+            for (int y = -1; y <= 2; y++) {
+                for (int z = -radius; z <= radius; z++) {
+                    BlockPos targetPos = entityPos.add(x, y, z);
+                    BlockState state = this.getWorld().getBlockState(targetPos);
+
+                    if (state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES)) {
+                        this.getWorld().breakBlock(targetPos, true);
+                    }
+                }
+            }
         }
     }
 
