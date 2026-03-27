@@ -77,6 +77,30 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CHESTNUT_SAPLING);
 
         addDrop(ModBlocks.CHESTNUT_LEAVES, leavesDrops(ModBlocks.CHESTNUT_LEAVES, ModBlocks.CHESTNUT_SAPLING, 0.0025f));
+
+        // Neon Wood Logs
+        addDrop(ModBlocks.NEON_RED_WOOD);
+        addDrop(ModBlocks.NEON_GREEN_WOOD);
+        addDrop(ModBlocks.NEON_BLUE_WOOD);
+        addDrop(ModBlocks.NEON_CYAN_WOOD);
+        addDrop(ModBlocks.NEON_MAGENTA_WOOD);
+        addDrop(ModBlocks.NEON_YELLOW_WOOD);
+
+        // Neon Planks
+        addDrop(ModBlocks.NEON_RED_PLANKS);
+        addDrop(ModBlocks.NEON_GREEN_PLANKS);
+        addDrop(ModBlocks.NEON_BLUE_PLANKS);
+        addDrop(ModBlocks.NEON_CYAN_PLANKS);
+        addDrop(ModBlocks.NEON_MAGENTA_PLANKS);
+        addDrop(ModBlocks.NEON_YELLOW_PLANKS);
+
+        // Neon Leaves (drop themselves)
+        addDrop(ModBlocks.NEON_RED_LEAVES);
+        addDrop(ModBlocks.NEON_GREEN_LEAVES);
+        addDrop(ModBlocks.NEON_BLUE_LEAVES);
+        addDrop(ModBlocks.NEON_CYAN_LEAVES);
+        addDrop(ModBlocks.NEON_MAGENTA_LEAVES);
+        addDrop(ModBlocks.NEON_YELLOW_LEAVES);
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

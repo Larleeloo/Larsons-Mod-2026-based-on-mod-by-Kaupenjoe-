@@ -86,6 +86,26 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHESTNUT_LEAVES);
                         entries.add(ModBlocks.CHESTNUT_SAPLING);
 
+                        entries.add(ModBlocks.NEON_RED_WOOD);
+                        entries.add(ModBlocks.NEON_GREEN_WOOD);
+                        entries.add(ModBlocks.NEON_BLUE_WOOD);
+                        entries.add(ModBlocks.NEON_CYAN_WOOD);
+                        entries.add(ModBlocks.NEON_MAGENTA_WOOD);
+                        entries.add(ModBlocks.NEON_YELLOW_WOOD);
+
+                        entries.add(ModBlocks.NEON_RED_PLANKS);
+                        entries.add(ModBlocks.NEON_GREEN_PLANKS);
+                        entries.add(ModBlocks.NEON_BLUE_PLANKS);
+                        entries.add(ModBlocks.NEON_CYAN_PLANKS);
+                        entries.add(ModBlocks.NEON_MAGENTA_PLANKS);
+                        entries.add(ModBlocks.NEON_YELLOW_PLANKS);
+
+                        entries.add(ModBlocks.NEON_RED_LEAVES);
+                        entries.add(ModBlocks.NEON_GREEN_LEAVES);
+                        entries.add(ModBlocks.NEON_BLUE_LEAVES);
+                        entries.add(ModBlocks.NEON_CYAN_LEAVES);
+                        entries.add(ModBlocks.NEON_MAGENTA_LEAVES);
+                        entries.add(ModBlocks.NEON_YELLOW_LEAVES);
 
                     }).build());
 

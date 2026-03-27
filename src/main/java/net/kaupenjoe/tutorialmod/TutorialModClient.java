@@ -38,6 +38,22 @@ public class TutorialModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHESTNUT_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHESTNUT_SAPLING, RenderLayer.getCutout());
 
+        // Neon Planks - semi-transparent
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_RED_PLANKS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_GREEN_PLANKS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_BLUE_PLANKS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_CYAN_PLANKS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_MAGENTA_PLANKS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_YELLOW_PLANKS, RenderLayer.getTranslucent());
+
+        // Neon Leaves - semi-transparent
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_RED_LEAVES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_GREEN_LEAVES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_BLUE_LEAVES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_CYAN_LEAVES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_MAGENTA_LEAVES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_YELLOW_LEAVES, RenderLayer.getTranslucent());
+
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
 

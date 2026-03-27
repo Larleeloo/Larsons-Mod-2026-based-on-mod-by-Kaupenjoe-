@@ -33,6 +33,20 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.CHESTNUT_LOG.asItem())
                 .add(ModBlocks.CHESTNUT_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_CHESTNUT_LOG.asItem())
-                .add(ModBlocks.STRIPPED_CHESTNUT_WOOD.asItem());
+                .add(ModBlocks.STRIPPED_CHESTNUT_WOOD.asItem())
+                .add(ModBlocks.NEON_RED_WOOD.asItem())
+                .add(ModBlocks.NEON_GREEN_WOOD.asItem())
+                .add(ModBlocks.NEON_BLUE_WOOD.asItem())
+                .add(ModBlocks.NEON_CYAN_WOOD.asItem())
+                .add(ModBlocks.NEON_MAGENTA_WOOD.asItem())
+                .add(ModBlocks.NEON_YELLOW_WOOD.asItem());
+
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(ModBlocks.NEON_RED_PLANKS.asItem())
+                .add(ModBlocks.NEON_GREEN_PLANKS.asItem())
+                .add(ModBlocks.NEON_BLUE_PLANKS.asItem())
+                .add(ModBlocks.NEON_CYAN_PLANKS.asItem())
+                .add(ModBlocks.NEON_MAGENTA_PLANKS.asItem())
+                .add(ModBlocks.NEON_YELLOW_PLANKS.asItem());
     }
 }

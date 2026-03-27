@@ -55,6 +55,30 @@ public class ModModelProvider extends FabricModelProvider {
 
         BlockStateModelGenerator.BlockTexturePool chestnut_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CHESTNUT_PLANKS);
         chestnut_pool.family(ModBlocks.CHESTNUT_FAMILY);
+
+        // Neon Wood Logs (pillar blocks with side + top textures)
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_RED_WOOD).log(ModBlocks.NEON_RED_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_GREEN_WOOD).log(ModBlocks.NEON_GREEN_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_BLUE_WOOD).log(ModBlocks.NEON_BLUE_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_CYAN_WOOD).log(ModBlocks.NEON_CYAN_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_MAGENTA_WOOD).log(ModBlocks.NEON_MAGENTA_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_YELLOW_WOOD).log(ModBlocks.NEON_YELLOW_WOOD);
+
+        // Neon Planks (single texture cubes)
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_RED_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GREEN_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_BLUE_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_CYAN_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_MAGENTA_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_PLANKS);
+
+        // Neon Leaves (single texture cubes)
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_RED_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GREEN_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_BLUE_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_CYAN_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_MAGENTA_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_LEAVES);
     }
 
     @Override
