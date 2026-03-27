@@ -38,8 +38,10 @@ public class NeonTrunkPlacer extends TrunkPlacer {
                                                  Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
         setToDirt(world, replacer, random, startPos.down(), config);
 
-        int trunkHeight = height + random.nextBetween(firstRandomHeight, firstRandomHeight + 3)
+        // Cap total trunk height to keep trees in the 8-16 block range (trunk + foliage)
+        int rawHeight = height + random.nextBetween(firstRandomHeight, firstRandomHeight + 2)
                 + random.nextBetween(secondRandomHeight - 1, secondRandomHeight + 1);
+        int trunkHeight = Math.min(rawHeight, 12);
 
         List<FoliagePlacer.TreeNode> foliageNodes = new ArrayList<>();
 
