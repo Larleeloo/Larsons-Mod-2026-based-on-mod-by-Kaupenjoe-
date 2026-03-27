@@ -24,6 +24,14 @@ public class ModPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> CHESTNUT_PLACED_KEY = registerKey("chestnut_placed");
 
+    public static final RegistryKey<PlacedFeature> NEON_RED_TREE_PLACED_KEY = registerKey("neon_red_tree_placed");
+    public static final RegistryKey<PlacedFeature> NEON_GREEN_TREE_PLACED_KEY = registerKey("neon_green_tree_placed");
+    public static final RegistryKey<PlacedFeature> NEON_BLUE_TREE_PLACED_KEY = registerKey("neon_blue_tree_placed");
+    public static final RegistryKey<PlacedFeature> NEON_CYAN_TREE_PLACED_KEY = registerKey("neon_cyan_tree_placed");
+    public static final RegistryKey<PlacedFeature> NEON_MAGENTA_TREE_PLACED_KEY = registerKey("neon_magenta_tree_placed");
+    public static final RegistryKey<PlacedFeature> NEON_YELLOW_TREE_PLACED_KEY = registerKey("neon_yellow_tree_placed");
+    public static final RegistryKey<PlacedFeature> NEON_GRAY_TREE_PLACED_KEY = registerKey("neon_gray_tree_placed");
+
     public static void boostrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -40,6 +48,23 @@ public class ModPlacedFeatures {
         register(context, CHESTNUT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CHESTNUT_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
                         ModBlocks.CHESTNUT_SAPLING));
+
+        // Neon trees - dense placement (3 base + 0.5 chance of 2 extra = dense forest)
+        registerNeonTreePlaced(context, NEON_RED_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_RED_TREE_KEY);
+        registerNeonTreePlaced(context, NEON_GREEN_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GREEN_TREE_KEY);
+        registerNeonTreePlaced(context, NEON_BLUE_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_BLUE_TREE_KEY);
+        registerNeonTreePlaced(context, NEON_CYAN_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_CYAN_TREE_KEY);
+        registerNeonTreePlaced(context, NEON_MAGENTA_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_MAGENTA_TREE_KEY);
+        registerNeonTreePlaced(context, NEON_YELLOW_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_YELLOW_TREE_KEY);
+        registerNeonTreePlaced(context, NEON_GRAY_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GRAY_TREE_KEY);
+    }
+
+    private static void registerNeonTreePlaced(Registerable<PlacedFeature> context,
+                                                RegistryKey<PlacedFeature> placedKey,
+                                                net.minecraft.registry.RegistryEntryLookup<ConfiguredFeature<?, ?>> lookup,
+                                                RegistryKey<ConfiguredFeature<?, ?>> configuredKey) {
+        register(context, placedKey, lookup.getOrThrow(configuredKey),
+                VegetationPlacedFeatures.treeModifiers(PlacedFeatures.createCountExtraModifier(3, 0.5f, 2)));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
