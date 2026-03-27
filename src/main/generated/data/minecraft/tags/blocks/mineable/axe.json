@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tutorialmod:neon_red_wood",
+    "tutorialmod:neon_green_wood",
+    "tutorialmod:neon_blue_wood",
+    "tutorialmod:neon_cyan_wood",
+    "tutorialmod:neon_magenta_wood",
+    "tutorialmod:neon_yellow_wood",
+    "tutorialmod:neon_red_planks",
+    "tutorialmod:neon_green_planks",
+    "tutorialmod:neon_blue_planks",
+    "tutorialmod:neon_cyan_planks",
+    "tutorialmod:neon_magenta_planks",
+    "tutorialmod:neon_yellow_planks"
+  ]
+}
