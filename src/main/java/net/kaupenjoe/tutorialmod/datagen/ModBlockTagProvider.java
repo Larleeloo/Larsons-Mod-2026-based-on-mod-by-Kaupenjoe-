@@ -67,6 +67,42 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CHESTNUT_LOG)
                 .add(ModBlocks.CHESTNUT_WOOD)
                 .add(ModBlocks.STRIPPED_CHESTNUT_LOG)
-                .add(ModBlocks.STRIPPED_CHESTNUT_WOOD);
+                .add(ModBlocks.STRIPPED_CHESTNUT_WOOD)
+                .add(ModBlocks.NEON_RED_WOOD)
+                .add(ModBlocks.NEON_GREEN_WOOD)
+                .add(ModBlocks.NEON_BLUE_WOOD)
+                .add(ModBlocks.NEON_CYAN_WOOD)
+                .add(ModBlocks.NEON_MAGENTA_WOOD)
+                .add(ModBlocks.NEON_YELLOW_WOOD);
+
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(ModBlocks.NEON_RED_WOOD)
+                .add(ModBlocks.NEON_GREEN_WOOD)
+                .add(ModBlocks.NEON_BLUE_WOOD)
+                .add(ModBlocks.NEON_CYAN_WOOD)
+                .add(ModBlocks.NEON_MAGENTA_WOOD)
+                .add(ModBlocks.NEON_YELLOW_WOOD)
+                .add(ModBlocks.NEON_RED_PLANKS)
+                .add(ModBlocks.NEON_GREEN_PLANKS)
+                .add(ModBlocks.NEON_BLUE_PLANKS)
+                .add(ModBlocks.NEON_CYAN_PLANKS)
+                .add(ModBlocks.NEON_MAGENTA_PLANKS)
+                .add(ModBlocks.NEON_YELLOW_PLANKS);
+
+        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(ModBlocks.NEON_RED_LEAVES)
+                .add(ModBlocks.NEON_GREEN_LEAVES)
+                .add(ModBlocks.NEON_BLUE_LEAVES)
+                .add(ModBlocks.NEON_CYAN_LEAVES)
+                .add(ModBlocks.NEON_MAGENTA_LEAVES)
+                .add(ModBlocks.NEON_YELLOW_LEAVES);
+
+        getOrCreateTagBuilder(BlockTags.LEAVES)
+                .add(ModBlocks.NEON_RED_LEAVES)
+                .add(ModBlocks.NEON_GREEN_LEAVES)
+                .add(ModBlocks.NEON_BLUE_LEAVES)
+                .add(ModBlocks.NEON_CYAN_LEAVES)
+                .add(ModBlocks.NEON_MAGENTA_LEAVES)
+                .add(ModBlocks.NEON_YELLOW_LEAVES);
     }
 }
