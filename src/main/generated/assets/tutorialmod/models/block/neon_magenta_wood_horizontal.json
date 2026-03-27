@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "tutorialmod:block/neon_magenta_wood_top",
+    "side": "tutorialmod:block/neon_magenta_wood"
+  }
+}

@@ -1,7 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tutorialmod:chestnut_planks",
+    "tutorialmod:neon_red_wood",
+    "tutorialmod:neon_green_wood",
+    "tutorialmod:neon_blue_wood",
+    "tutorialmod:neon_cyan_wood",
+    "tutorialmod:neon_magenta_wood",
+    "tutorialmod:neon_yellow_wood",
     "tutorialmod:neon_red_planks",
     "tutorialmod:neon_green_planks",
     "tutorialmod:neon_blue_planks",
