@@ -4,6 +4,12 @@
     "tutorialmod:chestnut_log",
     "tutorialmod:chestnut_wood",
     "tutorialmod:stripped_chestnut_log",
-    "tutorialmod:stripped_chestnut_wood"
+    "tutorialmod:stripped_chestnut_wood",
+    "tutorialmod:neon_red_wood",
+    "tutorialmod:neon_green_wood",
+    "tutorialmod:neon_blue_wood",
+    "tutorialmod:neon_cyan_wood",
+    "tutorialmod:neon_magenta_wood",
+    "tutorialmod:neon_yellow_wood"
   ]
 }
