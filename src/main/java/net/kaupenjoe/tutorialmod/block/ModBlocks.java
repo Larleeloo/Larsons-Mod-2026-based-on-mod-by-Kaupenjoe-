@@ -148,6 +148,14 @@ public class ModBlocks {
     public static final Block NEON_GRAY_PLANKS = registerBlock("neon_gray_planks",
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
 
+    // Neon Dimension Terrain Blocks
+    public static final Block NEON_STONE = registerBlock("neon_stone",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f).luminance(state -> 3)));
+    public static final Block NEON_DIRT = registerBlock("neon_dirt",
+            new Block(FabricBlockSettings.copyOf(Blocks.DIRT).luminance(state -> 2)));
+    public static final Block NEON_GRASS_BLOCK = registerBlock("neon_grass_block",
+            new Block(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).luminance(state -> 5)));
+
     // Neon Leaves (7 colors) - emit light, semi-transparent, single texture
     public static final Block NEON_RED_LEAVES = registerBlock("neon_red_leaves",
             new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));

@@ -82,6 +82,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_MAGENTA_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GRAY_LEAVES);
+
+        // Neon Dimension Terrain Blocks
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_DIRT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GRASS_BLOCK);
     }
 
     @Override

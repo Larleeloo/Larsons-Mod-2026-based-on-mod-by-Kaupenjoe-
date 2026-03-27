@@ -104,6 +104,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.NEON_MAGENTA_LEAVES);
         addDrop(ModBlocks.NEON_YELLOW_LEAVES);
         addDrop(ModBlocks.NEON_GRAY_LEAVES);
+
+        // Neon Dimension Terrain Blocks
+        addDrop(ModBlocks.NEON_STONE);
+        addDrop(ModBlocks.NEON_DIRT);
+        addDrop(ModBlocks.NEON_GRASS_BLOCK, ModBlocks.NEON_DIRT);
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

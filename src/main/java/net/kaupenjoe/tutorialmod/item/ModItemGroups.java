@@ -110,6 +110,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NEON_YELLOW_LEAVES);
                         entries.add(ModBlocks.NEON_GRAY_LEAVES);
 
+                        // Neon Dimension Blocks
+                        entries.add(ModBlocks.NEON_STONE);
+                        entries.add(ModBlocks.NEON_DIRT);
+                        entries.add(ModBlocks.NEON_GRASS_BLOCK);
+
                     }).build());
 
 
