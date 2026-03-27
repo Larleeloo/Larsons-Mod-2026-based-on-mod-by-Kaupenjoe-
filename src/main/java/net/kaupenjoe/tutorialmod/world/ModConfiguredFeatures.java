@@ -87,7 +87,7 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(leaves),
                 new NeonFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), 3),
                 new TwoLayersFeatureSize(1, 0, 2))
-                .dirtProvider(BlockStateProvider.of(Blocks.DIRT))
+                .dirtProvider(BlockStateProvider.of(ModBlocks.NEON_DIRT))
                 .build());
     }
 
