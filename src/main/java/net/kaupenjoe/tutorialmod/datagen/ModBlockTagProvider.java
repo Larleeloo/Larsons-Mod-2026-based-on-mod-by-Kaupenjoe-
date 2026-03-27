@@ -116,5 +116,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.NEON_DIRT)
                 .add(ModBlocks.NEON_GRASS_BLOCK);
+
+        // Neon grass/dirt must be in the dirt tag so saplings and trees can grow on them
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(ModBlocks.NEON_DIRT)
+                .add(ModBlocks.NEON_GRASS_BLOCK);
     }
 }
