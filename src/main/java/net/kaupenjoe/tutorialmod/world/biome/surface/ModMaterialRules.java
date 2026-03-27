@@ -19,8 +19,8 @@ public class ModMaterialRules {
 
         return MaterialRules.sequence(
                 MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(ModBiomes.TEST_BIOME),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, RAW_RUBY)),
-                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, RUBY)),
+                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, GRASS_BLOCK)),
+                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, DIRT)),
 
                 // Default to a grass and dirt surface
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassSurface)
