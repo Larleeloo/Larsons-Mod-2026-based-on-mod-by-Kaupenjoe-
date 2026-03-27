@@ -92,6 +92,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NEON_CYAN_WOOD);
                         entries.add(ModBlocks.NEON_MAGENTA_WOOD);
                         entries.add(ModBlocks.NEON_YELLOW_WOOD);
+                        entries.add(ModBlocks.NEON_GRAY_WOOD);
 
                         entries.add(ModBlocks.NEON_RED_PLANKS);
                         entries.add(ModBlocks.NEON_GREEN_PLANKS);
@@ -99,6 +100,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NEON_CYAN_PLANKS);
                         entries.add(ModBlocks.NEON_MAGENTA_PLANKS);
                         entries.add(ModBlocks.NEON_YELLOW_PLANKS);
+                        entries.add(ModBlocks.NEON_GRAY_PLANKS);
 
                         entries.add(ModBlocks.NEON_RED_LEAVES);
                         entries.add(ModBlocks.NEON_GREEN_LEAVES);
@@ -106,6 +108,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NEON_CYAN_LEAVES);
                         entries.add(ModBlocks.NEON_MAGENTA_LEAVES);
                         entries.add(ModBlocks.NEON_YELLOW_LEAVES);
+                        entries.add(ModBlocks.NEON_GRAY_LEAVES);
 
                     }).build());
 

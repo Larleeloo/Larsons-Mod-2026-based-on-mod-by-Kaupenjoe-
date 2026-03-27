@@ -39,7 +39,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.NEON_BLUE_WOOD.asItem())
                 .add(ModBlocks.NEON_CYAN_WOOD.asItem())
                 .add(ModBlocks.NEON_MAGENTA_WOOD.asItem())
-                .add(ModBlocks.NEON_YELLOW_WOOD.asItem());
+                .add(ModBlocks.NEON_YELLOW_WOOD.asItem())
+                .add(ModBlocks.NEON_GRAY_WOOD.asItem());
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.NEON_RED_PLANKS.asItem())
@@ -47,6 +48,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.NEON_BLUE_PLANKS.asItem())
                 .add(ModBlocks.NEON_CYAN_PLANKS.asItem())
                 .add(ModBlocks.NEON_MAGENTA_PLANKS.asItem())
-                .add(ModBlocks.NEON_YELLOW_PLANKS.asItem());
+                .add(ModBlocks.NEON_YELLOW_PLANKS.asItem())
+                .add(ModBlocks.NEON_GRAY_PLANKS.asItem());
     }
 }
