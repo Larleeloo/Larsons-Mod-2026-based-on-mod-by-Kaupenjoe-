@@ -83,7 +83,7 @@ public class ModConfiguredFeatures {
                                          RegistryKey<ConfiguredFeature<?, ?>> key, Block wood, Block leaves) {
         register(context, key, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(wood),
-                new NeonTrunkPlacer(6, 4, 3),
+                new NeonTrunkPlacer(4, 2, 2),
                 BlockStateProvider.of(leaves),
                 new NeonFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), 3),
                 new TwoLayersFeatureSize(1, 0, 2))

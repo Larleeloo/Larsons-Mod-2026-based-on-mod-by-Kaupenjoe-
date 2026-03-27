@@ -14,6 +14,8 @@ import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.block.Blocks;
+import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 
 import java.util.List;
 
@@ -64,7 +66,8 @@ public class ModPlacedFeatures {
                                                 net.minecraft.registry.RegistryEntryLookup<ConfiguredFeature<?, ?>> lookup,
                                                 RegistryKey<ConfiguredFeature<?, ?>> configuredKey) {
         register(context, placedKey, lookup.getOrThrow(configuredKey),
-                VegetationPlacedFeatures.treeModifiers(PlacedFeatures.createCountExtraModifier(3, 0.5f, 2)));
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(3, 0.5f, 2),
+                        Blocks.OAK_SAPLING));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
