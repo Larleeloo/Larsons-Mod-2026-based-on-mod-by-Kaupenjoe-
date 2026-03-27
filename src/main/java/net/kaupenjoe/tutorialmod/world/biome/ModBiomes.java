@@ -243,7 +243,6 @@ public class ModBiomes {
 
         neonDimensionBaseGeneration(biomeBuilder);
         DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
-        DefaultBiomeFeatures.addAmethystGeodes(biomeBuilder);
 
         // Only sparse gray trees in this desolate landscape
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.NEON_GRAY_TREE_SPARSE_KEY);
