@@ -63,6 +63,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(ModBlocks.NEON_CYAN_WOOD).log(ModBlocks.NEON_CYAN_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.NEON_MAGENTA_WOOD).log(ModBlocks.NEON_MAGENTA_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.NEON_YELLOW_WOOD).log(ModBlocks.NEON_YELLOW_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.NEON_GRAY_WOOD).log(ModBlocks.NEON_GRAY_WOOD);
 
         // Neon Planks (single texture cubes)
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_RED_PLANKS);
@@ -71,6 +72,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_CYAN_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_MAGENTA_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GRAY_PLANKS);
 
         // Neon Leaves (single texture cubes)
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_RED_LEAVES);
@@ -79,6 +81,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_CYAN_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_MAGENTA_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GRAY_LEAVES);
     }
 
     @Override

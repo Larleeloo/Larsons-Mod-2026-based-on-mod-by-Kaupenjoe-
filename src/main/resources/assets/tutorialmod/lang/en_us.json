@@ -78,6 +78,7 @@
   "block.tutorialmod.neon_cyan_wood": "Neon Cyan Wood",
   "block.tutorialmod.neon_magenta_wood": "Neon Magenta Wood",
   "block.tutorialmod.neon_yellow_wood": "Neon Yellow Wood",
+  "block.tutorialmod.neon_gray_wood": "Neon Gray Wood",
 
   "block.tutorialmod.neon_red_planks": "Neon Red Planks",
   "block.tutorialmod.neon_green_planks": "Neon Green Planks",
@@ -85,6 +86,7 @@
   "block.tutorialmod.neon_cyan_planks": "Neon Cyan Planks",
   "block.tutorialmod.neon_magenta_planks": "Neon Magenta Planks",
   "block.tutorialmod.neon_yellow_planks": "Neon Yellow Planks",
+  "block.tutorialmod.neon_gray_planks": "Neon Gray Planks",
 
   "block.tutorialmod.neon_red_leaves": "Neon Red Leaves",
   "block.tutorialmod.neon_green_leaves": "Neon Green Leaves",
@@ -92,6 +94,7 @@
   "block.tutorialmod.neon_cyan_leaves": "Neon Cyan Leaves",
   "block.tutorialmod.neon_magenta_leaves": "Neon Magenta Leaves",
   "block.tutorialmod.neon_yellow_leaves": "Neon Yellow Leaves",
+  "block.tutorialmod.neon_gray_leaves": "Neon Gray Leaves",
 
   "entity.minecraft.villager.sound_master": "Soundmaster",
 

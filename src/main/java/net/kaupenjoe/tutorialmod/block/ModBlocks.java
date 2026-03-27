@@ -129,8 +129,10 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_YELLOW_WOOD = registerBlock("neon_yellow_wood",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+    public static final Block NEON_GRAY_WOOD = registerBlock("neon_gray_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
 
-    // Neon Planks (6 colors) - emit light, semi-transparent, single texture
+    // Neon Planks (7 colors) - emit light, semi-transparent, single texture
     public static final Block NEON_RED_PLANKS = registerBlock("neon_red_planks",
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_GREEN_PLANKS = registerBlock("neon_green_planks",
@@ -143,8 +145,10 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_YELLOW_PLANKS = registerBlock("neon_yellow_planks",
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+    public static final Block NEON_GRAY_PLANKS = registerBlock("neon_gray_planks",
+            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
 
-    // Neon Leaves (6 colors) - emit light, semi-transparent, single texture
+    // Neon Leaves (7 colors) - emit light, semi-transparent, single texture
     public static final Block NEON_RED_LEAVES = registerBlock("neon_red_leaves",
             new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_GREEN_LEAVES = registerBlock("neon_green_leaves",
@@ -156,6 +160,8 @@ public class ModBlocks {
     public static final Block NEON_MAGENTA_LEAVES = registerBlock("neon_magenta_leaves",
             new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_YELLOW_LEAVES = registerBlock("neon_yellow_leaves",
+            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+    public static final Block NEON_GRAY_LEAVES = registerBlock("neon_gray_leaves",
             new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
 
 
