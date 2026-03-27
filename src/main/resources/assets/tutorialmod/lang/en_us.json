@@ -96,6 +96,16 @@
   "block.tutorialmod.neon_yellow_leaves": "Neon Yellow Leaves",
   "block.tutorialmod.neon_gray_leaves": "Neon Gray Leaves",
 
+  "block.tutorialmod.neon_stone": "Neon Stone",
+  "block.tutorialmod.neon_dirt": "Neon Dirt",
+  "block.tutorialmod.neon_grass_block": "Neon Grass Block",
+
+  "biome.tutorialmod.neon_rolling_hills": "Neon Rolling Hills",
+  "biome.tutorialmod.neon_floating_islands": "Neon Floating Islands",
+  "biome.tutorialmod.neon_dense_forest": "Neon Dense Forest",
+  "biome.tutorialmod.neon_twilight_meadows": "Neon Twilight Meadows",
+  "biome.tutorialmod.neon_crystal_wastes": "Neon Crystal Wastes",
+
   "entity.minecraft.villager.sound_master": "Soundmaster",
 
   "tooltip.tutorialmod.metal_detector.tooltip": "Finds valuables underground",

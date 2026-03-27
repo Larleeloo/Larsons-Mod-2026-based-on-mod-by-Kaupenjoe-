@@ -109,5 +109,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NEON_MAGENTA_LEAVES)
                 .add(ModBlocks.NEON_YELLOW_LEAVES)
                 .add(ModBlocks.NEON_GRAY_LEAVES);
+
+        // Neon Dimension Terrain Blocks
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.NEON_STONE);
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.NEON_DIRT)
+                .add(ModBlocks.NEON_GRASS_BLOCK);
     }
 }

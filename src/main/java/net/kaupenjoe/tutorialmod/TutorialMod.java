@@ -99,5 +99,13 @@ public class TutorialMod implements ModInitializer {
 				.destDimID(new Identifier(TutorialMod.MOD_ID, "kaupendim"))
 				.tintColor(0xc76efa)
 				.registerPortal();
+
+		// Neon Dimension portal - built with neon planks, lit with ruby staff
+		CustomPortalBuilder.beginPortal()
+				.frameBlock(ModBlocks.NEON_MAGENTA_PLANKS)
+				.lightWithItem(ModItems.RUBY_STAFF)
+				.destDimID(new Identifier(TutorialMod.MOD_ID, "neondim"))
+				.tintColor(0xff00ff)
+				.registerPortal();
 	}
 }

@@ -1,0 +1,72 @@
+{
+  "type": "tutorialmod:neondim_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "tutorialmod:neondim",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "tutorialmod:neon_rolling_hills",
+          "parameters": {
+            "temperature": [0.2, 0.7],
+            "humidity": [-0.2, 0.3],
+            "continentalness": [0.1, 0.6],
+            "erosion": [0.2, 0.8],
+            "weirdness": [-0.3, 0.3],
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "tutorialmod:neon_floating_islands",
+          "parameters": {
+            "temperature": [-0.5, 0.0],
+            "humidity": [-0.5, 0.0],
+            "continentalness": [-0.8, -0.2],
+            "erosion": [-1.0, -0.3],
+            "weirdness": [0.3, 1.0],
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "tutorialmod:neon_dense_forest",
+          "parameters": {
+            "temperature": [0.0, 0.5],
+            "humidity": [0.3, 1.0],
+            "continentalness": [0.0, 0.5],
+            "erosion": [-0.2, 0.4],
+            "weirdness": [-0.5, 0.5],
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "tutorialmod:neon_twilight_meadows",
+          "parameters": {
+            "temperature": [-0.2, 0.4],
+            "humidity": [-0.3, 0.3],
+            "continentalness": [0.3, 0.8],
+            "erosion": [0.5, 1.0],
+            "weirdness": [-0.5, 0.0],
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "tutorialmod:neon_crystal_wastes",
+          "parameters": {
+            "temperature": [-1.0, -0.3],
+            "humidity": [-1.0, -0.3],
+            "continentalness": [-0.3, 0.3],
+            "erosion": [-0.5, 0.2],
+            "weirdness": [-1.0, -0.3],
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
+}

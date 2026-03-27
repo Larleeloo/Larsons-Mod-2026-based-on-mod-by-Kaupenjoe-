@@ -34,6 +34,20 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> NEON_YELLOW_TREE_PLACED_KEY = registerKey("neon_yellow_tree_placed");
     public static final RegistryKey<PlacedFeature> NEON_GRAY_TREE_PLACED_KEY = registerKey("neon_gray_tree_placed");
 
+    // Sparse neon tree placements for meadow/wastes biomes
+    public static final RegistryKey<PlacedFeature> NEON_GREEN_TREE_SPARSE_KEY = registerKey("neon_green_tree_sparse");
+    public static final RegistryKey<PlacedFeature> NEON_CYAN_TREE_SPARSE_KEY = registerKey("neon_cyan_tree_sparse");
+    public static final RegistryKey<PlacedFeature> NEON_GRAY_TREE_SPARSE_KEY = registerKey("neon_gray_tree_sparse");
+
+    // Extra dense neon tree placements for dense forest biome
+    public static final RegistryKey<PlacedFeature> NEON_RED_TREE_DENSE_KEY = registerKey("neon_red_tree_dense");
+    public static final RegistryKey<PlacedFeature> NEON_GREEN_TREE_DENSE_KEY = registerKey("neon_green_tree_dense");
+    public static final RegistryKey<PlacedFeature> NEON_BLUE_TREE_DENSE_KEY = registerKey("neon_blue_tree_dense");
+    public static final RegistryKey<PlacedFeature> NEON_CYAN_TREE_DENSE_KEY = registerKey("neon_cyan_tree_dense");
+    public static final RegistryKey<PlacedFeature> NEON_MAGENTA_TREE_DENSE_KEY = registerKey("neon_magenta_tree_dense");
+    public static final RegistryKey<PlacedFeature> NEON_YELLOW_TREE_DENSE_KEY = registerKey("neon_yellow_tree_dense");
+    public static final RegistryKey<PlacedFeature> NEON_GRAY_TREE_DENSE_KEY = registerKey("neon_gray_tree_dense");
+
     public static void boostrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -59,6 +73,20 @@ public class ModPlacedFeatures {
         registerNeonTreePlaced(context, NEON_MAGENTA_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_MAGENTA_TREE_KEY);
         registerNeonTreePlaced(context, NEON_YELLOW_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_YELLOW_TREE_KEY);
         registerNeonTreePlaced(context, NEON_GRAY_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GRAY_TREE_KEY);
+
+        // Sparse placements (1 base + 0.1 chance of 1 extra) for meadows/wastes
+        registerNeonTreeSparse(context, NEON_GREEN_TREE_SPARSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GREEN_TREE_KEY);
+        registerNeonTreeSparse(context, NEON_CYAN_TREE_SPARSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_CYAN_TREE_KEY);
+        registerNeonTreeSparse(context, NEON_GRAY_TREE_SPARSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GRAY_TREE_KEY);
+
+        // Dense placements (6 base + 0.5 chance of 3 extra) for dense forest
+        registerNeonTreeDense(context, NEON_RED_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_RED_TREE_KEY);
+        registerNeonTreeDense(context, NEON_GREEN_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GREEN_TREE_KEY);
+        registerNeonTreeDense(context, NEON_BLUE_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_BLUE_TREE_KEY);
+        registerNeonTreeDense(context, NEON_CYAN_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_CYAN_TREE_KEY);
+        registerNeonTreeDense(context, NEON_MAGENTA_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_MAGENTA_TREE_KEY);
+        registerNeonTreeDense(context, NEON_YELLOW_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_YELLOW_TREE_KEY);
+        registerNeonTreeDense(context, NEON_GRAY_TREE_DENSE_KEY, configuredFeatureRegistryEntryLookup, ModConfiguredFeatures.NEON_GRAY_TREE_KEY);
     }
 
     private static void registerNeonTreePlaced(Registerable<PlacedFeature> context,
@@ -67,6 +95,24 @@ public class ModPlacedFeatures {
                                                 RegistryKey<ConfiguredFeature<?, ?>> configuredKey) {
         register(context, placedKey, lookup.getOrThrow(configuredKey),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(3, 0.5f, 2),
+                        Blocks.OAK_SAPLING));
+    }
+
+    private static void registerNeonTreeSparse(Registerable<PlacedFeature> context,
+                                                RegistryKey<PlacedFeature> placedKey,
+                                                net.minecraft.registry.RegistryEntryLookup<ConfiguredFeature<?, ?>> lookup,
+                                                RegistryKey<ConfiguredFeature<?, ?>> configuredKey) {
+        register(context, placedKey, lookup.getOrThrow(configuredKey),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 1),
+                        Blocks.OAK_SAPLING));
+    }
+
+    private static void registerNeonTreeDense(Registerable<PlacedFeature> context,
+                                               RegistryKey<PlacedFeature> placedKey,
+                                               net.minecraft.registry.RegistryEntryLookup<ConfiguredFeature<?, ?>> lookup,
+                                               RegistryKey<ConfiguredFeature<?, ?>> configuredKey) {
+        register(context, placedKey, lookup.getOrThrow(configuredKey),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.5f, 3),
                         Blocks.OAK_SAPLING));
     }
 
