@@ -250,7 +250,7 @@
           "then_run": {
             "type": "minecraft:block",
             "result_state": {
-              "Name": "tutorialmod:neon_grass_block"
+              "Name": "minecraft:grass_block"
             }
           }
         }
@@ -267,7 +267,7 @@
         "then_run": {
           "type": "minecraft:block",
           "result_state": {
-            "Name": "tutorialmod:neon_dirt"
+            "Name": "minecraft:dirt"
           }
         }
       },

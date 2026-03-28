@@ -12,9 +12,9 @@ public class ModMaterialRules {
     private static final MaterialRules.MaterialRule RUBY = makeStateRule(ModBlocks.RUBY_BLOCK);
     private static final MaterialRules.MaterialRule RAW_RUBY = makeStateRule(ModBlocks.RAW_RUBY_BLOCK);
 
-    // Neon Dimension surface materials
-    private static final MaterialRules.MaterialRule NEON_GRASS = makeStateRule(ModBlocks.NEON_GRASS_BLOCK);
-    private static final MaterialRules.MaterialRule NEON_DIRT = makeStateRule(ModBlocks.NEON_DIRT);
+    // Neon Dimension surface materials - uses vanilla grass/dirt with black grass color from biome effects
+    private static final MaterialRules.MaterialRule NEON_GRASS = makeStateRule(Blocks.GRASS_BLOCK);
+    private static final MaterialRules.MaterialRule NEON_DIRT = makeStateRule(Blocks.DIRT);
     private static final MaterialRules.MaterialRule NEON_STONE = makeStateRule(ModBlocks.NEON_STONE);
 
     public static MaterialRules.MaterialRule makeRules() {

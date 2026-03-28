@@ -6,6 +6,7 @@ import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.item.ModItems;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -40,5 +41,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STONE), conditionsFromItem(Items.STONE))
                 .criterion(hasItem(ModItems.RUBY), conditionsFromItem(ModItems.RUBY))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.RAW_RUBY)));
+
+        // Neon Planks from Neon Woods (1 wood -> 4 planks)
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_RED_WOOD, ModBlocks.NEON_RED_PLANKS);
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_GREEN_WOOD, ModBlocks.NEON_GREEN_PLANKS);
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_BLUE_WOOD, ModBlocks.NEON_BLUE_PLANKS);
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_CYAN_WOOD, ModBlocks.NEON_CYAN_PLANKS);
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_MAGENTA_WOOD, ModBlocks.NEON_MAGENTA_PLANKS);
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_YELLOW_WOOD, ModBlocks.NEON_YELLOW_PLANKS);
+        offerNeonPlanksRecipe(exporter, ModBlocks.NEON_GRAY_WOOD, ModBlocks.NEON_GRAY_PLANKS);
+    }
+
+    private static void offerNeonPlanksRecipe(RecipeExporter exporter, ItemConvertible wood, ItemConvertible planks) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, planks, 4)
+                .input(wood)
+                .criterion(hasItem(wood), conditionsFromItem(wood))
+                .offerTo(exporter, new Identifier(getRecipeName(planks)));
     }
 }

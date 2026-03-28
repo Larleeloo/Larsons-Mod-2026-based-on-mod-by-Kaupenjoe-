@@ -63,7 +63,7 @@ public class ModDimensions {
                 384, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 DimensionTypes.OVERWORLD_ID, // effectsLocation
-                0.1f, // ambientLight - dim so neon blocks glow brightly
+                0.0f, // ambientLight - completely dark so neon blocks glow brightly
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 7), 0)));
     }
 }
