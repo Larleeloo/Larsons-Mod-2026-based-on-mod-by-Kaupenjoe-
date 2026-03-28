@@ -17,6 +17,7 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
@@ -84,10 +85,10 @@ public class ModConfiguredFeatures {
         register(context, key, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(wood),
                 new NeonTrunkPlacer(4, 2, 2),
-                BlockStateProvider.of(leaves),
+                BlockStateProvider.of(leaves.getDefaultState().with(LeavesBlock.PERSISTENT, true)),
                 new NeonFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), 3),
                 new TwoLayersFeatureSize(1, 0, 2))
-                .dirtProvider(BlockStateProvider.of(ModBlocks.NEON_DIRT))
+                .dirtProvider(BlockStateProvider.of(Blocks.DIRT))
                 .build());
     }
 
