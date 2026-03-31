@@ -3,7 +3,7 @@ package net.larson.larsonsmod.world.biome;
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.entity.ModEntities;
 import net.larson.larsonsmod.sound.ModSounds;
-import net.minecraft.client.sound.MusicType;
+import net.minecraft.sound.MusicType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registerable;
