@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 
 public class ModBlockEntities {
     public static final BlockEntityType<GemPolishingStationBlockEntity> GEM_POLISHING_STATION_BLOCK_ENTITY =
-            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(LarsonsMod.MOD_ID, "gem_polishing_be"),
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(LarsonsMod.MOD_ID, "gem_polishing_be"),
                     FabricBlockEntityTypeBuilder.create(GemPolishingStationBlockEntity::new,
                             ModBlocks.GEM_POLISHING_STATION).build());
 

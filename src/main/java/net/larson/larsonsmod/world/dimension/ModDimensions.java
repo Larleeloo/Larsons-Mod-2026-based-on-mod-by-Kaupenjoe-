@@ -16,19 +16,19 @@ import java.util.OptionalLong;
 
 public class ModDimensions {
     public static final RegistryKey<DimensionOptions> KAUPENDIM_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(LarsonsMod.MOD_ID, "kaupendim"));
+            Identifier.of(LarsonsMod.MOD_ID, "kaupendim"));
     public static final RegistryKey<World> KAUPENDIM_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(LarsonsMod.MOD_ID, "kaupendim"));
+            Identifier.of(LarsonsMod.MOD_ID, "kaupendim"));
     public static final RegistryKey<DimensionType> KAUPEN_DIM_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(LarsonsMod.MOD_ID, "kaupendim_type"));
+            Identifier.of(LarsonsMod.MOD_ID, "kaupendim_type"));
 
     // Neon Dimension
     public static final RegistryKey<DimensionOptions> NEONDIM_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(LarsonsMod.MOD_ID, "neondim"));
+            Identifier.of(LarsonsMod.MOD_ID, "neondim"));
     public static final RegistryKey<World> NEONDIM_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(LarsonsMod.MOD_ID, "neondim"));
+            Identifier.of(LarsonsMod.MOD_ID, "neondim"));
     public static final RegistryKey<DimensionType> NEON_DIM_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(LarsonsMod.MOD_ID, "neondim_type"));
+            Identifier.of(LarsonsMod.MOD_ID, "neondim_type"));
 
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(KAUPEN_DIM_TYPE, new DimensionType(

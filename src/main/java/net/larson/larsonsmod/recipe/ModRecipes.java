@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 
 public class ModRecipes {
     public static void registerRecipes() {
-        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(LarsonsMod.MOD_ID, GemPolishingRecipe.Serializer.ID),
+        Registry.register(Registries.RECIPE_SERIALIZER, Identifier.of(LarsonsMod.MOD_ID, GemPolishingRecipe.Serializer.ID),
                 GemPolishingRecipe.Serializer.INSTANCE);
-        Registry.register(Registries.RECIPE_TYPE, new Identifier(LarsonsMod.MOD_ID, GemPolishingRecipe.Type.ID),
+        Registry.register(Registries.RECIPE_TYPE, Identifier.of(LarsonsMod.MOD_ID, GemPolishingRecipe.Type.ID),
                 GemPolishingRecipe.Type.INSTANCE);
     }
 }

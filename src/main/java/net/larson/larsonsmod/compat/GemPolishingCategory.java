@@ -21,7 +21,7 @@ import java.util.List;
 // https://github.com/TeamGalacticraft/Galacticraft/tree/main (MIT License)
 public class GemPolishingCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE =
-            new Identifier(LarsonsMod.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
+            Identifier.of(LarsonsMod.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
     public static final CategoryIdentifier<GemPolishingDisplay> GEM_POLISHING =
             CategoryIdentifier.of(LarsonsMod.MOD_ID, "gem_polishing");
 

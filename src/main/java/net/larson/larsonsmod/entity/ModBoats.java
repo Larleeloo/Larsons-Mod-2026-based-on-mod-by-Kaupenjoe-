@@ -10,8 +10,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModBoats {
-    public static final Identifier CHESTNUT_BOAT_ID = new Identifier(LarsonsMod.MOD_ID, "chestnut_boat");
-    public static final Identifier CHESTNUT_CHEST_BOAT_ID = new Identifier(LarsonsMod.MOD_ID, "chestnut_chest_boat");
+    public static final Identifier CHESTNUT_BOAT_ID = Identifier.of(LarsonsMod.MOD_ID, "chestnut_boat");
+    public static final Identifier CHESTNUT_CHEST_BOAT_ID = Identifier.of(LarsonsMod.MOD_ID, "chestnut_chest_boat");
 
     public static final RegistryKey<TerraformBoatType> CHESTNUT_BOAT_KEY = TerraformBoatTypeRegistry.createKey(CHESTNUT_BOAT_ID);
 

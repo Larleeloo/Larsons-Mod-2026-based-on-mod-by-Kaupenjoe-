@@ -8,6 +8,7 @@ import net.larson.larsonsmod.block.custom.TomatoCropBlock;
 import net.larson.larsonsmod.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -21,10 +22,14 @@ import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
-    public ModLootTableProvider(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override
@@ -118,6 +123,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                 .apply(SetCountLootFunction
                                         .builder(UniformLootNumberProvider
                                                 .create(2.0f, 5.0f))))
-                        .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))));
+                        .apply(ApplyBonusLootFunction.oreDrops(this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE)))));
     }
 }

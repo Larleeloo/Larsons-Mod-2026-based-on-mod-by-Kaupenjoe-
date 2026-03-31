@@ -12,7 +12,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandler;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -119,10 +118,10 @@ public class PorcupineEntity extends AnimalEntity {
 
     public static DefaultAttributeContainer.Builder createPorcupineAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
-                .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
+                .add(EntityAttributes.MAX_HEALTH, 15)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.2f)
+                .add(EntityAttributes.ARMOR, 0.5f)
+                .add(EntityAttributes.ATTACK_DAMAGE, 2);
     }
 
     public void setAttacking(boolean attacking) {
@@ -135,9 +134,9 @@ public class PorcupineEntity extends AnimalEntity {
     }
 
     @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
+    protected void initDataTracker(DataTracker.Builder builder) {
+        super.initDataTracker(builder);
+        builder.add(ATTACKING, false);
     }
 
     @Override

@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
     public static final ItemGroup RUBY_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(LarsonsMod.MOD_ID, "ruby"),
+            Identifier.of(LarsonsMod.MOD_ID, "ruby"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.ruby"))
                     .icon(() -> new ItemStack(ModItems.RUBY)).entries((displayContext, entries) -> {
                         entries.add(ModItems.RUBY);

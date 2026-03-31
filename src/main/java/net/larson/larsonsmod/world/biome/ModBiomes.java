@@ -23,19 +23,19 @@ import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class ModBiomes {
     public static final RegistryKey<Biome> TEST_BIOME = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(LarsonsMod.MOD_ID, "test_biome"));
+            Identifier.of(LarsonsMod.MOD_ID, "test_biome"));
 
     // Neon Dimension Biomes
     public static final RegistryKey<Biome> NEON_ROLLING_HILLS = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(LarsonsMod.MOD_ID, "neon_rolling_hills"));
+            Identifier.of(LarsonsMod.MOD_ID, "neon_rolling_hills"));
     public static final RegistryKey<Biome> NEON_FLOATING_ISLANDS = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(LarsonsMod.MOD_ID, "neon_floating_islands"));
+            Identifier.of(LarsonsMod.MOD_ID, "neon_floating_islands"));
     public static final RegistryKey<Biome> NEON_DENSE_FOREST = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(LarsonsMod.MOD_ID, "neon_dense_forest"));
+            Identifier.of(LarsonsMod.MOD_ID, "neon_dense_forest"));
     public static final RegistryKey<Biome> NEON_TWILIGHT_MEADOWS = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(LarsonsMod.MOD_ID, "neon_twilight_meadows"));
+            Identifier.of(LarsonsMod.MOD_ID, "neon_twilight_meadows"));
     public static final RegistryKey<Biome> NEON_CRYSTAL_WASTES = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(LarsonsMod.MOD_ID, "neon_crystal_wastes"));
+            Identifier.of(LarsonsMod.MOD_ID, "neon_crystal_wastes"));
 
     public static void boostrap(Registerable<Biome> context) {
         context.register(TEST_BIOME, testBiome(context));
