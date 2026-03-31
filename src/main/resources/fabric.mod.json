@@ -1,38 +1,41 @@
 {
 	"schemaVersion": 1,
-	"id": "tutorialmod",
+	"id": "larsonsmod",
 	"version": "${version}",
-	"name": "Tutorial Mod",
-	"description": "This is a Tutorial Mod made by Kaupenjoe :)",
+	"name": "Larson's Mod",
+	"description": "Originally created by Kaupenjoe, with major modifications by Larson.",
 	"authors": [
-		"Kaupenjoe!"
+		"Larson"
+	],
+	"contributors": [
+		"Kaupenjoe (original mod)"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/tutorialmod/icon.png",
+	"icon": "assets/larsonsmod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.kaupenjoe.tutorialmod.TutorialMod"
+			"net.larson.larsonsmod.LarsonsMod"
 		],
 		"client": [
-			"net.kaupenjoe.tutorialmod.TutorialModClient"
+			"net.larson.larsonsmod.LarsonsModClient"
 		],
 		"fabric-datagen": [
-			"net.kaupenjoe.tutorialmod.TutorialModDataGenerator"
+			"net.larson.larsonsmod.LarsonsModDataGenerator"
 		],
 		"rei_client": [
-			"net.kaupenjoe.tutorialmod.compat.TutorialModREIClientPlugin"
+			"net.larson.larsonsmod.compat.LarsonsModREIClientPlugin"
 		],
 		"terrablender": [
-			"net.kaupenjoe.tutorialmod.world.biome.ModTerrablenderAPI"
+			"net.larson.larsonsmod.world.biome.ModTerrablenderAPI"
 		]
 	},
 	"mixins": [
-		"tutorialmod.mixins.json"
+		"larsonsmod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",

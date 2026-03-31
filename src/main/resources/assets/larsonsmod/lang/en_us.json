@@ -1,0 +1,116 @@
+{
+  "item.larsonsmod.ruby": "Ruby",
+  "item.larsonsmod.raw_ruby": "Raw Ruby",
+  "item.larsonsmod.metal_detector": "Metal Detector",
+
+  "item.larsonsmod.tomato": "Tomato",
+  "item.larsonsmod.coal_briquette": "Coal Briquette",
+
+  "item.larsonsmod.ruby_staff": "Ruby Staff",
+
+  "item.larsonsmod.ruby_pickaxe": "Ruby Pickaxe",
+  "item.larsonsmod.ruby_axe": "Ruby Axe",
+  "item.larsonsmod.ruby_shovel": "Ruby Shovel",
+  "item.larsonsmod.ruby_sword": "Ruby Sword",
+  "item.larsonsmod.ruby_hoe": "Ruby Hoe",
+
+  "item.larsonsmod.ruby_helmet": "Ruby Helmet",
+  "item.larsonsmod.ruby_chestplate": "Ruby Chestplate",
+  "item.larsonsmod.ruby_leggings": "Ruby Leggings",
+  "item.larsonsmod.ruby_boots": "Ruby Boots",
+  "item.larsonsmod.tomato_seeds": "Tomato Seeds",
+
+  "item.larsonsmod.corn": "Corn",
+  "item.larsonsmod.corn_seeds": "Corn Seeds",
+
+  "item.larsonsmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.larsonsmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
+
+  "item.larsonsmod.porcupine_spawn_egg": "Porcupine Spawn Egg",
+
+  "item.larsonsmod.chestnut_boat": "Chestnut Boat",
+  "item.larsonsmod.chestnut_chest_boat": "Chestnut Chest Boat",
+
+  "item.larsonsmod.dice": "Dice",
+
+  "block.larsonsmod.ruby_block": "Block of Ruby",
+  "block.larsonsmod.raw_ruby_block": "Block of Raw Ruby",
+
+  "block.larsonsmod.ruby_ore": "Ruby Ore",
+  "block.larsonsmod.deepslate_ruby_ore": "Deepslate Ruby Ore",
+  "block.larsonsmod.nether_ruby_ore": "Nether Ruby Ore",
+  "block.larsonsmod.end_stone_ruby_ore": "End Stone Ruby Ore",
+
+  "block.larsonsmod.sound_block": "Sound Block",
+
+  "block.larsonsmod.ruby_stairs": "Ruby Stairs",
+  "block.larsonsmod.ruby_slab": "Ruby Slab",
+  "block.larsonsmod.ruby_button": "Ruby Button",
+  "block.larsonsmod.ruby_pressure_plate": "Ruby Pressure Plate",
+  "block.larsonsmod.ruby_fence": "Ruby Fence",
+  "block.larsonsmod.ruby_fence_gate": "Ruby Fence Gate",
+  "block.larsonsmod.ruby_wall": "Ruby Wall",
+  "block.larsonsmod.ruby_door": "Ruby Door",
+  "block.larsonsmod.ruby_trapdoor": "Ruby Trapdoor",
+
+  "block.larsonsmod.dahlia": "Dahlia",
+
+  "block.larsonsmod.gem_polishing_station": "Gem Polishing Station",
+
+  "block.larsonsmod.chestnut_log": "Chestnut Log",
+  "block.larsonsmod.chestnut_wood": "Chestnut Wood",
+  "block.larsonsmod.stripped_chestnut_log": "Stripped Chestnut Log",
+  "block.larsonsmod.stripped_chestnut_wood": "Stripped Chestnut Wood",
+  "block.larsonsmod.chestnut_planks": "Chestnut Planks",
+  "block.larsonsmod.chestnut_leaves": "Chestnut Leaves",
+
+  "block.larsonsmod.chestnut_standing_sign": "Chestnut Standing Sign",
+  "block.larsonsmod.chestnut_wall_sign": "Chestnut Wall Sign",
+
+  "block.larsonsmod.chestnut_hanging_sign": "Chestnut Hanging Sign",
+  "block.larsonsmod.chestnut_wall_hanging_sign": "Chestnut Wall Hanging Sign",
+
+  "block.larsonsmod.chestnut_sapling": "Chestnut Sapling",
+
+  "block.larsonsmod.neon_red_wood": "Neon Red Wood",
+  "block.larsonsmod.neon_green_wood": "Neon Green Wood",
+  "block.larsonsmod.neon_blue_wood": "Neon Blue Wood",
+  "block.larsonsmod.neon_cyan_wood": "Neon Cyan Wood",
+  "block.larsonsmod.neon_magenta_wood": "Neon Magenta Wood",
+  "block.larsonsmod.neon_yellow_wood": "Neon Yellow Wood",
+  "block.larsonsmod.neon_gray_wood": "Neon Gray Wood",
+
+  "block.larsonsmod.neon_red_planks": "Neon Red Planks",
+  "block.larsonsmod.neon_green_planks": "Neon Green Planks",
+  "block.larsonsmod.neon_blue_planks": "Neon Blue Planks",
+  "block.larsonsmod.neon_cyan_planks": "Neon Cyan Planks",
+  "block.larsonsmod.neon_magenta_planks": "Neon Magenta Planks",
+  "block.larsonsmod.neon_yellow_planks": "Neon Yellow Planks",
+  "block.larsonsmod.neon_gray_planks": "Neon Gray Planks",
+
+  "block.larsonsmod.neon_red_leaves": "Neon Red Leaves",
+  "block.larsonsmod.neon_green_leaves": "Neon Green Leaves",
+  "block.larsonsmod.neon_blue_leaves": "Neon Blue Leaves",
+  "block.larsonsmod.neon_cyan_leaves": "Neon Cyan Leaves",
+  "block.larsonsmod.neon_magenta_leaves": "Neon Magenta Leaves",
+  "block.larsonsmod.neon_yellow_leaves": "Neon Yellow Leaves",
+  "block.larsonsmod.neon_gray_leaves": "Neon Gray Leaves",
+
+  "block.larsonsmod.neon_stone": "Neon Stone",
+  "block.larsonsmod.neon_dirt": "Neon Dirt",
+  "block.larsonsmod.neon_grass_block": "Neon Grass Block",
+
+  "biome.larsonsmod.neon_rolling_hills": "Neon Rolling Hills",
+  "biome.larsonsmod.neon_floating_islands": "Neon Floating Islands",
+  "biome.larsonsmod.neon_dense_forest": "Neon Dense Forest",
+  "biome.larsonsmod.neon_twilight_meadows": "Neon Twilight Meadows",
+  "biome.larsonsmod.neon_crystal_wastes": "Neon Crystal Wastes",
+
+  "entity.minecraft.villager.sound_master": "Soundmaster",
+
+  "tooltip.larsonsmod.metal_detector.tooltip": "Finds valuables underground",
+
+  "sounds.larsonsmod.metal_detector_found_ore": "Metal Detector Jingle",
+
+  "itemgroup.ruby": "Ruby Tutorial Group"
+}
