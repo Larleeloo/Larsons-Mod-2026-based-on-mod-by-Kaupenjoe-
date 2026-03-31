@@ -178,11 +178,6 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 	}
 
 	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		porcupine.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
-
-	@Override
 	public ModelPart getPart() {
 		return porcupine;
 	}
