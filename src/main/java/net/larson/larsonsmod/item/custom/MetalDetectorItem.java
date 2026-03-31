@@ -4,18 +4,17 @@ import net.larson.larsonsmod.sound.ModSounds;
 import net.larson.larsonsmod.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -50,8 +49,7 @@ public class MetalDetectorItem extends Item {
             }
         }
 
-        context.getStack().damage(1, context.getPlayer(),
-                playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+        context.getStack().damage(1, context.getPlayer(), EquipmentSlot.MAINHAND);
 
         return ActionResult.SUCCESS;
     }
@@ -66,8 +64,8 @@ public class MetalDetectorItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.larsonsmod.metal_detector.tooltip"));
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

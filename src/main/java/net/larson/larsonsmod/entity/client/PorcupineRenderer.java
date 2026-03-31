@@ -9,7 +9,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class PorcupineRenderer extends MobEntityRenderer<PorcupineEntity, PorcupineModel<PorcupineEntity>> {
-    private static final Identifier TEXTURE = new Identifier(LarsonsMod.MOD_ID, "textures/entity/porcupine.png");
+    private static final Identifier TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "textures/entity/porcupine.png");
 
     public PorcupineRenderer(EntityRendererFactory.Context context) {
         super(context, new PorcupineModel<>(context.getPart(ModModelLayers.PORCUPINE)), 0.6f);

@@ -96,7 +96,7 @@ public class LarsonsMod implements ModInitializer {
 		CustomPortalBuilder.beginPortal()
 				.frameBlock(ModBlocks.RUBY_BLOCK)
 				.lightWithItem(ModItems.CORN)
-				.destDimID(new Identifier(LarsonsMod.MOD_ID, "kaupendim"))
+				.destDimID(Identifier.of(LarsonsMod.MOD_ID, "kaupendim"))
 				.tintColor(0xc76efa)
 				.registerPortal();
 
@@ -104,7 +104,7 @@ public class LarsonsMod implements ModInitializer {
 		CustomPortalBuilder.beginPortal()
 				.frameBlock(ModBlocks.NEON_MAGENTA_PLANKS)
 				.lightWithItem(ModItems.RUBY_STAFF)
-				.destDimID(new Identifier(LarsonsMod.MOD_ID, "neondim"))
+				.destDimID(Identifier.of(LarsonsMod.MOD_ID, "neondim"))
 				.tintColor(0xff00ff)
 				.registerPortal();
 	}

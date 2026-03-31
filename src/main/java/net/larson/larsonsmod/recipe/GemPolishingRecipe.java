@@ -2,19 +2,20 @@ package net.larson.larsonsmod.recipe;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.*;
-import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.recipe.input.SingleStackRecipeInput;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.dynamic.Codecs;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class GemPolishingRecipe implements Recipe<SimpleInventory> {
+public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
     private final ItemStack output;
     private final List<Ingredient> recipeItems;
 
@@ -24,17 +25,17 @@ public class GemPolishingRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public boolean matches(SimpleInventory inventory, World world) {
+    public boolean matches(SingleStackRecipeInput input, World world) {
         if(world.isClient()) {
             return false;
         }
 
-        return recipeItems.get(0).test(inventory.getStack(0));
+        return recipeItems.get(0).test(input.getStackInSlot(0));
     }
 
     @Override
-    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
-        return output;
+    public ItemStack craft(SingleStackRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+        return output.copy();
     }
 
     @Override
@@ -43,7 +44,7 @@ public class GemPolishingRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack getResult(DynamicRegistryManager registryManager) {
+    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
         return output;
     }
 
@@ -73,43 +74,52 @@ public class GemPolishingRecipe implements Recipe<SimpleInventory> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "gem_polishing";
 
-        public static final Codec<GemPolishingRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
+        public static final MapCodec<GemPolishingRecipe> CODEC = RecordCodecBuilder.mapCodec(in -> in.group(
                 validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients").forGetter(GemPolishingRecipe::getIngredients),
-                ItemStack.RECIPE_RESULT_CODEC.fieldOf("output").forGetter(r -> r.output)
+                ItemStack.VALIDATED_CODEC.fieldOf("output").forGetter(r -> r.output)
         ).apply(in, GemPolishingRecipe::new));
 
+        public static final PacketCodec<RegistryByteBuf, GemPolishingRecipe> PACKET_CODEC =
+                PacketCodec.ofStatic(Serializer::write, Serializer::read);
+
         private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max) {
-            return Codecs.validate(Codecs.validate(
-                    delegate.listOf(), list -> list.size() > max ? DataResult.error(() -> "Recipe has too many ingredients!") : DataResult.success(list)
-            ), list -> list.isEmpty() ? DataResult.error(() -> "Recipe has no ingredients!") : DataResult.success(list));
+            return delegate.listOf().flatXmap(list -> {
+                if (list.isEmpty()) return DataResult.error(() -> "Recipe has no ingredients!");
+                if (list.size() > max) return DataResult.error(() -> "Recipe has too many ingredients!");
+                return DataResult.success(list);
+            }, DataResult::success);
         }
 
         @Override
-        public Codec<GemPolishingRecipe> codec() {
+        public MapCodec<GemPolishingRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public GemPolishingRecipe read(PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
+        public PacketCodec<RegistryByteBuf, GemPolishingRecipe> packetCodec() {
+            return PACKET_CODEC;
+        }
+
+        private static GemPolishingRecipe read(RegistryByteBuf buf) {
+            int size = buf.readVarInt();
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(size, Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromPacket(buf));
+                inputs.set(i, Ingredient.PACKET_CODEC.decode(buf));
             }
 
-            ItemStack output = buf.readItemStack();
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
             return new GemPolishingRecipe(inputs, output);
         }
 
-        @Override
-        public void write(PacketByteBuf buf, GemPolishingRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
+        private static void write(RegistryByteBuf buf, GemPolishingRecipe recipe) {
+            buf.writeVarInt(recipe.getIngredients().size());
 
             for (Ingredient ingredient : recipe.getIngredients()) {
-                ingredient.write(buf);
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
             }
 
-            buf.writeItemStack(recipe.getResult(null));
+            ItemStack.PACKET_CODEC.encode(buf, recipe.getResult(null));
         }
     }
 }

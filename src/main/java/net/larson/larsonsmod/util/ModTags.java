@@ -13,7 +13,7 @@ public class ModTags {
                 createTag("metal_detector_detectable_blocks");
 
         private static TagKey<Block> createTag(String name) {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier(LarsonsMod.MOD_ID, name));
+            return TagKey.of(RegistryKeys.BLOCK, Identifier.of(LarsonsMod.MOD_ID, name));
         }
     }
 
@@ -21,7 +21,7 @@ public class ModTags {
 
 
         private static TagKey<Item> createTag(String name) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(LarsonsMod.MOD_ID, name));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of(LarsonsMod.MOD_ID, name));
         }
     }
 }

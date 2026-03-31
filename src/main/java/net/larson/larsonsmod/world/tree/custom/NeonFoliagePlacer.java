@@ -1,6 +1,6 @@
 package net.larson.larsonsmod.world.tree.custom;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.larson.larsonsmod.world.tree.ModFoliagePlacerTypes;
 import net.minecraft.util.math.intprovider.IntProvider;
@@ -11,8 +11,8 @@ import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
 public class NeonFoliagePlacer extends FoliagePlacer {
-    public static final Codec<NeonFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
-            fillFoliagePlacerFields(instance).and(Codec.intRange(0, 16).fieldOf("height")
+    public static final MapCodec<NeonFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            fillFoliagePlacerFields(instance).and(com.mojang.serialization.Codec.intRange(0, 16).fieldOf("height")
                     .forGetter(fp -> fp.height)).apply(instance, NeonFoliagePlacer::new));
     private final int height;
 

@@ -4,8 +4,6 @@ import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.block.custom.*;
 import net.larson.larsonsmod.sound.ModSounds;
@@ -24,163 +22,161 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class ModBlocks {
     public static final Block RUBY_BLOCK = registerBlock("ruby_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
     public static final Block RAW_RUBY_BLOCK = registerBlock("raw_ruby_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
     public static final Block RUBY_ORE = registerBlock("ruby_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), FabricBlockSettings.copyOf(Blocks.STONE).strength(2f)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), AbstractBlock.Settings.copy(Blocks.STONE).strength(2f)));
     public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(4f)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(4f)));
     public static final Block NETHER_RUBY_ORE = registerBlock("nether_ruby_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), FabricBlockSettings.copyOf(Blocks.NETHERRACK).strength(1.5f)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), AbstractBlock.Settings.copy(Blocks.NETHERRACK).strength(1.5f)));
     public static final Block END_STONE_RUBY_ORE = registerBlock("end_stone_ruby_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 7), FabricBlockSettings.copyOf(Blocks.END_STONE).strength(4f)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 7), AbstractBlock.Settings.copy(Blocks.END_STONE).strength(4f)));
 
     public static final Block SOUND_BLOCK = registerBlock("sound_block",
-            new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(ModSounds.SOUND_BLOCK_SOUNDS)));
+            new SoundBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(ModSounds.SOUND_BLOCK_SOUNDS)));
 
     public static final Block RUBY_STAIRS = registerBlock("ruby_stairs",
-            new StairsBlock(ModBlocks.RUBY_BLOCK.getDefaultState(), FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new StairsBlock(ModBlocks.RUBY_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block RUBY_SLAB = registerBlock("ruby_slab",
-            new SlabBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block RUBY_BUTTON = registerBlock("ruby_button",
-            new ButtonBlock(BlockSetType.IRON, 10, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new ButtonBlock(BlockSetType.IRON, 10, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block RUBY_PRESSURE_PLATE = registerBlock("ruby_pressure_plate",
-            new PressurePlateBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block RUBY_FENCE = registerBlock("ruby_fence",
-            new FenceBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new FenceBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block RUBY_FENCE_GATE = registerBlock("ruby_fence_gate",
-            new FenceGateBlock(WoodType.ACACIA, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new FenceGateBlock(WoodType.ACACIA, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block RUBY_WALL = registerBlock("ruby_wall",
-            new WallBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new WallBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 
     public static final Block RUBY_DOOR = registerBlock("ruby_door",
-            new DoorBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+            new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block RUBY_TRAPDOOR = registerBlock("ruby_trapdoor",
-            new TrapdoorBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+            new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
 
-    public static final Block TOMATO_CROP = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "tomato_crop"),
-            new TomatoCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
+    public static final Block TOMATO_CROP = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "tomato_crop"),
+            new TomatoCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 
-    public static final Block CORN_CROP = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "corn_crop"),
-            new CornCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
-
+    public static final Block CORN_CROP = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "corn_crop"),
+            new CornCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 
     public static final Block DAHLIA = registerBlock("dahlia",
             new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10,
-                    FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
-    public static final Block POTTED_DAHLIA = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "potted_dahlia"),
-            new FlowerPotBlock(DAHLIA, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+                    AbstractBlock.Settings.copy(Blocks.ALLIUM).nonOpaque().noCollision()));
+    public static final Block POTTED_DAHLIA = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "potted_dahlia"),
+            new FlowerPotBlock(DAHLIA, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM).nonOpaque()));
 
     public static final Block GEM_POLISHING_STATION = registerBlock("gem_polishing_station",
-            new GemPolishingStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
-
+            new GemPolishingStationBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
 
     public static final Block CHESTNUT_LOG = registerBlock("chestnut_log",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(4f)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(4f)));
     public static final Block CHESTNUT_WOOD = registerBlock("chestnut_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).strength(4f)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).strength(4f)));
     public static final Block STRIPPED_CHESTNUT_LOG = registerBlock("stripped_chestnut_log",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).strength(4f)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG).strength(4f)));
     public static final Block STRIPPED_CHESTNUT_WOOD = registerBlock("stripped_chestnut_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).strength(4f)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD).strength(4f)));
 
     public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(4f)));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f)));
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).strength(4f).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque()));
 
-    public static final Identifier CHESTNUT_SIGN_TEXTURE = new Identifier(LarsonsMod.MOD_ID, "entity/signs/chestnut");
-    public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = new Identifier(LarsonsMod.MOD_ID, "entity/signs/hanging/chestnut");
-    public static final Identifier CHESTNUT_HANGING_GUI_SIGN_TEXTURE = new Identifier(LarsonsMod.MOD_ID, "textures/gui/hanging_signs/chestnut");
+    public static final Identifier CHESTNUT_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "entity/signs/chestnut");
+    public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "entity/signs/hanging/chestnut");
+    public static final Identifier CHESTNUT_HANGING_GUI_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "textures/gui/hanging_signs/chestnut");
 
-    public static final Block STANDING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "chestnut_standing_sign"),
-            new TerraformSignBlock(CHESTNUT_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_SIGN)));
-    public static final Block WALL_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "chestnut_wall_sign"),
-            new TerraformWallSignBlock(CHESTNUT_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN)));
-    public static final Block HANGING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "chestnut_hanging_sign"),
-            new TerraformHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN)));
-    public static final Block WALL_HANGING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "chestnut_wall_hanging_sign"),
-            new TerraformWallHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final Block STANDING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "chestnut_standing_sign"),
+            new TerraformSignBlock(CHESTNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    public static final Block WALL_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "chestnut_wall_sign"),
+            new TerraformWallSignBlock(CHESTNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
+    public static final Block HANGING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "chestnut_hanging_sign"),
+            new TerraformHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    public static final Block WALL_HANGING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "chestnut_wall_hanging_sign"),
+            new TerraformWallHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN)));
 
     public static final BlockFamily CHESTNUT_FAMILY = BlockFamilies.register(ModBlocks.CHESTNUT_PLANKS)
             .sign(ModBlocks.STANDING_CHESTNUT_SIGN, ModBlocks.WALL_CHESTNUT_SIGN)
             .group("wooden").unlockCriterionName("has_planks").build();
 
-    public static final Block DICE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, "dice_block"),
-            new DiceBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block DICE_BLOCK = Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, "dice_block"),
+            new DiceBlock(AbstractBlock.Settings.copy(Blocks.STONE)));
 
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling",
-            new SaplingBlock(ModSaplingGenerators.CHESTNUT, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+            new SaplingBlock(ModSaplingGenerators.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
-    // Neon Wood Logs (6 colors) - emit light, column block with side + top/bottom textures
+    // Neon Wood Logs (7 colors) - emit light, column block with side + top/bottom textures
     public static final Block NEON_RED_WOOD = registerBlock("neon_red_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_GREEN_WOOD = registerBlock("neon_green_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_BLUE_WOOD = registerBlock("neon_blue_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_CYAN_WOOD = registerBlock("neon_cyan_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_MAGENTA_WOOD = registerBlock("neon_magenta_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_YELLOW_WOOD = registerBlock("neon_yellow_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
     public static final Block NEON_GRAY_WOOD = registerBlock("neon_gray_wood",
-            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(2f).luminance(state -> 12)));
 
     // Neon Planks (7 colors) - emit light, semi-transparent, single texture
     public static final Block NEON_RED_PLANKS = registerBlock("neon_red_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_GREEN_PLANKS = registerBlock("neon_green_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_BLUE_PLANKS = registerBlock("neon_blue_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_CYAN_PLANKS = registerBlock("neon_cyan_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_MAGENTA_PLANKS = registerBlock("neon_magenta_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_YELLOW_PLANKS = registerBlock("neon_yellow_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_GRAY_PLANKS = registerBlock("neon_gray_planks",
-            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2f).luminance(state -> 10).nonOpaque()));
 
     // Neon Dimension Terrain Blocks
     public static final Block NEON_STONE = registerBlock("neon_stone",
-            new Block(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f).luminance(state -> 3)));
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(2f).luminance(state -> 3)));
     public static final Block NEON_DIRT = registerBlock("neon_dirt",
-            new Block(FabricBlockSettings.copyOf(Blocks.DIRT).luminance(state -> 2)));
+            new Block(AbstractBlock.Settings.copy(Blocks.DIRT).luminance(state -> 2)));
     public static final Block NEON_GRASS_BLOCK = registerBlock("neon_grass_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).luminance(state -> 5)));
+            new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).luminance(state -> 5)));
 
     // Neon Leaves (7 colors) - emit light, semi-transparent, single texture
     public static final Block NEON_RED_LEAVES = registerBlock("neon_red_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_GREEN_LEAVES = registerBlock("neon_green_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_BLUE_LEAVES = registerBlock("neon_blue_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_CYAN_LEAVES = registerBlock("neon_cyan_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_MAGENTA_LEAVES = registerBlock("neon_magenta_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_YELLOW_LEAVES = registerBlock("neon_yellow_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
     public static final Block NEON_GRAY_LEAVES = registerBlock("neon_gray_leaves",
-            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque()));
 
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(LarsonsMod.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(LarsonsMod.MOD_ID, name), block);
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(LarsonsMod.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, Identifier.of(LarsonsMod.MOD_ID, name),
+                new BlockItem(block, new Item.Settings()));
     }
 
     public static void registerModBlocks() {

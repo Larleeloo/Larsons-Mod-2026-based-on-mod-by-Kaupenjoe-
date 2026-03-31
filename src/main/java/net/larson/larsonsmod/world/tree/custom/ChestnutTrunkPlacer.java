@@ -1,7 +1,7 @@
 package net.larson.larsonsmod.world.tree.custom;
 
 import com.google.common.collect.ImmutableList;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.larson.larsonsmod.world.tree.ModTrunkPlacerTypes;
 import net.minecraft.block.BlockState;
@@ -20,7 +20,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 public class ChestnutTrunkPlacer extends TrunkPlacer {
-    public static final Codec<ChestnutTrunkPlacer> CODEC = RecordCodecBuilder.create(objectInstance ->
+    public static final MapCodec<ChestnutTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(objectInstance ->
             fillTrunkPlacerFields(objectInstance).apply(objectInstance, ChestnutTrunkPlacer::new));
 
     public ChestnutTrunkPlacer(int baseHeight, int firstRandomHeight, int secondRandomHeight) {

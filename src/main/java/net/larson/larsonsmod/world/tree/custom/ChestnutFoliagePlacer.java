@@ -1,6 +1,6 @@
 package net.larson.larsonsmod.world.tree.custom;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.larson.larsonsmod.world.tree.ModFoliagePlacerTypes;
 import net.minecraft.util.math.intprovider.IntProvider;
@@ -11,8 +11,8 @@ import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
 public class ChestnutFoliagePlacer extends FoliagePlacer {
-    public static final Codec<ChestnutFoliagePlacer> CODEC = RecordCodecBuilder.create(chestnutFoliagePlacerInstance ->
-            fillFoliagePlacerFields(chestnutFoliagePlacerInstance).and(Codec.intRange(0, 12).fieldOf("height")
+    public static final MapCodec<ChestnutFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(chestnutFoliagePlacerInstance ->
+            fillFoliagePlacerFields(chestnutFoliagePlacerInstance).and(com.mojang.serialization.Codec.intRange(0, 12).fieldOf("height")
                     .forGetter(instance -> instance.height)).apply(chestnutFoliagePlacerInstance, ChestnutFoliagePlacer::new));
     private final int height;
 

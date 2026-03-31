@@ -1,16 +1,14 @@
 package net.larson.larsonsmod.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.larson.larsonsmod.LarsonsMod;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class GemPolishingScreen extends HandledScreen<GemPolishingScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(LarsonsMod.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
+    private static final Identifier TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
 
     public GemPolishingScreen(GemPolishingScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -25,9 +23,6 @@ public class GemPolishingScreen extends HandledScreen<GemPolishingScreenHandler>
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
-        RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
 
