@@ -13,6 +13,8 @@ import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
 
+import java.util.Optional;
+
 public class ModCustomTrades {
     public static void registerCustomTrades() {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1,
@@ -32,7 +34,7 @@ public class ModCustomTrades {
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
                             new TradedItem(Items.GOLD_INGOT, 16),
-                            new TradedItem(Items.DIAMOND, 12),
+                            Optional.of(new TradedItem(Items.DIAMOND, 12)),
                             new ItemStack(ModItems.CORN_SEEDS, 1),
                             2, 7, 0.075f));
                 });
