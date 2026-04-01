@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.larson.larsonsmod.item.ModItems;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
+import net.minecraft.entity.EntityType;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
@@ -24,7 +25,7 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
-            if(LootTables.CREEPER_ENTITY.equals(key)) {
+            if(EntityType.CREEPER.getLootTableId().equals(key)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(1f))
