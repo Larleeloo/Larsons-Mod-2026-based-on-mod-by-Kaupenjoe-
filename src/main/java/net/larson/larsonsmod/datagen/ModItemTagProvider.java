@@ -3,8 +3,8 @@ package net.larson.larsonsmod.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.larson.larsonsmod.block.ModBlocks;
-import net.larson.larsonsmod.block.entity.ModBlockEntities;
 import net.larson.larsonsmod.item.ModItems;
+import net.larson.larsonsmod.util.ModTags;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -17,6 +17,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        getOrCreateTagBuilder(ModTags.Items.RUBY_REPAIR)
+                .add(ModItems.RUBY);
+
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS);
 

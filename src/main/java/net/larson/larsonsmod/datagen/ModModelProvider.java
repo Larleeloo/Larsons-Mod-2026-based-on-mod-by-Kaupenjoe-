@@ -10,7 +10,6 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Model;
 import net.minecraft.data.client.Models;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
 import java.util.Optional;
@@ -107,10 +106,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CORN, Models.GENERATED);
         itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));
+        itemModelGenerator.register(ModItems.RUBY_HELMET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBY_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBY_LEGGINGS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBY_BOOTS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HANGING_CHESTNUT_SIGN, Models.GENERATED);
 
