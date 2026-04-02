@@ -4,7 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.block.entity.ModBlockEntities;
@@ -52,7 +52,9 @@ public class LarsonsMod implements ModInitializer {
 
 		ModFoliagePlacerTypes.register();
 
-		FuelRegistry.INSTANCE.add(ModItems.COAL_BRIQUETTE, 200);
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.COAL_BRIQUETTE, 200);
+		});
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 
 		StrippableBlockRegistry.register(ModBlocks.CHESTNUT_LOG, ModBlocks.STRIPPED_CHESTNUT_LOG);

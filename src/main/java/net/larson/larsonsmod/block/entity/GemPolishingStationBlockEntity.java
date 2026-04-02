@@ -106,7 +106,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
     public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
         super.readNbt(nbt, registries);
         Inventories.readNbt(nbt, inventory, registries);
-        progress = nbt.getInt("gem_polishing_station.progress");
+        progress = nbt.getInt("gem_polishing_station.progress", 0);
     }
 
     @Nullable

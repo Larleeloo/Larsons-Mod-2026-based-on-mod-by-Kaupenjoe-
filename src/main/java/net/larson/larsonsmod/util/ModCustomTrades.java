@@ -3,22 +3,30 @@ package net.larson.larsonsmod.util;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.item.ModItems;
+import net.larson.larsonsmod.villager.ModVillagers;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.Identifier;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
-import net.larson.larsonsmod.villager.ModVillagers;
 
 import java.util.Optional;
 
 public class ModCustomTrades {
+    // RegistryKeys for vanilla professions
+    private static final RegistryKey<VillagerProfession> FARMER_KEY =
+            RegistryKey.of(RegistryKeys.VILLAGER_PROFESSION, Identifier.ofVanilla("farmer"));
+    private static final RegistryKey<VillagerProfession> LIBRARIAN_KEY =
+            RegistryKey.of(RegistryKeys.VILLAGER_PROFESSION, Identifier.ofVanilla("librarian"));
+
     public static void registerCustomTrades() {
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1,
+        TradeOfferHelper.registerVillagerOffers(FARMER_KEY, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
                             new TradedItem(Items.EMERALD, 2),
@@ -31,7 +39,7 @@ public class ModCustomTrades {
                             2, 7, 0.075f));
                 });
 
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 2,
+        TradeOfferHelper.registerVillagerOffers(FARMER_KEY, 2,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
                             new TradedItem(Items.GOLD_INGOT, 16),
@@ -40,7 +48,7 @@ public class ModCustomTrades {
                             2, 7, 0.075f));
                 });
 
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 1,
+        TradeOfferHelper.registerVillagerOffers(LIBRARIAN_KEY, 1,
                 factories -> {
                     factories.add((entity, random) -> {
                         RegistryEntry<Enchantment> piercing = entity.getWorld().getRegistryManager()
@@ -55,7 +63,7 @@ public class ModCustomTrades {
                     });
                 });
 
-        TradeOfferHelper.registerVillagerOffers(ModVillagers.SOUND_MASTER, 1,
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.SOUND_MASTER_KEY, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.CORN, 32),
@@ -63,7 +71,7 @@ public class ModCustomTrades {
                             6, 12, 0.075f));
                 });
 
-        TradeOfferHelper.registerVillagerOffers(ModVillagers.SOUND_MASTER, 2,
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.SOUND_MASTER_KEY, 2,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.RUBY_SWORD, 1),

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT'
+	id 'fabric-loom' version '1.10'
 	id 'maven-publish'
 }
 
@@ -60,27 +60,22 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:16.0.729"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:16.0.729"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:19.0.728"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:19.0.728"
 
-	modApi("me.shedaniel.cloth:cloth-config-fabric:15.0.140") {
+	modApi("me.shedaniel.cloth:cloth-config-fabric:17.0.144") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
-	modApi "dev.architectury:architectury-fabric:13.0.8"
+	modApi "dev.architectury:architectury-fabric:17.0.8"
 
-	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0-alpha.1"
-	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0-alpha.1"
+	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:13.0.0-alpha.1"
+	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:13.0.0-alpha.1"
 
-	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.1-4.1.0.4'
+	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.7-6.0.0.2'
 
-	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta66-1.21'
-	include 'net.kyrptonaught:customportalapi:0.0.1-beta66-1.21'
-
-	// Iris Shaders + Sodium - disabled for 1.21.1 migration
-	// Client rendering mixins (ItemRendererMixin, ModelLoaderMixin) were removed, so these are no longer needed
-	// modCompileOnly "maven.modrinth:iris:1.8.0+1.21.1"
-	// modCompileOnly "maven.modrinth:sodium:mc1.21.1-0.6.0"
+	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta66-1.21.7'
+	include 'net.kyrptonaught:customportalapi:0.0.1-beta66-1.21.7'
 
 	// Uncomment the following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.

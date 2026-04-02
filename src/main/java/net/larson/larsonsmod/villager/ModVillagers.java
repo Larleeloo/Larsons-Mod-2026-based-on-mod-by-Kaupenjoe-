@@ -18,6 +18,8 @@ public class ModVillagers {
     public static final RegistryKey<PointOfInterestType> SOUND_POI_KEY = poiKey("soundpoi");
     public static final PointOfInterestType SOUND_POI = registerPoi("soundpoi", ModBlocks.SOUND_BLOCK);
 
+    public static final RegistryKey<VillagerProfession> SOUND_MASTER_KEY =
+            RegistryKey.of(RegistryKeys.VILLAGER_PROFESSION, Identifier.of(LarsonsMod.MOD_ID, "sound_master"));
     public static final VillagerProfession SOUND_MASTER = registerProfession("sound_master", SOUND_POI_KEY);
 
 

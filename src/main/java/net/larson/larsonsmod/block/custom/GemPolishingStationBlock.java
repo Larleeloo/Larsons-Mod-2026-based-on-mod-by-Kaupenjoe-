@@ -49,15 +49,15 @@ public class GemPolishingStationBlock extends BlockWithEntity implements BlockEn
     }
 
     @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof GemPolishingStationBlockEntity) {
-                ItemScatterer.spawn(world, pos, (GemPolishingStationBlockEntity)blockEntity);
-                world.updateComparators(pos,this);
+            if (blockEntity instanceof GemPolishingStationBlockEntity gemStation) {
+                ItemScatterer.spawn(world, pos, gemStation);
+                world.updateComparators(pos, this);
             }
-            super.onStateReplaced(state, world, pos, newState, moved);
         }
+        super.onStateReplaced(state, world, pos, newState, moved);
     }
 
     @Override

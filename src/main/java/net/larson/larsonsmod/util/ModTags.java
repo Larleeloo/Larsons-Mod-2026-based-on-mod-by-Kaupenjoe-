@@ -18,7 +18,7 @@ public class ModTags {
     }
 
     public static class Items {
-
+        public static final TagKey<Item> RUBY_REPAIR = createTag("ruby_repair");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(LarsonsMod.MOD_ID, name));

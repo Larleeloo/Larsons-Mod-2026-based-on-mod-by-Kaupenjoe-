@@ -2,26 +2,28 @@ package net.larson.larsonsmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.larson.larsonsmod.item.ModArmorMaterials;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.item.equipment.EquipmentAsset;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.World;
 
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
-    private static final Map<RegistryEntry<ArmorMaterial>, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<RegistryEntry<ArmorMaterial>, StatusEffectInstance>())
-                    .put(ModArmorMaterials.RUBY, new StatusEffectInstance(StatusEffects.HASTE, 400, 1,
+public class ModArmorItem extends Item {
+    private static final Map<RegistryKey<EquipmentAsset>, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
+            (new ImmutableMap.Builder<RegistryKey<EquipmentAsset>, StatusEffectInstance>())
+                    .put(ModArmorMaterials.RUBY_EQUIPMENT_ASSET, new StatusEffectInstance(StatusEffects.HASTE, 400, 1,
                             false, false, true)).build();
 
-    public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
-        super(material, type, settings);
+    public ModArmorItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -36,20 +38,20 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private void evaluateArmorEffects(PlayerEntity player) {
-        for (Map.Entry<RegistryEntry<ArmorMaterial>, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
-            RegistryEntry<ArmorMaterial> mapArmorMaterial = entry.getKey();
+        for (Map.Entry<RegistryKey<EquipmentAsset>, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
+            RegistryKey<EquipmentAsset> mapAssetKey = entry.getKey();
             StatusEffectInstance mapStatusEffect = entry.getValue();
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
+            if(hasCorrectArmorOn(mapAssetKey, player)) {
+                addStatusEffectForMaterial(player, mapAssetKey, mapStatusEffect);
             }
         }
     }
 
-    private void addStatusEffectForMaterial(PlayerEntity player, RegistryEntry<ArmorMaterial> mapArmorMaterial, StatusEffectInstance mapStatusEffect) {
+    private void addStatusEffectForMaterial(PlayerEntity player, RegistryKey<EquipmentAsset> assetKey, StatusEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect.getEffectType());
 
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
+        if(hasCorrectArmorOn(assetKey, player) && !hasPlayerEffect) {
             player.addStatusEffect(new StatusEffectInstance(mapStatusEffect));
         }
     }
@@ -64,19 +66,16 @@ public class ModArmorItem extends ArmorItem {
                 && !leggings.isEmpty() && !boots.isEmpty();
     }
 
-    private boolean hasCorrectArmorOn(RegistryEntry<ArmorMaterial> material, PlayerEntity player) {
-        for (ItemStack armorStack: player.getInventory().armor) {
-            if(!(armorStack.getItem() instanceof ArmorItem)) {
+    private boolean hasCorrectArmorOn(RegistryKey<EquipmentAsset> assetKey, PlayerEntity player) {
+        for (ItemStack armorStack : player.getInventory().armor) {
+            EquippableComponent equippable = armorStack.get(DataComponentTypes.EQUIPPABLE);
+            if (equippable == null) {
+                return false;
+            }
+            if (!equippable.assetId().isPresent() || !equippable.assetId().get().equals(assetKey)) {
                 return false;
             }
         }
-
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmorStack(0).getItem());
-        ArmorItem leggings = ((ArmorItem)player.getInventory().getArmorStack(1).getItem());
-        ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmorStack(2).getItem());
-        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmorStack(3).getItem());
-
-        return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
-                leggings.getMaterial() == material && boots.getMaterial() == material;
+        return true;
     }
 }
