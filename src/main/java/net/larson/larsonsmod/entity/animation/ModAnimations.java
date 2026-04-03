@@ -1,14 +1,15 @@
 package net.larson.larsonsmod.entity.animation;
 
 import net.minecraft.client.render.entity.animation.Animation;
+import net.minecraft.client.render.entity.animation.AnimationDefinition;
 import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 
 public class ModAnimations {
-    public static final Animation PORCUPINE_WALK = Animation.Builder.create(2.5f).looping()
+    public static final AnimationDefinition PORCUPINE_WALK = AnimationDefinition.Builder.create(2.5f).looping()
             .addBoneAnimation("torso",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.4167667f, AnimationHelper.createTranslationalVector(0f, 0f, -0.15f),
@@ -67,9 +68,9 @@ public class ModAnimations {
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(2.0834335f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    public static final Animation PORCUPINE_IDLE = Animation.Builder.create(2f).looping()
+    public static final AnimationDefinition PORCUPINE_IDLE = AnimationDefinition.Builder.create(2f).looping()
             .addBoneAnimation("torso",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.5f, AnimationHelper.createTranslationalVector(0f, 0.35f, 0f),
@@ -87,7 +88,7 @@ public class ModAnimations {
                             new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("skull",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.3433333f, AnimationHelper.createTranslationalVector(0f, 0.1f, 0f),
@@ -111,7 +112,7 @@ public class ModAnimations {
                             new Keyframe(1.75f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("left_front_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.7083434f, AnimationHelper.createTranslationalVector(0f, 0.1f, 0f),
@@ -119,7 +120,7 @@ public class ModAnimations {
                             new Keyframe(1.75f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("right_front_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.9167666f, AnimationHelper.createTranslationalVector(0f, 0.1f, 0f),
@@ -127,7 +128,7 @@ public class ModAnimations {
                             new Keyframe(1.7916767f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("right_back_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.125f, AnimationHelper.createTranslationalVector(0f, 0.1f, 0f),
@@ -135,16 +136,16 @@ public class ModAnimations {
                             new Keyframe(1.7916767f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("left_back_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.2916767f, AnimationHelper.createTranslationalVector(0f, 0.1f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.9167667f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    public static final Animation PORCUPINE_ATTACK = Animation.Builder.create(2f).looping()
+    public static final AnimationDefinition PORCUPINE_ATTACK = AnimationDefinition.Builder.create(2f).looping()
             .addBoneAnimation("torso",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.6766666f, AnimationHelper.createTranslationalVector(0f, -0.5f, 0f),
@@ -178,7 +179,7 @@ public class ModAnimations {
                             new Keyframe(1.875f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("skull",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
@@ -300,7 +301,7 @@ public class ModAnimations {
                             new Keyframe(1.5f, AnimationHelper.createScalingVector(1f, 1f, 1f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("left_front_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, -0.25f, 0f),
@@ -324,7 +325,7 @@ public class ModAnimations {
                             new Keyframe(1.75f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("right_front_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, -0.25f, 0f),
@@ -348,7 +349,7 @@ public class ModAnimations {
                             new Keyframe(1.75f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("right_back_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, -0.5f, 0f),
@@ -372,7 +373,7 @@ public class ModAnimations {
                             new Keyframe(1.75f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("left_back_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, -0.5f, 0f),
@@ -395,13 +396,13 @@ public class ModAnimations {
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.75f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    public static final Animation PORCUPINE_SIT = Animation.Builder.create(2f).looping()
+    public static final AnimationDefinition PORCUPINE_SIT = AnimationDefinition.Builder.create(2f).looping()
             .addBoneAnimation("porcupine",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, -0.5f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("torso",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, -0.3f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.4583433f, AnimationHelper.createTranslationalVector(0f, 0.3f, 0f),
@@ -421,7 +422,7 @@ public class ModAnimations {
                             new Keyframe(0f, AnimationHelper.createRotationalVector(17.5f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("left_front_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1f, AnimationHelper.createTranslationalVector(0f, 0.25f, 0f),
@@ -429,7 +430,7 @@ public class ModAnimations {
                             new Keyframe(2f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("right_front_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1f, AnimationHelper.createTranslationalVector(0f, 0.25f, 0f),
@@ -437,7 +438,7 @@ public class ModAnimations {
                             new Keyframe(2f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("right_back_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, -1f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.25f, AnimationHelper.createTranslationalVector(0f, -0.75f, 0f),
@@ -449,7 +450,7 @@ public class ModAnimations {
                             new Keyframe(0f, AnimationHelper.createRotationalVector(5f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("left_back_leg",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, -1f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.25f, AnimationHelper.createTranslationalVector(0f, -0.75f, 0f),

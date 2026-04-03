@@ -4,6 +4,7 @@ import net.larson.larsonsmod.entity.custom.PorcupineEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 
 public class PorcupineAttackGoal extends MeleeAttackGoal {
@@ -64,7 +65,7 @@ public class PorcupineAttackGoal extends MeleeAttackGoal {
     protected void performAttack(LivingEntity pEnemy) {
         this.resetAttackCooldown();
         this.mob.swingHand(Hand.MAIN_HAND);
-        this.mob.tryAttack(pEnemy);
+        this.mob.tryAttack((ServerWorld) this.mob.getWorld(), pEnemy);
     }
 
     @Override

@@ -19,7 +19,7 @@ public class ModPoiTagProvider extends FabricTagProvider<PointOfInterestType> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
-        this.getTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
+        this.builder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
                 .addOptional(Identifier.of(LarsonsMod.MOD_ID, "soundpoi"));
     }
 }

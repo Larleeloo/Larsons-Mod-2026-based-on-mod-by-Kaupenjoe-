@@ -9,6 +9,7 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.recipe.GemPolishingRecipe;
 import net.larson.larsonsmod.screen.GemPolishingScreen;
+import net.minecraft.recipe.RecipeEntry;
 
 public class LarsonsModREIClientPlugin implements REIClientPlugin {
     @Override
@@ -20,8 +21,9 @@ public class LarsonsModREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-        registry.registerRecipeFiller(GemPolishingRecipe.class, GemPolishingRecipe.Type.INSTANCE,
-                GemPolishingDisplay::new);
+        registry.beginFiller(RecipeEntry.class)
+                .filter(entry -> entry.value().getType() == GemPolishingRecipe.Type.INSTANCE)
+                .fill(entry -> new GemPolishingDisplay((RecipeEntry<GemPolishingRecipe>) entry));
     }
 
     @Override
