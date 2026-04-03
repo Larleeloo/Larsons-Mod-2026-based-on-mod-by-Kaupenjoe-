@@ -1,12 +1,15 @@
 package net.larson.larsonsmod.compat;
 
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.display.Display;
+import me.shedaniel.rei.api.common.display.DisplaySerializer;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.larson.larsonsmod.recipe.GemPolishingRecipe;
 import net.minecraft.recipe.RecipeEntry;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,5 +34,10 @@ public class GemPolishingDisplay extends BasicDisplay {
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
         return GemPolishingCategory.GEM_POLISHING;
+    }
+
+    @Override
+    public @Nullable DisplaySerializer<? extends Display> getSerializer() {
+        return null;
     }
 }

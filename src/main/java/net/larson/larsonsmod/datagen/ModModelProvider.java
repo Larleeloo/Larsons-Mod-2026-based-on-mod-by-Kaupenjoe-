@@ -6,10 +6,10 @@ import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.block.custom.CornCropBlock;
 import net.larson.larsonsmod.block.custom.TomatoCropBlock;
 import net.larson.larsonsmod.item.ModItems;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Model;
-import net.minecraft.data.client.Models;
+import net.minecraft.client.data.BlockStateModelGenerator;
+import net.minecraft.client.data.ItemModelGenerator;
+import net.minecraft.client.data.Model;
+import net.minecraft.client.data.Models;
 import net.minecraft.util.Identifier;
 
 import java.util.Optional;

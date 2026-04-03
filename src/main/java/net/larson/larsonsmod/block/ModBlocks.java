@@ -1,9 +1,9 @@
 package net.larson.larsonsmod.block;
 
-import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.block.custom.*;
 import net.larson.larsonsmod.sound.ModSounds;
@@ -102,7 +102,7 @@ public class ModBlocks {
     public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",
             Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f));
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
 
     public static final Identifier CHESTNUT_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "entity/signs/chestnut");
     public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "entity/signs/hanging/chestnut");
@@ -174,19 +174,19 @@ public class ModBlocks {
 
     // Neon Leaves (7 colors)
     public static final Block NEON_RED_LEAVES = registerBlock("neon_red_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_GREEN_LEAVES = registerBlock("neon_green_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_BLUE_LEAVES = registerBlock("neon_blue_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_CYAN_LEAVES = registerBlock("neon_cyan_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_MAGENTA_LEAVES = registerBlock("neon_magenta_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_YELLOW_LEAVES = registerBlock("neon_yellow_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_GRAY_LEAVES = registerBlock("neon_gray_leaves",
-            LeavesBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
 
 
     private static RegistryKey<Block> blockKeyOf(String name) {

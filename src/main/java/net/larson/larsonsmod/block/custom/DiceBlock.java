@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import org.jetbrains.annotations.Nullable;
 
 public class DiceBlock extends Block {
-    public static DirectionProperty FACING = DirectionProperty.of("number",
+    public static EnumProperty<Direction> FACING = EnumProperty.of("number", Direction.class,
             Direction.UP,
             Direction.NORTH,
             Direction.EAST,

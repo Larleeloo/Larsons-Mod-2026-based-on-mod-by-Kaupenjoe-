@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.*;
+import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
@@ -39,11 +40,6 @@ public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
     }
 
     @Override
-    public boolean fits(int width, int height) {
-        return true;
-    }
-
-    @Override
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
         return output;
     }
@@ -56,13 +52,18 @@ public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<GemPolishingRecipe> getSerializer() {
         return Serializer.INSTANCE;
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<GemPolishingRecipe> getType() {
         return Type.INSTANCE;
+    }
+
+    @Override
+    public RecipeBookCategory getRecipeBookCategory() {
+        return RecipeBookCategories.MISC;
     }
 
     public static class Type implements RecipeType<GemPolishingRecipe> {
@@ -75,7 +76,7 @@ public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
         public static final String ID = "gem_polishing";
 
         public static final MapCodec<GemPolishingRecipe> CODEC = RecordCodecBuilder.mapCodec(in -> in.group(
-                validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients").forGetter(GemPolishingRecipe::getIngredients),
+                validateAmount(Ingredient.CODEC, 9).fieldOf("ingredients").forGetter(GemPolishingRecipe::getIngredients),
                 ItemStack.VALIDATED_CODEC.fieldOf("output").forGetter(r -> r.output)
         ).apply(in, GemPolishingRecipe::new));
 
@@ -102,10 +103,10 @@ public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
 
         private static GemPolishingRecipe read(RegistryByteBuf buf) {
             int size = buf.readVarInt();
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(size, Ingredient.EMPTY);
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(size);
 
-            for(int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.PACKET_CODEC.decode(buf));
+            for(int i = 0; i < size; i++) {
+                inputs.add(Ingredient.PACKET_CODEC.decode(buf));
             }
 
             ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
