@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -65,7 +66,7 @@ public class PorcupineEntity extends AnimalEntity {
     @Override
     protected void updateLimbs(float posDelta) {
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
+        this.limbAnimator.updateLimbs(posDelta, f, 0.2f);
     }
 
     @Override
@@ -147,7 +148,7 @@ public class PorcupineEntity extends AnimalEntity {
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.PORCUPINE.create(world);
+        return ModEntities.PORCUPINE.create(world, SpawnReason.BREEDING);
     }
 
     @Nullable

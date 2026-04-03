@@ -43,26 +43,26 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.TOMATO_CROP, TomatoCropBlock.AGE, 0, 1, 2, 3, 4, 5);
         blockStateModelGenerator.registerCrop(ModBlocks.CORN_CROP, CornCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7, 8);
 
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.DAHLIA, ModBlocks.POTTED_DAHLIA, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.DAHLIA, ModBlocks.POTTED_DAHLIA, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         blockStateModelGenerator.registerSimpleState(ModBlocks.GEM_POLISHING_STATION);
 
-        blockStateModelGenerator.registerLog(ModBlocks.CHESTNUT_LOG).log(ModBlocks.CHESTNUT_LOG).wood(ModBlocks.CHESTNUT_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CHESTNUT_LOG).log(ModBlocks.STRIPPED_CHESTNUT_LOG).wood(ModBlocks.STRIPPED_CHESTNUT_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.CHESTNUT_LOG).log(ModBlocks.CHESTNUT_LOG).wood(ModBlocks.CHESTNUT_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_CHESTNUT_LOG).log(ModBlocks.STRIPPED_CHESTNUT_LOG).wood(ModBlocks.STRIPPED_CHESTNUT_WOOD);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHESTNUT_LEAVES);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.CHESTNUT_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.CHESTNUT_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         BlockStateModelGenerator.BlockTexturePool chestnut_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CHESTNUT_PLANKS);
         chestnut_pool.family(ModBlocks.CHESTNUT_FAMILY);
 
         // Neon Wood Logs (pillar blocks with side + top textures)
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_RED_WOOD).log(ModBlocks.NEON_RED_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_GREEN_WOOD).log(ModBlocks.NEON_GREEN_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_BLUE_WOOD).log(ModBlocks.NEON_BLUE_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_CYAN_WOOD).log(ModBlocks.NEON_CYAN_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_MAGENTA_WOOD).log(ModBlocks.NEON_MAGENTA_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_YELLOW_WOOD).log(ModBlocks.NEON_YELLOW_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NEON_GRAY_WOOD).log(ModBlocks.NEON_GRAY_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_RED_WOOD).log(ModBlocks.NEON_RED_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_GREEN_WOOD).log(ModBlocks.NEON_GREEN_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_BLUE_WOOD).log(ModBlocks.NEON_BLUE_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_CYAN_WOOD).log(ModBlocks.NEON_CYAN_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_MAGENTA_WOOD).log(ModBlocks.NEON_MAGENTA_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_YELLOW_WOOD).log(ModBlocks.NEON_YELLOW_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NEON_GRAY_WOOD).log(ModBlocks.NEON_GRAY_WOOD);
 
         // Neon Planks (single texture cubes)
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_RED_PLANKS);

@@ -19,6 +19,8 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -98,17 +100,17 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
     }
 
     @Override
-    protected void writeCustomDataToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        super.writeCustomDataToNbt(nbt, registries);
-        Inventories.writeNbt(nbt, inventory, registries);
-        nbt.putInt("gem_polishing_station.progress", progress);
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        Inventories.writeData(view, inventory);
+        view.putInt("gem_polishing_station.progress", progress);
     }
 
     @Override
-    protected void readCustomDataFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        super.readCustomDataFromNbt(nbt, registries);
-        Inventories.readNbt(nbt, inventory, registries);
-        progress = nbt.getInt("gem_polishing_station.progress", 0);
+    protected void readData(ReadView view) {
+        super.readData(view);
+        Inventories.readData(view, inventory);
+        progress = view.getInt("gem_polishing_station.progress", 0);
     }
 
     @Nullable

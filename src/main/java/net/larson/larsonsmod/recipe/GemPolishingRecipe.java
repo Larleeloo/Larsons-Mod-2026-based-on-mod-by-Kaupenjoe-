@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.*;
+import net.minecraft.recipe.book.RecipeBookCategories;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
@@ -17,6 +18,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
+    public static final RecipeBookCategory RECIPE_BOOK_CATEGORY = RecipeBookCategories.register("larsonsmod:gem_polishing");
+
     private final ItemStack output;
     private final List<Ingredient> recipeItems;
 
@@ -39,16 +42,19 @@ public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
         return output.copy();
     }
 
-    @Override
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
         return output;
     }
 
-    @Override
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.ofSize(this.recipeItems.size());
         list.addAll(recipeItems);
         return list;
+    }
+
+    @Override
+    public IngredientPlacement getIngredientPlacement() {
+        return IngredientPlacement.forSingleSlot(recipeItems.get(0));
     }
 
     @Override
@@ -63,7 +69,7 @@ public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
 
     @Override
     public RecipeBookCategory getRecipeBookCategory() {
-        return RecipeBookCategories.MISC;
+        return RECIPE_BOOK_CATEGORY;
     }
 
     public static class Type implements RecipeType<GemPolishingRecipe> {

@@ -6,6 +6,8 @@ import net.larson.larsonsmod.block.custom.*;
 import net.larson.larsonsmod.sound.ModSounds;
 import net.larson.larsonsmod.world.tree.ModSaplingGenerators;
 import net.minecraft.block.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
@@ -99,7 +101,10 @@ public class ModBlocks {
     public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",
             Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f));
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
+            settings -> new LeavesBlock(0.05f, settings) {
+                @Override
+                protected void spawnLeafParticle(World world, BlockPos pos, net.minecraft.util.math.random.Random random) {}
+            }, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
 
     public static final WoodType CHESTNUT_WOOD_TYPE = TerraformSignBlockHelper.registerDefaultWoodType(
             Identifier.of(LarsonsMod.MOD_ID, "chestnut"));
@@ -174,20 +179,27 @@ public class ModBlocks {
 
     // Neon Leaves (7 colors)
     public static final Block NEON_RED_LEAVES = registerBlock("neon_red_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_GREEN_LEAVES = registerBlock("neon_green_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_BLUE_LEAVES = registerBlock("neon_blue_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_CYAN_LEAVES = registerBlock("neon_cyan_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_MAGENTA_LEAVES = registerBlock("neon_magenta_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_YELLOW_LEAVES = registerBlock("neon_yellow_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
     public static final Block NEON_GRAY_LEAVES = registerBlock("neon_gray_leaves",
-            settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).luminance(state -> 10).nonOpaque());
 
+
+    private static LeavesBlock createSimpleLeaves(AbstractBlock.Settings settings) {
+        return new LeavesBlock(0.05f, settings) {
+            @Override
+            protected void spawnLeafParticle(World world, BlockPos pos, net.minecraft.util.math.random.Random random) {}
+        };
+    }
 
     private static RegistryKey<Block> blockKeyOf(String name) {
         return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(LarsonsMod.MOD_ID, name));
