@@ -1,7 +1,7 @@
 package net.larson.larsonsmod.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.block.custom.CornCropBlock;
 import net.larson.larsonsmod.block.custom.TomatoCropBlock;
