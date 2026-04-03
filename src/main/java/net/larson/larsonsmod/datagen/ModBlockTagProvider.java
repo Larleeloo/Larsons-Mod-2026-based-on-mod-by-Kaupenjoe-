@@ -20,7 +20,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ModTags.Blocks.METAL_DETECTOR_DETECTABLE_BLOCKS)
+        getTagBuilder(ModTags.Blocks.METAL_DETECTOR_DETECTABLE_BLOCKS)
                 .add(ModBlocks.RUBY_ORE)
                 .forceAddTag(BlockTags.GOLD_ORES)
                 .forceAddTag(BlockTags.EMERALD_ORES)
@@ -31,7 +31,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.COPPER_ORES)
                 .forceAddTag(BlockTags.COAL_ORES);
 
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+        getTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.RAW_RUBY_BLOCK)
                 .add(ModBlocks.RUBY_BLOCK)
                 .add(ModBlocks.RUBY_ORE)
@@ -40,30 +40,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.END_STONE_RUBY_ORE)
                 .add(ModBlocks.SOUND_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+        getTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.RUBY_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
+        getTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.RAW_RUBY_BLOCK)
                 .add(ModBlocks.RUBY_ORE);
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+        getTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.DEEPSLATE_RUBY_ORE);
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("fabric", "needs_tool_level_4")))
+        getTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("fabric", "needs_tool_level_4")))
                 .add(ModBlocks.END_STONE_RUBY_ORE);
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("fabric", "needs_tool_level_5")))
+        getTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("fabric", "needs_tool_level_5")))
                 .add(ModBlocks.SOUND_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.FENCES)
+        getTagBuilder(BlockTags.FENCES)
                 .add(ModBlocks.RUBY_FENCE);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES)
+        getTagBuilder(BlockTags.FENCE_GATES)
                 .add(ModBlocks.RUBY_FENCE_GATE);
-        getOrCreateTagBuilder(BlockTags.WALLS)
+        getTagBuilder(BlockTags.WALLS)
                 .add(ModBlocks.RUBY_WALL);
 
-        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+        getTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.CHESTNUT_LOG)
                 .add(ModBlocks.CHESTNUT_WOOD)
                 .add(ModBlocks.STRIPPED_CHESTNUT_LOG)
@@ -76,7 +76,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NEON_YELLOW_WOOD)
                 .add(ModBlocks.NEON_GRAY_WOOD);
 
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+        getTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(ModBlocks.NEON_RED_WOOD)
                 .add(ModBlocks.NEON_GREEN_WOOD)
                 .add(ModBlocks.NEON_BLUE_WOOD)
@@ -92,7 +92,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NEON_GRAY_WOOD)
                 .add(ModBlocks.NEON_GRAY_PLANKS);
 
-        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+        getTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocks.NEON_RED_LEAVES)
                 .add(ModBlocks.NEON_GREEN_LEAVES)
                 .add(ModBlocks.NEON_BLUE_LEAVES)
@@ -101,7 +101,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NEON_YELLOW_LEAVES)
                 .add(ModBlocks.NEON_GRAY_LEAVES);
 
-        getOrCreateTagBuilder(BlockTags.LEAVES)
+        getTagBuilder(BlockTags.LEAVES)
                 .add(ModBlocks.NEON_RED_LEAVES)
                 .add(ModBlocks.NEON_GREEN_LEAVES)
                 .add(ModBlocks.NEON_BLUE_LEAVES)
@@ -111,14 +111,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NEON_GRAY_LEAVES);
 
         // Neon Dimension Terrain Blocks
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+        getTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.NEON_STONE);
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+        getTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.NEON_DIRT)
                 .add(ModBlocks.NEON_GRASS_BLOCK);
 
         // Neon grass/dirt must be in the dirt tag so saplings and trees can grow on them
-        getOrCreateTagBuilder(BlockTags.DIRT)
+        getTagBuilder(BlockTags.DIRT)
                 .add(ModBlocks.NEON_DIRT)
                 .add(ModBlocks.NEON_GRASS_BLOCK);
     }

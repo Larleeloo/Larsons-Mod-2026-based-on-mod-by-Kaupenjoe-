@@ -7,8 +7,6 @@ import net.larson.larsonsmod.block.custom.CornCropBlock;
 import net.larson.larsonsmod.block.custom.TomatoCropBlock;
 import net.larson.larsonsmod.item.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.data.server.loottable.BlockLootTableGenerator;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -66,9 +64,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .or(BlockStatePropertyLootCondition.builder(ModBlocks.CORN_CROP).properties(StatePredicate.Builder.create()
                                 .exactMatch(CornCropBlock.AGE, 8)));
 
-        // BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.CORN_CROP).properties(StatePredicate.Builder.create()
-        //         .exactMatch(CornCropBlock.AGE, 8));
-
         addDrop(ModBlocks.CORN_CROP, cropDrops(ModBlocks.CORN_CROP, ModItems.CORN, ModItems.CORN_SEEDS, builder2));
 
         addDrop(ModBlocks.DAHLIA);
@@ -117,12 +112,14 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
+        RegistryWrapper.Impl<net.minecraft.enchantment.Enchantment> enchantmentRegistry =
+                this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
         return this.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
                 ((LeafEntry.Builder)
                         ItemEntry.builder(item)
                                 .apply(SetCountLootFunction
                                         .builder(UniformLootNumberProvider
                                                 .create(2.0f, 5.0f))))
-                        .apply(ApplyBonusLootFunction.oreDrops(this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE)))));
+                        .apply(ApplyBonusLootFunction.oreDrops(enchantmentRegistry.getOrThrow(Enchantments.FORTUNE)))));
     }
 }

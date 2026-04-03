@@ -5,6 +5,7 @@ import net.larson.larsonsmod.recipe.GemPolishingRecipe;
 import net.larson.larsonsmod.screen.GemPolishingScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.ComponentMap;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -21,6 +22,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -96,15 +98,15 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        super.writeNbt(nbt, registries);
+    protected void writeCustomDataToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.writeCustomDataToNbt(nbt, registries);
         Inventories.writeNbt(nbt, inventory, registries);
         nbt.putInt("gem_polishing_station.progress", progress);
     }
 
     @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        super.readNbt(nbt, registries);
+    protected void readCustomDataFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        super.readCustomDataFromNbt(nbt, registries);
         Inventories.readNbt(nbt, inventory, registries);
         progress = nbt.getInt("gem_polishing_station.progress", 0);
     }
@@ -168,7 +170,10 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
 
     private Optional<RecipeEntry<GemPolishingRecipe>> getCurrentRecipe() {
         SingleStackRecipeInput input = new SingleStackRecipeInput(this.getStack(INPUT_SLOT));
-        return getWorld().getRecipeManager().getFirstMatch(GemPolishingRecipe.Type.INSTANCE, input, getWorld());
+        if (getWorld() instanceof ServerWorld serverWorld) {
+            return serverWorld.getRecipeManager().getFirstMatch(GemPolishingRecipe.Type.INSTANCE, input, serverWorld);
+        }
+        return Optional.empty();
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {

@@ -5,16 +5,16 @@ import net.larson.larsonsmod.entity.custom.PorcupineEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
+import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityModel<T> {
+public class PorcupineModel extends EntityModel<LivingEntityRenderState> {
 	private final ModelPart porcupine;
 	private final ModelPart head;
 
 	public PorcupineModel(ModelPart root) {
+		super(root);
 		this.porcupine = root.getChild("porcupine");
 		this.head = porcupine.getChild("body").getChild("torso").getChild("head");
 	}
@@ -160,13 +160,12 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 	}
 
 	@Override
-	public void setAngles(PorcupineEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.getPart().traverse().forEach(ModelPart::resetTransform);
-		this.setHeadAngles(netHeadYaw, headPitch);
+	public void setAngles(LivingEntityRenderState state) {
+		super.setAngles(state);
+		this.porcupine.traverse().forEach(ModelPart::resetTransform);
+		this.setHeadAngles(state.yawDegrees, state.pitch);
 
-		this.animateMovement(ModAnimations.PORCUPINE_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.idleAnimationState, ModAnimations.PORCUPINE_IDLE, ageInTicks, 1f);
-		this.updateAnimation(entity.attackAnimationState, ModAnimations.PORCUPINE_ATTACK, ageInTicks, 1f);
+		this.animateMovement(ModAnimations.PORCUPINE_WALK, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch) {
@@ -175,10 +174,5 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 
 		this.head.yaw = headYaw * 0.017453292F;
 		this.head.pitch = headPitch * 0.017453292F;
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return porcupine;
 	}
 }
