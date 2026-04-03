@@ -1,9 +1,6 @@
 package net.larson.larsonsmod.block;
 
-import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformSignBlockHelper;
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.block.custom.*;
 import net.larson.larsonsmod.sound.ModSounds;
@@ -104,22 +101,25 @@ public class ModBlocks {
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
             settings -> new LeavesBlock(settings) {}, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
 
-    public static final Identifier CHESTNUT_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "entity/signs/chestnut");
-    public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "entity/signs/hanging/chestnut");
-    public static final Identifier CHESTNUT_HANGING_GUI_SIGN_TEXTURE = Identifier.of(LarsonsMod.MOD_ID, "textures/gui/hanging_signs/chestnut");
+    public static final WoodType CHESTNUT_WOOD_TYPE = TerraformSignBlockHelper.registerDefaultWoodType(
+            Identifier.of(LarsonsMod.MOD_ID, "chestnut"));
 
-    public static final Block STANDING_CHESTNUT_SIGN = registerBlockNoItem("chestnut_standing_sign",
-            settings -> new TerraformSignBlock(CHESTNUT_SIGN_TEXTURE, settings),
+    public static final SignBlock STANDING_CHESTNUT_SIGN = TerraformSignBlockHelper.registerSignBlock(
+            Identifier.of(LarsonsMod.MOD_ID, "chestnut_standing_sign"),
+            settings -> new SignBlock(CHESTNUT_WOOD_TYPE, settings),
             AbstractBlock.Settings.copy(Blocks.OAK_SIGN));
-    public static final Block WALL_CHESTNUT_SIGN = registerBlockNoItem("chestnut_wall_sign",
-            settings -> new TerraformWallSignBlock(CHESTNUT_SIGN_TEXTURE, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN));
-    public static final Block HANGING_CHESTNUT_SIGN = registerBlockNoItem("chestnut_hanging_sign",
-            settings -> new TerraformHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, settings),
+    public static final WallSignBlock WALL_CHESTNUT_SIGN = TerraformSignBlockHelper.registerSignBlock(
+            Identifier.of(LarsonsMod.MOD_ID, "chestnut_wall_sign"),
+            settings -> new WallSignBlock(CHESTNUT_WOOD_TYPE, settings),
+            AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).lootTable(STANDING_CHESTNUT_SIGN.getLootTableKey()));
+    public static final HangingSignBlock HANGING_CHESTNUT_SIGN = TerraformSignBlockHelper.registerSignBlock(
+            Identifier.of(LarsonsMod.MOD_ID, "chestnut_hanging_sign"),
+            settings -> new HangingSignBlock(CHESTNUT_WOOD_TYPE, settings),
             AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN));
-    public static final Block WALL_HANGING_CHESTNUT_SIGN = registerBlockNoItem("chestnut_wall_hanging_sign",
-            settings -> new TerraformWallHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN));
+    public static final WallHangingSignBlock WALL_HANGING_CHESTNUT_SIGN = TerraformSignBlockHelper.registerSignBlock(
+            Identifier.of(LarsonsMod.MOD_ID, "chestnut_wall_hanging_sign"),
+            settings -> new WallHangingSignBlock(CHESTNUT_WOOD_TYPE, settings),
+            AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).lootTable(HANGING_CHESTNUT_SIGN.getLootTableKey()));
 
     public static final BlockFamily CHESTNUT_FAMILY = BlockFamilies.register(ModBlocks.CHESTNUT_PLANKS)
             .sign(ModBlocks.STANDING_CHESTNUT_SIGN, ModBlocks.WALL_CHESTNUT_SIGN)
