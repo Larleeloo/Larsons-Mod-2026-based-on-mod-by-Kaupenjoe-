@@ -79,15 +79,15 @@ public class ModItems {
 
     // Signs
     public static final Item CHESTNUT_SIGN = registerItem("chestnut_sign",
-            settings -> new SignItem(settings.maxCount(16), ModBlocks.STANDING_CHESTNUT_SIGN, ModBlocks.WALL_CHESTNUT_SIGN),
+            settings -> new SignItem(ModBlocks.STANDING_CHESTNUT_SIGN, ModBlocks.WALL_CHESTNUT_SIGN, settings.maxCount(16)),
             new Item.Settings());
     public static final Item HANGING_CHESTNUT_SIGN = registerItem("chestnut_hanging_sign",
             settings -> new HangingSignItem(ModBlocks.HANGING_CHESTNUT_SIGN, ModBlocks.WALL_HANGING_CHESTNUT_SIGN, settings.maxCount(16)),
             new Item.Settings());
 
     // Boats (Terraform handles registration)
-    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
-    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
+    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, false);
+    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, true);
 
     // Dice
     public static final Item DICE = registerItem("dice", DiceItem::new, new Item.Settings());
