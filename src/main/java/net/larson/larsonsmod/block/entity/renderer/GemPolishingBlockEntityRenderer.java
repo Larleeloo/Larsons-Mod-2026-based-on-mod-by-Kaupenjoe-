@@ -8,7 +8,7 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
+import net.minecraft.item.ItemDisplayContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -32,7 +32,7 @@ public class GemPolishingBlockEntityRenderer implements BlockEntityRenderer<GemP
         matrices.scale(0.35f, 0.35f, 0.35f);
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(270));
 
-        itemRenderer.renderItem(stack, ModelTransformationMode.GUI, getLightLevel(entity.getWorld(),
+        itemRenderer.renderItem(stack, ItemDisplayContext.GUI, getLightLevel(entity.getWorld(),
                 entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
         matrices.pop();
     }
