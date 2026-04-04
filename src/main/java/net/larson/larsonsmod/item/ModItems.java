@@ -46,27 +46,27 @@ public class ModItems {
     public static final Item RUBY_HOE = registerItem("ruby_hoe",
             new Item.Settings().hoe(ModToolMaterial.RUBY, 0f, -3.0f));
 
-    // Armor - use Item.Settings.humanoidArmor() instead of removed ArmorItem class
+    // Armor - use Item.Settings.armor() instead of removed ArmorItem class
     public static final Item RUBY_HELMET = registerItem("ruby_helmet",
             ModArmorItem::new,
-            new Item.Settings().humanoidArmor(ModArmorMaterials.RUBY, EquipmentType.HELMET)
+            new Item.Settings().armor(ModArmorMaterials.RUBY, EquipmentType.HELMET)
                     .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY_MULTIPLIER)));
     public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate",
-            new Item.Settings().humanoidArmor(ModArmorMaterials.RUBY, EquipmentType.CHESTPLATE)
+            new Item.Settings().armor(ModArmorMaterials.RUBY, EquipmentType.CHESTPLATE)
                     .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY_MULTIPLIER)));
     public static final Item RUBY_LEGGINGS = registerItem("ruby_leggings",
-            new Item.Settings().humanoidArmor(ModArmorMaterials.RUBY, EquipmentType.LEGGINGS)
+            new Item.Settings().armor(ModArmorMaterials.RUBY, EquipmentType.LEGGINGS)
                     .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY_MULTIPLIER)));
     public static final Item RUBY_BOOTS = registerItem("ruby_boots",
-            new Item.Settings().humanoidArmor(ModArmorMaterials.RUBY, EquipmentType.BOOTS)
+            new Item.Settings().armor(ModArmorMaterials.RUBY, EquipmentType.BOOTS)
                     .maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY_MULTIPLIER)));
 
     // Crop seeds
     public static final Item TOMATO_SEEDS = registerItem("tomato_seeds",
-            settings -> new AliasedBlockItem(ModBlocks.TOMATO_CROP, settings), new Item.Settings());
+            settings -> new BlockItem(ModBlocks.TOMATO_CROP, settings), new Item.Settings());
 
     public static final Item CORN_SEEDS = registerItem("corn_seeds",
-            settings -> new AliasedBlockItem(ModBlocks.CORN_CROP, settings), new Item.Settings());
+            settings -> new BlockItem(ModBlocks.CORN_CROP, settings), new Item.Settings());
     public static final Item CORN = registerItem("corn", new Item.Settings());
 
     // Music disc

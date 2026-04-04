@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.world.World;
 
@@ -17,7 +18,7 @@ public class DiceProjectileEntity extends ThrownItemEntity {
     }
 
     public DiceProjectileEntity(LivingEntity livingEntity, World world) {
-        super(ModEntities.DICE_PROJECTILE, livingEntity, world);
+        super(ModEntities.DICE_PROJECTILE, livingEntity, world, new ItemStack(ModItems.DICE));
     }
 
     @Override

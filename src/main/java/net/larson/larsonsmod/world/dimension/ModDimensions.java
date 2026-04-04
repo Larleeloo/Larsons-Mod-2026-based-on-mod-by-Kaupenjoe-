@@ -12,6 +12,7 @@ import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
 
+import java.util.Optional;
 import java.util.OptionalLong;
 
 public class ModDimensions {
@@ -39,13 +40,14 @@ public class ModDimensions {
                 true, // natural
                 1.0, // coordinateScale
                 true, // bedWorks
-                false, // respawnAnchorWorks
+                false, // piglinSafe
                 0, // minY
                 256, // height
                 256, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 DimensionTypes.OVERWORLD_ID, // effectsLocation
                 1.0f, // ambientLight
+                Optional.empty(), // cloudHeight
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
 
         // Neon Dimension - perpetual twilight, skylight, tall world for floating islands
@@ -57,13 +59,14 @@ public class ModDimensions {
                 true, // natural
                 1.0, // coordinateScale
                 true, // bedWorks
-                false, // respawnAnchorWorks
+                false, // piglinSafe
                 -64, // minY - deeper underground
                 384, // height - tall world for floating islands
                 384, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 DimensionTypes.OVERWORLD_ID, // effectsLocation
                 0.0f, // ambientLight - completely dark so neon blocks glow brightly
+                Optional.empty(), // cloudHeight
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 7), 0)));
     }
 }

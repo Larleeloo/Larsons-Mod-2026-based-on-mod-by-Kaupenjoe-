@@ -6,11 +6,12 @@ import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.item.ModItems;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
@@ -46,7 +47,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('R', ModItems.RUBY)
                         .criterion(hasItem(Items.STONE), conditionsFromItem(Items.STONE))
                         .criterion(hasItem(ModItems.RUBY), conditionsFromItem(ModItems.RUBY))
-                        .offerTo(exporter, Identifier.of(getRecipeName(ModItems.RAW_RUBY)));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.RAW_RUBY))));
 
                 // Neon Planks from Neon Woods (1 wood -> 4 planks)
                 offerNeonPlanksRecipe(ModBlocks.NEON_RED_WOOD, ModBlocks.NEON_RED_PLANKS);
@@ -62,7 +63,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, planks, 4)
                         .input(wood)
                         .criterion(hasItem(wood), conditionsFromItem(wood))
-                        .offerTo(exporter, Identifier.of(getRecipeName(planks)));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(planks))));
             }
         };
     }

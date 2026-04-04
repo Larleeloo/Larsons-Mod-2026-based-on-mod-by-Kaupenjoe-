@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.*;
-import net.minecraft.recipe.book.RecipeBookCategories;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GemPolishingRecipe implements Recipe<SingleStackRecipeInput> {
-    public static final RecipeBookCategory RECIPE_BOOK_CATEGORY = RecipeBookCategories.register("larsonsmod:gem_polishing");
+    public static final RecipeBookCategory RECIPE_BOOK_CATEGORY = new RecipeBookCategory();
 
     private final ItemStack output;
     private final List<Ingredient> recipeItems;
