@@ -18,7 +18,7 @@ public class LarsonsModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider((output, registries) -> new ModLootTableProvider(output, registries));
-		pack.addProvider(ModModelProvider::new);
+		pack.addClientProvider(ModModelProvider::new);
 		pack.addProvider((output, registries) -> new ModRecipeProvider(output, registries));
 		pack.addProvider(ModPoiTagProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
