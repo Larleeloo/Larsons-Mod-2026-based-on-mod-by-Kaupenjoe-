@@ -8,11 +8,7 @@ import net.larson.larsonsmod.block.custom.TomatoCropBlock;
 import net.larson.larsonsmod.item.ModItems;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Model;
 import net.minecraft.client.data.Models;
-import net.minecraft.util.Identifier;
-
-import java.util.Optional;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -116,10 +112,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHESTNUT_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHESTNUT_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.DICE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG,
-                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
-
 
     }
 }
