@@ -7,6 +7,7 @@ import net.larson.larsonsmod.sound.ModSounds;
 import net.larson.larsonsmod.world.tree.ModSaplingGenerators;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
+import net.minecraft.block.MapColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.data.family.BlockFamilies;
@@ -75,10 +76,10 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque());
 
     public static final Block TOMATO_CROP = registerBlockNoItem("tomato_crop",
-            TomatoCropBlock::new, AbstractBlock.Settings.copy(Blocks.WHEAT));
+            TomatoCropBlock::new, AbstractBlock.Settings.copy(Blocks.WHEAT).mapColor(MapColor.DARK_GREEN));
 
     public static final Block CORN_CROP = registerBlockNoItem("corn_crop",
-            CornCropBlock::new, AbstractBlock.Settings.copy(Blocks.WHEAT));
+            CornCropBlock::new, AbstractBlock.Settings.copy(Blocks.WHEAT).mapColor(MapColor.DARK_GREEN));
 
     public static final Block DAHLIA = registerBlock("dahlia",
             settings -> new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, settings),
