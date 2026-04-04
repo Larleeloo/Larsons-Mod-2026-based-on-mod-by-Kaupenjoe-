@@ -5,6 +5,7 @@ import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.block.custom.*;
 import net.larson.larsonsmod.sound.ModSounds;
 import net.larson.larsonsmod.world.tree.ModSaplingGenerators;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -101,10 +102,7 @@ public class ModBlocks {
     public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",
             Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f));
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
-            settings -> new LeavesBlock(0.05f, settings) {
-                @Override
-                protected void spawnLeafParticle(World world, BlockPos pos, net.minecraft.util.math.random.Random random) {}
-            }, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
+            ModBlocks::createSimpleLeaves, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque());
 
     public static final WoodType CHESTNUT_WOOD_TYPE = TerraformSignBlockHelper.registerDefaultWoodType(
             Identifier.of(LarsonsMod.MOD_ID, "chestnut"));
@@ -195,10 +193,23 @@ public class ModBlocks {
 
 
     private static LeavesBlock createSimpleLeaves(AbstractBlock.Settings settings) {
-        return new LeavesBlock(0.05f, settings) {
-            @Override
-            protected void spawnLeafParticle(World world, BlockPos pos, net.minecraft.util.math.random.Random random) {}
-        };
+        return new SimpleLeavesBlock(settings);
+    }
+
+    public static class SimpleLeavesBlock extends LeavesBlock {
+        public static final MapCodec<SimpleLeavesBlock> CODEC = Block.createCodec(SimpleLeavesBlock::new);
+
+        public SimpleLeavesBlock(AbstractBlock.Settings settings) {
+            super(0.05f, settings);
+        }
+
+        @Override
+        protected void spawnLeafParticle(World world, BlockPos pos, net.minecraft.util.math.random.Random random) {}
+
+        @Override
+        protected MapCodec<? extends LeavesBlock> getCodec() {
+            return CODEC;
+        }
     }
 
     private static RegistryKey<Block> blockKeyOf(String name) {

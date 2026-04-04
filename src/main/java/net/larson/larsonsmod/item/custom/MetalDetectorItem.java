@@ -4,6 +4,7 @@ import net.larson.larsonsmod.sound.ModSounds;
 import net.larson.larsonsmod.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -16,7 +17,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 public class MetalDetectorItem extends Item {
     public MetalDetectorItem(Settings settings) {
@@ -64,8 +65,8 @@ public class MetalDetectorItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.larsonsmod.metal_detector.tooltip"));
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+        tooltip.accept(Text.translatable("tooltip.larsonsmod.metal_detector.tooltip"));
+        super.appendTooltip(stack, context, displayComponent, tooltip, type);
     }
 }

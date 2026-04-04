@@ -5,6 +5,7 @@ import net.larson.larsonsmod.item.ModArmorMaterials;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.equipment.EquipmentAsset;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.world.World;
+import net.minecraft.server.world.ServerWorld;
 
 import java.util.Map;
 
@@ -27,14 +28,12 @@ public class ModArmorItem extends Item {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(!world.isClient()) {
-            if(entity instanceof PlayerEntity player && hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
-            }
+    public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, EquipmentSlot slot) {
+        if(entity instanceof PlayerEntity player && hasFullSuitOfArmorOn(player)) {
+            evaluateArmorEffects(player);
         }
 
-        super.inventoryTick(stack, world, entity, slot, selected);
+        super.inventoryTick(stack, world, entity, slot);
     }
 
     private void evaluateArmorEffects(PlayerEntity player) {
@@ -57,17 +56,18 @@ public class ModArmorItem extends Item {
     }
 
     private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
-        ItemStack boots = player.getInventory().getArmorStack(0);
-        ItemStack leggings = player.getInventory().getArmorStack(1);
-        ItemStack breastplate = player.getInventory().getArmorStack(2);
-        ItemStack helmet = player.getInventory().getArmorStack(3);
+        ItemStack boots = player.getEquippedStack(EquipmentSlot.FEET);
+        ItemStack leggings = player.getEquippedStack(EquipmentSlot.LEGS);
+        ItemStack breastplate = player.getEquippedStack(EquipmentSlot.CHEST);
+        ItemStack helmet = player.getEquippedStack(EquipmentSlot.HEAD);
 
         return !helmet.isEmpty() && !breastplate.isEmpty()
                 && !leggings.isEmpty() && !boots.isEmpty();
     }
 
     private boolean hasCorrectArmorOn(RegistryKey<EquipmentAsset> assetKey, PlayerEntity player) {
-        for (ItemStack armorStack : player.getInventory().armor) {
+        for (EquipmentSlot equipSlot : new EquipmentSlot[]{EquipmentSlot.FEET, EquipmentSlot.LEGS, EquipmentSlot.CHEST, EquipmentSlot.HEAD}) {
+            ItemStack armorStack = player.getEquippedStack(equipSlot);
             EquippableComponent equippable = armorStack.get(DataComponentTypes.EQUIPPABLE);
             if (equippable == null) {
                 return false;

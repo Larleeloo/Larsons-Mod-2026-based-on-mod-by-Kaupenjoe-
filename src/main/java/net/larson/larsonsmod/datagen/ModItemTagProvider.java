@@ -17,16 +17,16 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        builder(ModTags.Items.RUBY_REPAIR)
+        valueLookupBuilder(ModTags.Items.RUBY_REPAIR)
                 .add(ModItems.RUBY);
 
-        builder(ItemTags.TRIMMABLE_ARMOR)
+        valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS);
 
-        builder(ItemTags.PLANKS)
+        valueLookupBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.CHESTNUT_PLANKS.asItem());
 
-        builder(ItemTags.LOGS_THAT_BURN)
+        valueLookupBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.CHESTNUT_LOG.asItem())
                 .add(ModBlocks.CHESTNUT_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_CHESTNUT_LOG.asItem())
@@ -39,7 +39,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.NEON_YELLOW_WOOD.asItem())
                 .add(ModBlocks.NEON_GRAY_WOOD.asItem());
 
-        builder(ItemTags.PLANKS)
+        valueLookupBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.NEON_RED_PLANKS.asItem())
                 .add(ModBlocks.NEON_GREEN_PLANKS.asItem())
                 .add(ModBlocks.NEON_BLUE_PLANKS.asItem())

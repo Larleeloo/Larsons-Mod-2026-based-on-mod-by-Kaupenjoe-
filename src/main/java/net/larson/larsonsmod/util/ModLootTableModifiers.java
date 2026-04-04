@@ -25,7 +25,7 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
-            if(EntityType.CREEPER.getLootTableId().equals(key)) {
+            if(EntityType.CREEPER.getLootTableKey().isPresent() && EntityType.CREEPER.getLootTableKey().get().equals(key)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(1f))

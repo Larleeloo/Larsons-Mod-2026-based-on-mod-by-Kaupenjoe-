@@ -62,7 +62,7 @@ public class NeonTrunkPlacer extends TrunkPlacer {
             if (branchHeight >= trunkHeight - 1) break;
 
             // Pick a random horizontal direction for this branch
-            Direction dir = Direction.fromHorizontal(random.nextInt(4));
+            Direction dir = Direction.fromHorizontalQuarterTurns(random.nextInt(4));
             Direction perpendicular = dir.rotateYClockwise();
 
             int branchLength = 2 + random.nextInt(3);

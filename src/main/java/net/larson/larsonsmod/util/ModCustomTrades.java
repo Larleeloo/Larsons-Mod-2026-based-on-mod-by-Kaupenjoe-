@@ -52,7 +52,7 @@ public class ModCustomTrades {
                 factories -> {
                     factories.add((entity, random) -> {
                         RegistryEntry<Enchantment> piercing = entity.getWorld().getRegistryManager()
-                                .getWrapperOrThrow(RegistryKeys.ENCHANTMENT)
+                                .getOrThrow(RegistryKeys.ENCHANTMENT)
                                 .getOrThrow(Enchantments.PIERCING);
                         ItemStack enchantedBook = new ItemStack(Items.ENCHANTED_BOOK);
                         enchantedBook.addEnchantment(piercing, 2);

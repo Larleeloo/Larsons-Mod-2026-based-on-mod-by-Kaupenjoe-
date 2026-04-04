@@ -1,5 +1,7 @@
 package net.larson.larsonsmod.screen;
 
+import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.mojang.blaze3d.pipeline.RenderPipelines;
 import net.larson.larsonsmod.LarsonsMod;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -26,14 +28,14 @@ public class GemPolishingScreen extends HandledScreen<GemPolishingScreenHandler>
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
 
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight, 256, 256);
 
         renderProgressArrow(context, x, y);
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if(handler.isCrafting()) {
-            context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress(), 256, 256);
         }
     }
 

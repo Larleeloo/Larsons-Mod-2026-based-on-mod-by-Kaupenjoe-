@@ -33,7 +33,7 @@ public class LarsonsModClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.GEM_POLISHING_STATION_BLOCK_ENTITY, GemPolishingBlockEntityRenderer::new);
 
-        TerraformBoatClientHelper.registerModelLayers(ModBoats.CHESTNUT_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.CHESTNUT_BOAT_ID);
 
         EntityRendererRegistry.register(ModEntities.DICE_PROJECTILE, FlyingItemEntityRenderer::new);
     }
