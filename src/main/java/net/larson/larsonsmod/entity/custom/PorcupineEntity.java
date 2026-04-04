@@ -122,7 +122,8 @@ public class PorcupineEntity extends AnimalEntity {
                 .add(EntityAttributes.MAX_HEALTH, 15)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.ARMOR, 0.5f)
-                .add(EntityAttributes.ATTACK_DAMAGE, 2);
+                .add(EntityAttributes.ATTACK_DAMAGE, 2)
+                .add(EntityAttributes.TEMPT_RANGE, 10);
     }
 
     public void setAttacking(boolean attacking) {
