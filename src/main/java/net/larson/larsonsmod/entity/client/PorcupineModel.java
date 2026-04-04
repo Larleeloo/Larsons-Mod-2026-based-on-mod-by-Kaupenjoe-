@@ -4,6 +4,7 @@ import net.larson.larsonsmod.entity.animation.ModAnimations;
 import net.larson.larsonsmod.entity.custom.PorcupineEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
@@ -12,11 +13,13 @@ import net.minecraft.util.math.MathHelper;
 public class PorcupineModel extends EntityModel<LivingEntityRenderState> {
 	private final ModelPart porcupine;
 	private final ModelPart head;
+	private final Animation walkAnimation;
 
 	public PorcupineModel(ModelPart root) {
 		super(root);
 		this.porcupine = root.getChild("porcupine");
 		this.head = porcupine.getChild("body").getChild("torso").getChild("head");
+		this.walkAnimation = Animation.of(root, ModAnimations.PORCUPINE_WALK);
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -165,7 +168,7 @@ public class PorcupineModel extends EntityModel<LivingEntityRenderState> {
 		this.porcupine.traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(state.relativeHeadYaw, state.pitch);
 
-		this.animateMovement(ModAnimations.PORCUPINE_WALK, state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
+		this.walkAnimation.applyWalking(state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch) {

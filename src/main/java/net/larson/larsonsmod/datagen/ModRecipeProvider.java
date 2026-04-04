@@ -27,6 +27,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
+    public String getName() {
+        return "Larson's Mod Recipes";
+    }
+
+    @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
         return new RecipeGenerator(registries, exporter) {
             @Override

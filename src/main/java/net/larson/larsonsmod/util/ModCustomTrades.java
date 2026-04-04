@@ -1,6 +1,7 @@
 package net.larson.larsonsmod.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.block.ModBlocks;
 import net.larson.larsonsmod.item.ModItems;
 import net.larson.larsonsmod.villager.ModVillagers;
@@ -80,20 +81,17 @@ public class ModCustomTrades {
                 });
 
 
-        TradeOfferHelper.registerWanderingTraderOffers(1,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
+        TradeOfferHelper.registerWanderingTraderOffers(builder -> {
+            builder.pool(Identifier.of(LarsonsMod.MOD_ID, "wandering_trader_pool_1"), 1,
+                    (entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.RAW_RUBY, 16),
                             new ItemStack(ModItems.METAL_DETECTOR, 1),
                             1, 12, 0.075f));
-                });
-
-        TradeOfferHelper.registerWanderingTraderOffers(2,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
+            builder.pool(Identifier.of(LarsonsMod.MOD_ID, "wandering_trader_pool_2"), 1,
+                    (entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.RAW_RUBY, 1),
                             new ItemStack(ModItems.COAL_BRIQUETTE, 1),
                             1, 12, 0.075f));
-                });
+        });
     }
 }
