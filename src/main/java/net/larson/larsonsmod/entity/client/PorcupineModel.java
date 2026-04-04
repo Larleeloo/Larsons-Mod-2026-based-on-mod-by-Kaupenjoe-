@@ -19,7 +19,7 @@ public class PorcupineModel extends EntityModel<LivingEntityRenderState> {
 		super(root);
 		this.porcupine = root.getChild("porcupine");
 		this.head = porcupine.getChild("body").getChild("torso").getChild("head");
-		this.walkAnimation = Animation.of(root, ModAnimations.PORCUPINE_WALK);
+		this.walkAnimation = ModAnimations.PORCUPINE_WALK.createAnimation(root);
 	}
 
 	public static TexturedModelData getTexturedModelData() {
