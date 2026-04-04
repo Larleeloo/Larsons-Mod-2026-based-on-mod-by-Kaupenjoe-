@@ -207,7 +207,7 @@ public class ModBlocks {
         protected void spawnLeafParticle(World world, BlockPos pos, net.minecraft.util.math.random.Random random) {}
 
         @Override
-        protected MapCodec<? extends LeavesBlock> getCodec() {
+        public MapCodec<? extends LeavesBlock> getCodec() {
             return CODEC;
         }
     }

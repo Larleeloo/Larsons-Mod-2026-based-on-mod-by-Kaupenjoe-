@@ -3,12 +3,14 @@ package net.larson.larsonsmod.item;
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.util.ModTags;
 import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.ArmorMaterials;
 import net.minecraft.item.equipment.EquipmentAsset;
 import net.minecraft.item.equipment.EquipmentAssetKeys;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+
+import java.util.Map;
 
 public class ModArmorMaterials {
     public static final RegistryKey<EquipmentAsset> RUBY_EQUIPMENT_ASSET =
@@ -17,7 +19,14 @@ public class ModArmorMaterials {
     public static final int RUBY_DURABILITY_MULTIPLIER = 25;
 
     public static final ArmorMaterial RUBY = new ArmorMaterial(
-            ArmorMaterials.createDefenseMap(3, 6, 8, 3, 11), // defense map (boots, leggings, chestplate, helmet, body)
+            RUBY_DURABILITY_MULTIPLIER,              // durability
+            Map.of(                                   // defense map
+                    EquipmentType.BOOTS, 3,
+                    EquipmentType.LEGGINGS, 6,
+                    EquipmentType.CHESTPLATE, 8,
+                    EquipmentType.HELMET, 3,
+                    EquipmentType.BODY, 11
+            ),
             19,                                      // enchantability
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, // equipSound
             2.0f,                                    // toughness
