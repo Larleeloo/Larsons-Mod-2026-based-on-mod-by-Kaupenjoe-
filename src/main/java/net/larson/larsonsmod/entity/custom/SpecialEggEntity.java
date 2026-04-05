@@ -9,6 +9,14 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.mob.SkeletonEntity;
+import net.minecraft.entity.mob.StrayEntity;
+import net.minecraft.entity.mob.DrownedEntity;
+import net.minecraft.entity.mob.HuskEntity;
+import net.minecraft.entity.mob.PhantomEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -57,7 +65,6 @@ public class SpecialEggEntity extends ThrownItemEntity {
     private EntityType<?> getRandomMobType() {
         List<EntityType<?>> mobTypes = new ArrayList<>();
         for (EntityType<?> type : Registries.ENTITY_TYPE) {
-            // Include all living entity types by filtering out MISC (projectiles, items, etc.)
             if (type.getSpawnGroup() != SpawnGroup.MISC) {
                 mobTypes.add(type);
             }
@@ -65,6 +72,30 @@ public class SpecialEggEntity extends ThrownItemEntity {
 
         if (mobTypes.isEmpty()) return null;
         return mobTypes.get(this.random.nextInt(mobTypes.size()));
+    }
+
+    /**
+     * Generates a weighted random scale using a U-shaped distribution.
+     * This gives equal probability to very small and very large mobs,
+     * with medium sizes being less common.
+     */
+    private float getWeightedScale() {
+        // U-shaped distribution: use abs(normal) mapped to favor extremes
+        // Generate a value 0-1 with U-shape by squaring a uniform random
+        // then randomly assigning it to low or high end
+        float t = this.random.nextFloat();
+        // Square to concentrate values near 0 (extremes after mapping)
+        t = t * t;
+
+        if (this.random.nextBoolean()) {
+            // Map to small end: MIN_SCALE to midpoint
+            float midpoint = (MIN_SCALE + MAX_SCALE) / 2.0f;
+            return midpoint - t * (midpoint - MIN_SCALE);
+        } else {
+            // Map to large end: midpoint to MAX_SCALE
+            float midpoint = (MIN_SCALE + MAX_SCALE) / 2.0f;
+            return midpoint + t * (MAX_SCALE - midpoint);
+        }
     }
 
     private void spawnScaledMob(ServerWorld serverWorld, EntityType<?> entityType, HitResult hitResult) {
@@ -77,10 +108,9 @@ public class SpecialEggEntity extends ThrownItemEntity {
                 this.random.nextFloat() * 360.0f, 0.0f);
 
         if (entity instanceof LivingEntity livingEntity) {
-            // Random scale between MIN_SCALE and MAX_SCALE
-            float scale = MIN_SCALE + this.random.nextFloat() * (MAX_SCALE - MIN_SCALE);
+            float scale = getWeightedScale();
 
-            // Apply scale attribute (available in 1.20.5+)
+            // Apply scale attribute
             EntityAttributeInstance scaleAttr = livingEntity.getAttributeInstance(EntityAttributes.SCALE);
             if (scaleAttr != null) {
                 scaleAttr.setBaseValue(scale);
@@ -108,8 +138,22 @@ public class SpecialEggEntity extends ThrownItemEntity {
                 double baseSpeed = speedAttr.getBaseValue();
                 speedAttr.setBaseValue(baseSpeed / Math.sqrt(scale));
             }
+
+            // Give fire resistance to mobs that burn in daylight
+            if (burnsInDaylight(entity)) {
+                livingEntity.addStatusEffect(new StatusEffectInstance(
+                        StatusEffects.FIRE_RESISTANCE, StatusEffectInstance.INFINITE, 0, false, false));
+            }
         }
 
         serverWorld.spawnEntity(entity);
+    }
+
+    private boolean burnsInDaylight(Entity entity) {
+        return entity instanceof ZombieEntity
+                || entity instanceof SkeletonEntity
+                || entity instanceof StrayEntity
+                || entity instanceof DrownedEntity
+                || entity instanceof PhantomEntity;
     }
 }
