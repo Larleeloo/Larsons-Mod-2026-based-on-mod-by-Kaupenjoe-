@@ -28,7 +28,7 @@ public class SpecialEggLootHandler {
             for (var entity : world.iterateEntities()) {
                 if (entity instanceof LivingEntity livingEntity && livingEntity.isAlive()) {
                     EntityAttributeInstance scaleAttr = livingEntity.getAttributeInstance(EntityAttributes.SCALE);
-                    if (scaleAttr != null && scaleAttr.getBaseValue() >= 3.0) {
+                    if (scaleAttr != null && scaleAttr.getBaseValue() >= 2.0) {
                         SpecialEggEntity.trampleTreesForEntity(livingEntity);
                     }
                 }

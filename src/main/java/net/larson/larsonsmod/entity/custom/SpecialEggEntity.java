@@ -150,19 +150,23 @@ public class SpecialEggEntity extends ThrownItemEntity {
 
     /**
      * Destroys logs and leaves near a large scaled mob. Called from the tick handler.
-     * Radius scales with the mob's size attribute.
+     * Radius matches the mob's visual model size, which is roughly 1:1 with scale.
+     * Hitboxes are typically 50-100% smaller than the visual model, so the radius
+     * extends well beyond the hitbox to cover the actual rendered body.
      */
     public static void trampleTreesForEntity(LivingEntity entity) {
         EntityAttributeInstance scaleAttr = entity.getAttributeInstance(EntityAttributes.SCALE);
         if (scaleAttr == null) return;
 
         double scale = scaleAttr.getBaseValue();
-        // Only trample trees if scale >= 3.0
-        if (scale < 3.0) return;
+        // Only trample trees if scale >= 2.0
+        if (scale < 2.0) return;
 
-        // Radius grows with scale: scale 3 = radius 1, scale 10 = radius 3, scale 20 = radius 5
-        int radius = Math.min(5, (int) (scale / 3.0));
-        int height = radius * 2 + 1;
+        // Radius roughly matches the visual model size (scale * base hitbox width)
+        // A scale-5 mob with ~1 block base width visually spans ~5 blocks
+        // A scale-20 mob visually spans ~20 blocks across
+        int radius = (int) Math.ceil(scale);
+        int height = radius * 2 + 2;
 
         BlockPos entityPos = entity.getBlockPos();
         World world = entity.getWorld();
