@@ -11,6 +11,7 @@ import net.larson.larsonsmod.block.entity.ModBlockEntities;
 import net.larson.larsonsmod.entity.ModBoats;
 import net.larson.larsonsmod.entity.ModEntities;
 import net.larson.larsonsmod.entity.custom.PorcupineEntity;
+import net.larson.larsonsmod.entity.custom.SpecialEggLootHandler;
 import net.larson.larsonsmod.item.ModItemGroups;
 import net.larson.larsonsmod.item.ModItems;
 import net.larson.larsonsmod.recipe.ModRecipes;
@@ -56,6 +57,8 @@ public class LarsonsMod implements ModInitializer {
 			builder.add(ModItems.COAL_BRIQUETTE, 200);
 		});
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
+
+		SpecialEggLootHandler.register();
 
 		StrippableBlockRegistry.register(ModBlocks.CHESTNUT_LOG, ModBlocks.STRIPPED_CHESTNUT_LOG);
 		StrippableBlockRegistry.register(ModBlocks.CHESTNUT_WOOD, ModBlocks.STRIPPED_CHESTNUT_WOOD);

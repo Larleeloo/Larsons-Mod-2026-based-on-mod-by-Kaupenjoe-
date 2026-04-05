@@ -36,5 +36,6 @@ public class LarsonsModClient implements ClientModInitializer {
         TerraformBoatClientHelper.registerModelLayers(ModBoats.CHESTNUT_BOAT_ID);
 
         EntityRendererRegistry.register(ModEntities.DICE_PROJECTILE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SPECIAL_EGG_PROJECTILE, FlyingItemEntityRenderer::new);
     }
 }
