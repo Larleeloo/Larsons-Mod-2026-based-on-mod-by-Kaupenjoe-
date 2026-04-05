@@ -114,6 +114,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DICE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPECIAL_EGG, Models.GENERATED);
 
     }
 }

@@ -55,6 +55,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.DICE);
 
+                        entries.add(ModItems.SPECIAL_EGG);
+
                         entries.add(ModBlocks.RUBY_BLOCK);
                         entries.add(ModBlocks.RAW_RUBY_BLOCK);
 

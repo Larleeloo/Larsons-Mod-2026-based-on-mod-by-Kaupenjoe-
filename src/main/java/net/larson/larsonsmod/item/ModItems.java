@@ -10,6 +10,7 @@ import net.larson.larsonsmod.entity.ModEntities;
 import net.larson.larsonsmod.item.custom.DiceItem;
 import net.larson.larsonsmod.item.custom.MetalDetectorItem;
 import net.larson.larsonsmod.item.custom.ModArmorItem;
+import net.larson.larsonsmod.item.custom.SpecialEggItem;
 import net.larson.larsonsmod.sound.ModSounds;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
@@ -91,6 +92,10 @@ public class ModItems {
 
     // Dice
     public static final Item DICE = registerItem("dice", DiceItem::new, new Item.Settings());
+
+    // Special Egg - spawns any mob at random size when thrown
+    public static final Item SPECIAL_EGG = registerItem("special_egg",
+            SpecialEggItem::new, new Item.Settings().maxCount(16));
 
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
