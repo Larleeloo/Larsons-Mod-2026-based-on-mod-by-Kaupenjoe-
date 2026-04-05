@@ -12,8 +12,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ItemStackParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.HitResult;
@@ -113,19 +111,5 @@ public class SpecialEggEntity extends ThrownItemEntity {
         }
 
         serverWorld.spawnEntity(entity);
-    }
-
-    @Override
-    public void handleStatus(byte status) {
-        if (status == 3) {
-            for (int i = 0; i < 8; ++i) {
-                this.getWorld().addParticle(
-                        new ItemStackParticleEffect(ParticleTypes.ITEM, this.getStack()),
-                        this.getX(), this.getY(), this.getZ(),
-                        ((double) this.random.nextFloat() - 0.5) * 0.08,
-                        ((double) this.random.nextFloat() - 0.5) * 0.08,
-                        ((double) this.random.nextFloat() - 0.5) * 0.08);
-            }
-        }
     }
 }
