@@ -93,7 +93,7 @@ public class ModItems {
     // Dice
     public static final Item DICE = registerItem("dice", DiceItem::new, new Item.Settings());
 
-    // Special Egg - spawns any mob at random size when thrown
+    // Easter Egg - spawns any mob at random size when thrown, rare drop from hostile mobs
     public static final Item SPECIAL_EGG = registerItem("special_egg",
             SpecialEggItem::new, new Item.Settings().maxCount(16));
 
