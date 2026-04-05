@@ -2,6 +2,7 @@ package net.larson.larsonsmod.entity.custom;
 
 import net.larson.larsonsmod.entity.ModEntities;
 import net.larson.larsonsmod.item.ModItems;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,8 +22,10 @@ import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -76,25 +79,21 @@ public class SpecialEggEntity extends ThrownItemEntity {
 
     /**
      * Generates a weighted random scale using a U-shaped distribution.
-     * This gives equal probability to very small and very large mobs,
-     * with medium sizes being less common.
+     * Values cluster at the extremes (near MIN_SCALE and MAX_SCALE)
+     * with equal probability on each side. Medium sizes are rare.
      */
     private float getWeightedScale() {
-        // U-shaped distribution: use abs(normal) mapped to favor extremes
-        // Generate a value 0-1 with U-shape by squaring a uniform random
-        // then randomly assigning it to low or high end
         float t = this.random.nextFloat();
-        // Square to concentrate values near 0 (extremes after mapping)
+        // Square to concentrate near 0
         t = t * t;
+        float midpoint = (MIN_SCALE + MAX_SCALE) / 2.0f;
 
         if (this.random.nextBoolean()) {
-            // Map to small end: MIN_SCALE to midpoint
-            float midpoint = (MIN_SCALE + MAX_SCALE) / 2.0f;
-            return midpoint - t * (midpoint - MIN_SCALE);
+            // Small end: cluster near MIN_SCALE
+            return MIN_SCALE + t * (midpoint - MIN_SCALE);
         } else {
-            // Map to large end: midpoint to MAX_SCALE
-            float midpoint = (MIN_SCALE + MAX_SCALE) / 2.0f;
-            return midpoint + t * (MAX_SCALE - midpoint);
+            // Large end: cluster near MAX_SCALE
+            return MAX_SCALE - t * (MAX_SCALE - midpoint);
         }
     }
 
@@ -147,6 +146,39 @@ public class SpecialEggEntity extends ThrownItemEntity {
         }
 
         serverWorld.spawnEntity(entity);
+    }
+
+    /**
+     * Destroys logs and leaves near a large scaled mob. Called from the tick handler.
+     * Radius scales with the mob's size attribute.
+     */
+    public static void trampleTreesForEntity(LivingEntity entity) {
+        EntityAttributeInstance scaleAttr = entity.getAttributeInstance(EntityAttributes.SCALE);
+        if (scaleAttr == null) return;
+
+        double scale = scaleAttr.getBaseValue();
+        // Only trample trees if scale >= 3.0
+        if (scale < 3.0) return;
+
+        // Radius grows with scale: scale 3 = radius 1, scale 10 = radius 3, scale 20 = radius 5
+        int radius = Math.min(5, (int) (scale / 3.0));
+        int height = radius * 2 + 1;
+
+        BlockPos entityPos = entity.getBlockPos();
+        World world = entity.getWorld();
+
+        for (int x = -radius; x <= radius; x++) {
+            for (int y = -1; y <= height; y++) {
+                for (int z = -radius; z <= radius; z++) {
+                    BlockPos targetPos = entityPos.add(x, y, z);
+                    BlockState state = world.getBlockState(targetPos);
+
+                    if (state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES)) {
+                        world.breakBlock(targetPos, true);
+                    }
+                }
+            }
+        }
     }
 
     private boolean burnsInDaylight(Entity entity) {
