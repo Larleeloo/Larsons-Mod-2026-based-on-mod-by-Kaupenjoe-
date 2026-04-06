@@ -460,4 +460,31 @@ public class ModAnimations {
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(5f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
+
+    public static final AnimationDefinition LAVA_LAMP_IDLE = AnimationDefinition.Builder.create(32.0f).looping()
+            .addBoneAnimation("2", new Transformation(Transformation.Targets.MOVE_ORIGIN,
+                    new Keyframe(0.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.LINEAR),
+                    new Keyframe(16.0f, AnimationHelper.createTranslationalVector(0.0f, 6.0f, 0.0f), Transformation.Interpolations.CUBIC),
+                    new Keyframe(32.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.CUBIC)))
+            .addBoneAnimation("3", new Transformation(Transformation.Targets.MOVE_ORIGIN,
+                    new Keyframe(0.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.LINEAR),
+                    new Keyframe(16.0f, AnimationHelper.createTranslationalVector(0.0f, 1.0f, 0.0f), Transformation.Interpolations.CUBIC),
+                    new Keyframe(32.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.CUBIC)))
+            .addBoneAnimation("4", new Transformation(Transformation.Targets.MOVE_ORIGIN,
+                    new Keyframe(0.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.LINEAR),
+                    new Keyframe(16.0f, AnimationHelper.createTranslationalVector(0.0f, 2.0f, 0.0f), Transformation.Interpolations.CUBIC),
+                    new Keyframe(32.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.CUBIC)))
+            .addBoneAnimation("5", new Transformation(Transformation.Targets.MOVE_ORIGIN,
+                    new Keyframe(0.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.LINEAR),
+                    new Keyframe(16.0f, AnimationHelper.createTranslationalVector(0.0f, 1.0f, 0.0f), Transformation.Interpolations.CUBIC),
+                    new Keyframe(32.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.CUBIC)))
+            .addBoneAnimation("6", new Transformation(Transformation.Targets.MOVE_ORIGIN,
+                    new Keyframe(0.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.LINEAR),
+                    new Keyframe(16.0f, AnimationHelper.createTranslationalVector(0.0f, 1.0f, 0.0f), Transformation.Interpolations.CUBIC),
+                    new Keyframe(32.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.CUBIC)))
+            .addBoneAnimation("7", new Transformation(Transformation.Targets.MOVE_ORIGIN,
+                    new Keyframe(0.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.LINEAR),
+                    new Keyframe(16.0f, AnimationHelper.createTranslationalVector(0.0f, 1.0f, 0.0f), Transformation.Interpolations.CUBIC),
+                    new Keyframe(32.0f, AnimationHelper.createTranslationalVector(0.0f, 0.0f, 0.0f), Transformation.Interpolations.CUBIC)))
+            .build();
 }

@@ -2,6 +2,7 @@ package net.larson.larsonsmod.entity;
 
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.entity.custom.DiceProjectileEntity;
+import net.larson.larsonsmod.entity.custom.LavaLampEntity;
 import net.larson.larsonsmod.entity.custom.PorcupineEntity;
 import net.larson.larsonsmod.entity.custom.SpecialEggEntity;
 import net.minecraft.entity.EntityType;
@@ -24,6 +25,12 @@ public class ModEntities {
             EntityType.Builder.<DiceProjectileEntity>create(DiceProjectileEntity::new, SpawnGroup.MISC)
                     .dimensions(0.25f, 0.25f).build(RegistryKey.of(RegistryKeys.ENTITY_TYPE,
                             Identifier.of(LarsonsMod.MOD_ID, "dice_projectile"))));
+
+    public static final EntityType<LavaLampEntity> LAVA_LAMP = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(LarsonsMod.MOD_ID, "lava_lamp"),
+            EntityType.Builder.create(LavaLampEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.7f, 1.1f).build(RegistryKey.of(RegistryKeys.ENTITY_TYPE,
+                            Identifier.of(LarsonsMod.MOD_ID, "lava_lamp"))));
 
     public static final EntityType<SpecialEggEntity> SPECIAL_EGG_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(LarsonsMod.MOD_ID, "special_egg_projectile"),

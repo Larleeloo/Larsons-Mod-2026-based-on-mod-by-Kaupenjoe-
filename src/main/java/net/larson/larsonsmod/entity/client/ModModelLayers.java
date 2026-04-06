@@ -7,4 +7,7 @@ import net.minecraft.util.Identifier;
 public class ModModelLayers {
     public static final EntityModelLayer PORCUPINE =
             new EntityModelLayer(Identifier.of(LarsonsMod.MOD_ID, "porcupine"), "main");
+
+    public static final EntityModelLayer LAVA_LAMP =
+            new EntityModelLayer(Identifier.of(LarsonsMod.MOD_ID, "lava_lamp"), "main");
 }
