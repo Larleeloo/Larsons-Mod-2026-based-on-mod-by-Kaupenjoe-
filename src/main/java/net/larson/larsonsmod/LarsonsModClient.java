@@ -9,6 +9,8 @@ import net.larson.larsonsmod.block.entity.ModBlockEntities;
 import net.larson.larsonsmod.block.entity.renderer.GemPolishingBlockEntityRenderer;
 import net.larson.larsonsmod.entity.ModBoats;
 import net.larson.larsonsmod.entity.ModEntities;
+import net.larson.larsonsmod.entity.client.LavaLampModel;
+import net.larson.larsonsmod.entity.client.LavaLampRenderer;
 import net.larson.larsonsmod.entity.client.ModModelLayers;
 import net.larson.larsonsmod.entity.client.PorcupineModel;
 import net.larson.larsonsmod.entity.client.PorcupineRenderer;
@@ -28,6 +30,9 @@ public class LarsonsModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.LAVA_LAMP, LavaLampRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LAVA_LAMP, LavaLampModel::getTexturedModelData);
 
         HandledScreens.register(ModScreenHandlers.GEM_POLISHING_SCREEN_HANDLER, GemPolishingScreen::new);
 

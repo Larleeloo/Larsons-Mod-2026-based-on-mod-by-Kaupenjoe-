@@ -46,6 +46,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.BAR_BRAWL_MUSIC_DISC);
                         entries.add(ModItems.PORCUPINE_SPAWN_EGG);
+                        entries.add(ModItems.LAVA_LAMP_SPAWN_EGG);
 
                         entries.add(ModItems.CHESTNUT_SIGN);
                         entries.add(ModItems.HANGING_CHESTNUT_SIGN);
