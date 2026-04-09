@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10.1'
+	id 'fabric-loom' version '1.14'
 	id 'maven-publish'
 }
 
@@ -60,20 +60,21 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:20.0.811"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:20.0.811"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:21.11.814"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:21.11.814"
 
-	modApi("me.shedaniel.cloth:cloth-config-fabric:19.0.147") {
+	modApi("me.shedaniel.cloth:cloth-config-fabric:21.11.153") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
-	modApi "dev.architectury:architectury-fabric:17.0.8"
+	modApi "dev.architectury:architectury-fabric:19.0.1"
 
-	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:15.0.0"
-	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:15.0.0"
+	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:16.0.0"
+	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:16.0.0"
 
-	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.7-6.0.0.2'
+	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.11-21.11.0.0'
 
+	// NOTE: Custom Portal API may not have a 1.21.11 build yet — keeping 1.21.8 version for now
 	modImplementation('net.kyrptonaught:customportalapi:0.0.1-beta68-1.21.8') {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
