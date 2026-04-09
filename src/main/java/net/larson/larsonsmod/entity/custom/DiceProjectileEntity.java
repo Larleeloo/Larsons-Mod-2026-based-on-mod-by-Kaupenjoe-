@@ -28,9 +28,9 @@ public class DiceProjectileEntity extends ThrownItemEntity {
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        if(!this.getWorld().isClient()) {
-            this.getWorld().sendEntityStatus(this, (byte)3);
-            this.getWorld().setBlockState(getBlockPos(), ((DiceBlock) ModBlocks.DICE_BLOCK).getRandomBlockState(), 3);
+        if(!this.getEntityWorld().isClient()) {
+            this.getEntityWorld().sendEntityStatus(this, (byte)3);
+            this.getEntityWorld().setBlockState(getBlockPos(), ((DiceBlock) ModBlocks.DICE_BLOCK).getRandomBlockState(), 3);
         }
 
         this.discard();

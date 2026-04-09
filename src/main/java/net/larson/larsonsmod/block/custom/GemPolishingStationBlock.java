@@ -61,7 +61,7 @@ public class GemPolishingStationBlock extends BlockWithEntity implements BlockEn
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (!world.isClient) {
+        if (!world.isClient()) {
             NamedScreenHandlerFactory screenHandlerFactory = ((GemPolishingStationBlockEntity) world.getBlockEntity(pos));
 
             if (screenHandlerFactory != null) {

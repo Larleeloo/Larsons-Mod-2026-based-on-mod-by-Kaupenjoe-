@@ -22,7 +22,7 @@ public class DiceItem extends Item {
         world.playSound(null, user.getX(), user.getY(), user.getZ(),
                 SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
 
-        if (!world.isClient) {
+        if (!world.isClient()) {
             DiceProjectileEntity diceProjectileEntity = new DiceProjectileEntity(user, world);
             diceProjectileEntity.setItem(itemStack);
             diceProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);

@@ -72,11 +72,11 @@ public class PorcupineEntity extends AnimalEntity {
     @Override
     public void tick() {
         super.tick();
-        if(this.getWorld().isClient()) {
+        if(this.getEntityWorld().isClient()) {
             setupAnimationStates();
         }
 
-        if(!this.getWorld().isClient()) {
+        if(!this.getEntityWorld().isClient()) {
             destroyNearbyTreeBlocks();
         }
     }
@@ -89,10 +89,10 @@ public class PorcupineEntity extends AnimalEntity {
             for (int y = -1; y <= 2; y++) {
                 for (int z = -radius; z <= radius; z++) {
                     BlockPos targetPos = entityPos.add(x, y, z);
-                    BlockState state = this.getWorld().getBlockState(targetPos);
+                    BlockState state = this.getEntityWorld().getBlockState(targetPos);
 
                     if (state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES)) {
-                        this.getWorld().breakBlock(targetPos, true);
+                        this.getEntityWorld().breakBlock(targetPos, true);
                     }
                 }
             }

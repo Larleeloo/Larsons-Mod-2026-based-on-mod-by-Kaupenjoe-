@@ -23,7 +23,7 @@ public class SpecialEggItem extends Item {
                 SoundEvents.ENTITY_EGG_THROW, SoundCategory.PLAYERS, 0.5f,
                 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
 
-        if (!world.isClient) {
+        if (!world.isClient()) {
             SpecialEggEntity egg = new SpecialEggEntity(user, world);
             egg.setItem(itemStack);
             egg.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);
