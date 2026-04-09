@@ -30,6 +30,7 @@
         "ridges": "minecraft:overworld/noise_router/ridges",
         "temperature": "minecraft:overworld/noise_router/temperature",
         "vegetation": "minecraft:overworld/noise_router/vegetation",
+        "preliminary_surface_level": 0,
         "vein_gap": "minecraft:overworld/noise_router/vein_gap",
         "vein_ridged": "minecraft:overworld/noise_router/vein_ridged",
         "vein_toggle": "minecraft:overworld/noise_router/vein_toggle"
