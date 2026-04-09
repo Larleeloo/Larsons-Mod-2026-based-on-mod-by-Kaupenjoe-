@@ -2,15 +2,11 @@ package net.larson.larsonsmod.world.biome;
 
 import net.larson.larsonsmod.LarsonsMod;
 import net.larson.larsonsmod.entity.ModEntities;
-import net.larson.larsonsmod.sound.ModSounds;
-import net.minecraft.sound.MusicType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -69,8 +65,8 @@ public class ModBiomes {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, 10, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 4));
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
-        DefaultBiomeFeatures.addBats(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 0, 100, false);
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -94,13 +90,9 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0xff3366)
-                        .underwaterFogColor(0xcc1144)
-                        .skyColor(0x1a0033)
                         .grassColor(0x000000)
                         .foliageColor(0xff3399)
-                        .fogColor(0x1a0044)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                        .build())
                 .build();
     }
 
@@ -110,8 +102,8 @@ public class ModBiomes {
     public static Biome neonFloatingIslands(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, 5, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 1, 2));
-        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
-        DefaultBiomeFeatures.addBats(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 0, 100, false);
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -133,13 +125,9 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x00ccff)
-                        .underwaterFogColor(0x0088cc)
-                        .skyColor(0x000022)
                         .grassColor(0x000000)
                         .foliageColor(0x00ffff)
-                        .fogColor(0x000033)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                        .build())
                 .build();
     }
 
@@ -151,8 +139,8 @@ public class ModBiomes {
         spawnBuilder.spawn(SpawnGroup.CREATURE, 10, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 3, 6));
         spawnBuilder.spawn(SpawnGroup.CREATURE, 8, new SpawnSettings.SpawnEntry(EntityType.WOLF, 2, 4));
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
-        DefaultBiomeFeatures.addBats(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 0, 100, false);
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -182,13 +170,9 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x9933ff)
-                        .underwaterFogColor(0x6600cc)
-                        .skyColor(0x0d001a)
                         .grassColor(0x000000)
                         .foliageColor(0xff00cc)
-                        .fogColor(0x110022)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                        .build())
                 .build();
     }
 
@@ -199,8 +183,8 @@ public class ModBiomes {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, 8, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 3));
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
-        DefaultBiomeFeatures.addBats(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 0, 100, false);
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -224,13 +208,9 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x33ff99)
-                        .underwaterFogColor(0x00cc66)
-                        .skyColor(0x001a0d)
                         .grassColor(0x000000)
                         .foliageColor(0x33ffcc)
-                        .fogColor(0x002211)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                        .build())
                 .build();
     }
 
@@ -239,8 +219,8 @@ public class ModBiomes {
     // ========================
     public static Biome neonCrystalWastes(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
-        DefaultBiomeFeatures.addBats(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 0, 100, false);
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -260,13 +240,9 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x8899aa)
-                        .underwaterFogColor(0x556677)
-                        .skyColor(0x0a0a14)
                         .grassColor(0x000000)
                         .foliageColor(0xaabbdd)
-                        .fogColor(0x0d0d1a)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                        .build())
                 .build();
     }
 
@@ -277,8 +253,8 @@ public class ModBiomes {
         spawnBuilder.spawn(SpawnGroup.CREATURE, 10, new SpawnSettings.SpawnEntry(EntityType.WOLF, 4, 4));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
-        DefaultBiomeFeatures.addBats(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 0, 100, false);
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -311,13 +287,9 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0xe82e3b)
-                        .underwaterFogColor(0xbf1b26)
-                        .skyColor(0x30c918)
                         .grassColor(0x7f03fc)
                         .foliageColor(0xd203fc)
-                        .fogColor(0x22a1e6)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                        .build())
                 .build();
     }
 }

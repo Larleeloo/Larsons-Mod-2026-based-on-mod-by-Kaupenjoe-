@@ -4,15 +4,14 @@ import net.larson.larsonsmod.LarsonsMod;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
+import net.minecraft.world.attribute.EnvironmentAttributeMap;
 import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
-
-import java.util.Optional;
-import java.util.OptionalLong;
 
 public class ModDimensions {
     public static final RegistryKey<DimensionOptions> KAUPENDIM_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
@@ -32,40 +31,36 @@ public class ModDimensions {
 
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(KAUPEN_DIM_TYPE, new DimensionType(
-                OptionalLong.of(12000), // fixedTime
+                true, // hasFixedTime (was OptionalLong.of(12000))
                 false, // hasSkylight
                 false, // hasCeiling
-                false, // ultraWarm
-                true, // natural
                 1.0, // coordinateScale
-                true, // bedWorks
-                false, // piglinSafe
                 0, // minY
                 256, // height
                 256, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                Identifier.ofVanilla("overworld"), // effectsLocation
                 1.0f, // ambientLight
-                Optional.empty(), // cloudHeight
-                new DimensionType.MonsterSettings(UniformIntProvider.create(0, 0), 0)));
+                new DimensionType.MonsterSettings(UniformIntProvider.create(0, 0), 0),
+                DimensionType.Skybox.OVERWORLD, // skybox
+                DimensionType.CardinalLightType.DEFAULT, // cardinalLightType
+                EnvironmentAttributeMap.EMPTY, // attributes
+                RegistryEntryList.empty())); // timelines
 
         // Neon Dimension - perpetual twilight, skylight, tall world for floating islands
         context.register(NEON_DIM_TYPE, new DimensionType(
-                OptionalLong.of(18000), // fixedTime - perpetual twilight/night for neon glow
+                true, // hasFixedTime (was OptionalLong.of(18000))
                 true, // hasSkylight
                 false, // hasCeiling
-                false, // ultraWarm
-                true, // natural
                 1.0, // coordinateScale
-                true, // bedWorks
-                false, // piglinSafe
                 -64, // minY - deeper underground
                 384, // height - tall world for floating islands
                 384, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                Identifier.ofVanilla("overworld"), // effectsLocation
                 0.0f, // ambientLight - completely dark so neon blocks glow brightly
-                Optional.empty(), // cloudHeight
-                new DimensionType.MonsterSettings(UniformIntProvider.create(0, 7), 0)));
+                new DimensionType.MonsterSettings(UniformIntProvider.create(0, 7), 0),
+                DimensionType.Skybox.OVERWORLD, // skybox
+                DimensionType.CardinalLightType.DEFAULT, // cardinalLightType
+                EnvironmentAttributeMap.EMPTY, // attributes
+                RegistryEntryList.empty())); // timelines
     }
 }

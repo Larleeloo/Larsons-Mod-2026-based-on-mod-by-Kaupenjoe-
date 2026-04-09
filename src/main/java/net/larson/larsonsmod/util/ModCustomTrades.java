@@ -29,12 +29,12 @@ public class ModCustomTrades {
     public static void registerCustomTrades() {
         TradeOfferHelper.registerVillagerOffers(FARMER_KEY, 1,
                 factories -> {
-                    factories.add((registryLookup, random) -> new TradeOffer(
+                    factories.add((world, entity, random) -> new TradeOffer(
                             new TradedItem(Items.EMERALD, 2),
                             new ItemStack(ModItems.TOMATO, 7),
                             6, 5, 0.05f));
 
-                    factories.add((registryLookup, random) -> new TradeOffer(
+                    factories.add((world, entity, random) -> new TradeOffer(
                             new TradedItem(Items.EMERALD, 7),
                             new ItemStack(ModItems.TOMATO_SEEDS, 1),
                             2, 7, 0.075f));
@@ -42,7 +42,7 @@ public class ModCustomTrades {
 
         TradeOfferHelper.registerVillagerOffers(FARMER_KEY, 2,
                 factories -> {
-                    factories.add((registryLookup, random) -> new TradeOffer(
+                    factories.add((world, entity, random) -> new TradeOffer(
                             new TradedItem(Items.GOLD_INGOT, 16),
                             Optional.of(new TradedItem(Items.DIAMOND, 12)),
                             new ItemStack(ModItems.CORN_SEEDS, 1),
@@ -51,8 +51,8 @@ public class ModCustomTrades {
 
         TradeOfferHelper.registerVillagerOffers(LIBRARIAN_KEY, 1,
                 factories -> {
-                    factories.add((registryLookup, random) -> {
-                        RegistryEntry<Enchantment> piercing = registryLookup
+                    factories.add((world, entity, random) -> {
+                        RegistryEntry<Enchantment> piercing = world.getRegistryManager()
                                 .getOrThrow(RegistryKeys.ENCHANTMENT)
                                 .getOrThrow(Enchantments.PIERCING);
                         ItemStack enchantedBook = new ItemStack(Items.ENCHANTED_BOOK);
@@ -66,7 +66,7 @@ public class ModCustomTrades {
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.SOUND_MASTER_KEY, 1,
                 factories -> {
-                    factories.add((registryLookup, random) -> new TradeOffer(
+                    factories.add((world, entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.CORN, 32),
                             new ItemStack(ModBlocks.SOUND_BLOCK, 2),
                             6, 12, 0.075f));
@@ -74,7 +74,7 @@ public class ModCustomTrades {
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.SOUND_MASTER_KEY, 2,
                 factories -> {
-                    factories.add((registryLookup, random) -> new TradeOffer(
+                    factories.add((world, entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.RUBY_SWORD, 1),
                             new ItemStack(ModItems.RUBY_HELMET, 1),
                             2, 12, 0.075f));
@@ -83,12 +83,12 @@ public class ModCustomTrades {
 
         TradeOfferHelper.registerWanderingTraderOffers(builder -> {
             builder.pool(Identifier.of(LarsonsMod.MOD_ID, "wandering_trader_pool_1"), 1,
-                    (registryLookup, random) -> new TradeOffer(
+                    (world, entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.RAW_RUBY, 16),
                             new ItemStack(ModItems.METAL_DETECTOR, 1),
                             1, 12, 0.075f));
             builder.pool(Identifier.of(LarsonsMod.MOD_ID, "wandering_trader_pool_2"), 1,
-                    (registryLookup, random) -> new TradeOffer(
+                    (world, entity, random) -> new TradeOffer(
                             new TradedItem(ModItems.RAW_RUBY, 1),
                             new ItemStack(ModItems.COAL_BRIQUETTE, 1),
                             1, 12, 0.075f));
