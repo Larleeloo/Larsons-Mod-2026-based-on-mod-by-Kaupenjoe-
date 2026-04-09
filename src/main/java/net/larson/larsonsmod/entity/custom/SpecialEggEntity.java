@@ -53,8 +53,8 @@ public class SpecialEggEntity extends ThrownItemEntity {
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
 
-        if (!this.getWorld().isClient() && this.getWorld() instanceof ServerWorld serverWorld) {
-            this.getWorld().sendEntityStatus(this, (byte) 3);
+        if (!this.getEntityWorld().isClient() && this.getEntityWorld() instanceof ServerWorld serverWorld) {
+            this.getEntityWorld().sendEntityStatus(this, (byte) 3);
 
             EntityType<?> chosenType = getRandomMobType();
             if (chosenType != null) {
@@ -169,7 +169,7 @@ public class SpecialEggEntity extends ThrownItemEntity {
         int height = radius * 2 + 2;
 
         BlockPos entityPos = entity.getBlockPos();
-        World world = entity.getWorld();
+        World world = entity.getEntityWorld();
 
         for (int x = -radius; x <= radius; x++) {
             for (int y = -1; y <= height; y++) {

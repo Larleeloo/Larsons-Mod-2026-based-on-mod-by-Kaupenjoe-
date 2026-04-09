@@ -74,11 +74,11 @@ public class ModItems {
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
             new Item.Settings().maxCount(1).jukeboxPlayable(ModSounds.BAR_BRAWL_KEY));
 
-    // Spawn eggs - color params removed in 1.21.5+
+    // Spawn eggs - entity type now set via Item.Settings in 1.21.11+
     public static final Item PORCUPINE_SPAWN_EGG = registerItem("porcupine_spawn_egg",
-            settings -> new SpawnEggItem(ModEntities.PORCUPINE, settings), new Item.Settings());
+            SpawnEggItem::new, new Item.Settings());
     public static final Item LAVA_LAMP_SPAWN_EGG = registerItem("lava_lamp_spawn_egg",
-            settings -> new SpawnEggItem(ModEntities.LAVA_LAMP, settings), new Item.Settings());
+            SpawnEggItem::new, new Item.Settings());
 
     // Signs
     public static final Item CHESTNUT_SIGN = registerItem("chestnut_sign",

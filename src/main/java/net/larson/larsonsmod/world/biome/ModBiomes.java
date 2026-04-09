@@ -69,7 +69,8 @@ public class ModBiomes {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, 10, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 4));
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
+        DefaultBiomeFeatures.addBats(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -93,7 +94,7 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0xff3366)
-                        .waterFogColor(0xcc1144)
+                        .underwaterFogColor(0xcc1144)
                         .skyColor(0x1a0033)
                         .grassColor(0x000000)
                         .foliageColor(0xff3399)
@@ -109,7 +110,8 @@ public class ModBiomes {
     public static Biome neonFloatingIslands(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, 5, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 1, 2));
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
+        DefaultBiomeFeatures.addBats(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -131,7 +133,7 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x00ccff)
-                        .waterFogColor(0x0088cc)
+                        .underwaterFogColor(0x0088cc)
                         .skyColor(0x000022)
                         .grassColor(0x000000)
                         .foliageColor(0x00ffff)
@@ -149,7 +151,8 @@ public class ModBiomes {
         spawnBuilder.spawn(SpawnGroup.CREATURE, 10, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 3, 6));
         spawnBuilder.spawn(SpawnGroup.CREATURE, 8, new SpawnSettings.SpawnEntry(EntityType.WOLF, 2, 4));
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
+        DefaultBiomeFeatures.addBats(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -179,7 +182,7 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x9933ff)
-                        .waterFogColor(0x6600cc)
+                        .underwaterFogColor(0x6600cc)
                         .skyColor(0x0d001a)
                         .grassColor(0x000000)
                         .foliageColor(0xff00cc)
@@ -196,7 +199,8 @@ public class ModBiomes {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, 8, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 3));
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
+        DefaultBiomeFeatures.addBats(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -220,7 +224,7 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x33ff99)
-                        .waterFogColor(0x00cc66)
+                        .underwaterFogColor(0x00cc66)
                         .skyColor(0x001a0d)
                         .grassColor(0x000000)
                         .foliageColor(0x33ffcc)
@@ -235,7 +239,8 @@ public class ModBiomes {
     // ========================
     public static Biome neonCrystalWastes(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
+        DefaultBiomeFeatures.addBats(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -255,7 +260,7 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0x8899aa)
-                        .waterFogColor(0x556677)
+                        .underwaterFogColor(0x556677)
                         .skyColor(0x0a0a14)
                         .grassColor(0x000000)
                         .foliageColor(0xaabbdd)
@@ -272,7 +277,8 @@ public class ModBiomes {
         spawnBuilder.spawn(SpawnGroup.CREATURE, 10, new SpawnSettings.SpawnEntry(EntityType.WOLF, 4, 4));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 95, 5, 100, false);
+        DefaultBiomeFeatures.addBats(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
@@ -305,7 +311,7 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0xe82e3b)
-                        .waterFogColor(0xbf1b26)
+                        .underwaterFogColor(0xbf1b26)
                         .skyColor(0x30c918)
                         .grassColor(0x7f03fc)
                         .foliageColor(0xd203fc)

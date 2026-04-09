@@ -65,7 +65,7 @@ public class PorcupineAttackGoal extends MeleeAttackGoal {
     protected void performAttack(LivingEntity pEnemy) {
         this.resetAttackCooldown();
         this.mob.swingHand(Hand.MAIN_HAND);
-        this.mob.tryAttack((ServerWorld) this.mob.getWorld(), pEnemy);
+        this.mob.tryAttack((ServerWorld) this.mob.getEntityWorld(), pEnemy);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class LavaLampEntity extends PathAwareEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.getWorld().isClient()) {
+        if (this.getEntityWorld().isClient()) {
             this.idleAnimationState.startIfNotRunning(this.age);
         }
     }

@@ -37,7 +37,7 @@ public class SpecialEggLootHandler {
     }
 
     private static void onEntityDeath(LivingEntity entity, DamageSource damageSource) {
-        if (entity.getWorld().isClient()) return;
+        if (entity.getEntityWorld().isClient()) return;
 
         EntityAttributeInstance scaleAttr = entity.getAttributeInstance(EntityAttributes.SCALE);
         if (scaleAttr == null) return;
@@ -46,7 +46,7 @@ public class SpecialEggLootHandler {
         // Only apply bonus loot for entities with non-default scale (spawned by Easter Egg)
         if (Math.abs(scale - 1.0) < 0.01) return;
 
-        ServerWorld serverWorld = (ServerWorld) entity.getWorld();
+        ServerWorld serverWorld = (ServerWorld) entity.getEntityWorld();
         float multiplier = (float) scale;
         int baseDropCount = Math.max(1, Math.round(multiplier));
 

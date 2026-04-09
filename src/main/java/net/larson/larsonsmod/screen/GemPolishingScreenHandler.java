@@ -18,7 +18,7 @@ public class GemPolishingScreenHandler extends ScreenHandler {
     public final GemPolishingStationBlockEntity blockEntity;
 
     public GemPolishingScreenHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos),
+        this(syncId, inventory, inventory.player.getEntityWorld().getBlockEntity(pos),
                 new ArrayPropertyDelegate(2));
     }
 
