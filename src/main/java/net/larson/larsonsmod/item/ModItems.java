@@ -74,11 +74,11 @@ public class ModItems {
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
             new Item.Settings().maxCount(1).jukeboxPlayable(ModSounds.BAR_BRAWL_KEY));
 
-    // Spawn eggs - entity type now set via Item.Settings in 1.21.11+
+    // Spawn eggs - entity type set via Item.Settings.spawnEgg() in 1.21.11+
     public static final Item PORCUPINE_SPAWN_EGG = registerItem("porcupine_spawn_egg",
-            SpawnEggItem::new, new Item.Settings());
+            SpawnEggItem::new, new Item.Settings().spawnEgg(ModEntities.PORCUPINE));
     public static final Item LAVA_LAMP_SPAWN_EGG = registerItem("lava_lamp_spawn_egg",
-            SpawnEggItem::new, new Item.Settings());
+            SpawnEggItem::new, new Item.Settings().spawnEgg(ModEntities.LAVA_LAMP));
 
     // Signs
     public static final Item CHESTNUT_SIGN = registerItem("chestnut_sign",
