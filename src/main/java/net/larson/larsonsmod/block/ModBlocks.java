@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -233,7 +232,7 @@ public class ModBlocks {
     private static Item registerBlockItem(String name, Block block) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(LarsonsMod.MOD_ID, name));
         return Registry.register(Registries.ITEM, itemKey,
-                new BlockItem(block, new Item.Settings().registryKey(itemKey)));
+                new ModBlockItem(block, new Item.Settings().registryKey(itemKey)));
     }
 
     public static void registerModBlocks() {
