@@ -24,8 +24,6 @@ import net.larson.larsonsmod.villager.ModVillagers;
 import net.larson.larsonsmod.world.gen.ModWorldGeneration;
 import net.larson.larsonsmod.world.tree.ModFoliagePlacerTypes;
 import net.larson.larsonsmod.world.tree.ModTrunkPlacerTypes;
-import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,19 +98,7 @@ public class LarsonsMod implements ModInitializer {
 		ModBoats.registerBoats();
 		ModWorldGeneration.generateModWorldGen();
 
-		CustomPortalBuilder.beginPortal()
-				.frameBlock(ModBlocks.RUBY_BLOCK)
-				.lightWithItem(ModItems.CORN)
-				.destDimID(Identifier.of(LarsonsMod.MOD_ID, "kaupendim"))
-				.tintColor(0xc76efa)
-				.registerPortal();
-
-		// Neon Dimension portal - built with neon planks, lit with ruby staff
-		CustomPortalBuilder.beginPortal()
-				.frameBlock(ModBlocks.NEON_MAGENTA_PLANKS)
-				.lightWithItem(ModItems.RUBY_STAFF)
-				.destDimID(Identifier.of(LarsonsMod.MOD_ID, "neondim"))
-				.tintColor(0xff00ff)
-				.registerPortal();
+		// TODO: Custom Portal API removed (incompatible with 1.21.11).
+		// Portal registration for kaupendim and neondim needs an alternative solution.
 	}
 }
