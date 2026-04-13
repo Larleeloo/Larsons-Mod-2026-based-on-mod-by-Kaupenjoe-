@@ -121,5 +121,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.DIRT)
                 .add(ModBlocks.NEON_DIRT)
                 .add(ModBlocks.NEON_GRASS_BLOCK);
+
+        // Neon Saplings
+        valueLookupBuilder(BlockTags.SAPLINGS)
+                .add(ModBlocks.NEON_RED_SAPLING)
+                .add(ModBlocks.NEON_GREEN_SAPLING)
+                .add(ModBlocks.NEON_BLUE_SAPLING)
+                .add(ModBlocks.NEON_CYAN_SAPLING)
+                .add(ModBlocks.NEON_MAGENTA_SAPLING)
+                .add(ModBlocks.NEON_YELLOW_SAPLING)
+                .add(ModBlocks.NEON_GRAY_SAPLING);
     }
 }

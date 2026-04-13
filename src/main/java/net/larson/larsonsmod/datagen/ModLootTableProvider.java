@@ -96,14 +96,23 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.NEON_YELLOW_PLANKS);
         addDrop(ModBlocks.NEON_GRAY_PLANKS);
 
-        // Neon Leaves (drop themselves)
-        addDrop(ModBlocks.NEON_RED_LEAVES);
-        addDrop(ModBlocks.NEON_GREEN_LEAVES);
-        addDrop(ModBlocks.NEON_BLUE_LEAVES);
-        addDrop(ModBlocks.NEON_CYAN_LEAVES);
-        addDrop(ModBlocks.NEON_MAGENTA_LEAVES);
-        addDrop(ModBlocks.NEON_YELLOW_LEAVES);
-        addDrop(ModBlocks.NEON_GRAY_LEAVES);
+        // Neon Leaves (chance to drop matching sapling)
+        addDrop(ModBlocks.NEON_RED_LEAVES, leavesDrops(ModBlocks.NEON_RED_LEAVES, ModBlocks.NEON_RED_SAPLING, 0.05f));
+        addDrop(ModBlocks.NEON_GREEN_LEAVES, leavesDrops(ModBlocks.NEON_GREEN_LEAVES, ModBlocks.NEON_GREEN_SAPLING, 0.05f));
+        addDrop(ModBlocks.NEON_BLUE_LEAVES, leavesDrops(ModBlocks.NEON_BLUE_LEAVES, ModBlocks.NEON_BLUE_SAPLING, 0.05f));
+        addDrop(ModBlocks.NEON_CYAN_LEAVES, leavesDrops(ModBlocks.NEON_CYAN_LEAVES, ModBlocks.NEON_CYAN_SAPLING, 0.05f));
+        addDrop(ModBlocks.NEON_MAGENTA_LEAVES, leavesDrops(ModBlocks.NEON_MAGENTA_LEAVES, ModBlocks.NEON_MAGENTA_SAPLING, 0.05f));
+        addDrop(ModBlocks.NEON_YELLOW_LEAVES, leavesDrops(ModBlocks.NEON_YELLOW_LEAVES, ModBlocks.NEON_YELLOW_SAPLING, 0.05f));
+        addDrop(ModBlocks.NEON_GRAY_LEAVES, leavesDrops(ModBlocks.NEON_GRAY_LEAVES, ModBlocks.NEON_GRAY_SAPLING, 0.05f));
+
+        // Neon Saplings (drop themselves)
+        addDrop(ModBlocks.NEON_RED_SAPLING);
+        addDrop(ModBlocks.NEON_GREEN_SAPLING);
+        addDrop(ModBlocks.NEON_BLUE_SAPLING);
+        addDrop(ModBlocks.NEON_CYAN_SAPLING);
+        addDrop(ModBlocks.NEON_MAGENTA_SAPLING);
+        addDrop(ModBlocks.NEON_YELLOW_SAPLING);
+        addDrop(ModBlocks.NEON_GRAY_SAPLING);
 
         // Neon Dimension Terrain Blocks
         addDrop(ModBlocks.NEON_STONE);
