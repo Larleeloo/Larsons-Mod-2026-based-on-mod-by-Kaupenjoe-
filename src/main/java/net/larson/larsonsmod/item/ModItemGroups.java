@@ -113,6 +113,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NEON_YELLOW_LEAVES);
                         entries.add(ModBlocks.NEON_GRAY_LEAVES);
 
+                        entries.add(ModBlocks.NEON_RED_SAPLING);
+                        entries.add(ModBlocks.NEON_GREEN_SAPLING);
+                        entries.add(ModBlocks.NEON_BLUE_SAPLING);
+                        entries.add(ModBlocks.NEON_CYAN_SAPLING);
+                        entries.add(ModBlocks.NEON_MAGENTA_SAPLING);
+                        entries.add(ModBlocks.NEON_YELLOW_SAPLING);
+                        entries.add(ModBlocks.NEON_GRAY_SAPLING);
+
                         // Neon Dimension Blocks
                         entries.add(ModBlocks.NEON_STONE);
                         entries.add(ModBlocks.NEON_DIRT);

@@ -102,6 +102,14 @@
   "block.larsonsmod.neon_yellow_leaves": "Neon Yellow Leaves",
   "block.larsonsmod.neon_gray_leaves": "Neon Gray Leaves",
 
+  "block.larsonsmod.neon_red_sapling": "Neon Red Sapling",
+  "block.larsonsmod.neon_green_sapling": "Neon Green Sapling",
+  "block.larsonsmod.neon_blue_sapling": "Neon Blue Sapling",
+  "block.larsonsmod.neon_cyan_sapling": "Neon Cyan Sapling",
+  "block.larsonsmod.neon_magenta_sapling": "Neon Magenta Sapling",
+  "block.larsonsmod.neon_yellow_sapling": "Neon Yellow Sapling",
+  "block.larsonsmod.neon_gray_sapling": "Neon Gray Sapling",
+
   "block.larsonsmod.neon_stone": "Neon Stone",
   "block.larsonsmod.neon_dirt": "Neon Dirt",
   "block.larsonsmod.neon_grass_block": "Neon Grass Block",

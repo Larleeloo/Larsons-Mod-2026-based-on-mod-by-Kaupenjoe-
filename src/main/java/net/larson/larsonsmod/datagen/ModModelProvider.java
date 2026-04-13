@@ -78,6 +78,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GRAY_LEAVES);
 
+        // Neon Saplings (cross-shaped plant models)
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_RED_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_GREEN_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_BLUE_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_CYAN_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_MAGENTA_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_YELLOW_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_GRAY_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
         // Neon Dimension Terrain Blocks
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_STONE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_DIRT);
