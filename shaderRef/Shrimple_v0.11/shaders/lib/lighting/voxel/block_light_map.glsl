@@ -654,6 +654,68 @@ uint GetSceneLightType(const in uint blockId) {
         }
     #endif
 
+    // Larson's Mod - Neon Blocks
+    switch (blockId) {
+        case BLOCK_NEON_RED_WOOD:
+            lightType = LIGHT_NEON_RED_WOOD;
+            break;
+        case BLOCK_NEON_GREEN_WOOD:
+            lightType = LIGHT_NEON_GREEN_WOOD;
+            break;
+        case BLOCK_NEON_BLUE_WOOD:
+            lightType = LIGHT_NEON_BLUE_WOOD;
+            break;
+        case BLOCK_NEON_CYAN_WOOD:
+            lightType = LIGHT_NEON_CYAN_WOOD;
+            break;
+        case BLOCK_NEON_MAGENTA_WOOD:
+            lightType = LIGHT_NEON_MAGENTA_WOOD;
+            break;
+        case BLOCK_NEON_YELLOW_WOOD:
+            lightType = LIGHT_NEON_YELLOW_WOOD;
+            break;
+        case BLOCK_NEON_GRAY_WOOD:
+            lightType = LIGHT_NEON_GRAY_WOOD;
+            break;
+        case BLOCK_NEON_RED_PLANKS:
+        case BLOCK_NEON_RED_LEAVES:
+            lightType = LIGHT_NEON_RED_10;
+            break;
+        case BLOCK_NEON_GREEN_PLANKS:
+        case BLOCK_NEON_GREEN_LEAVES:
+            lightType = LIGHT_NEON_GREEN_10;
+            break;
+        case BLOCK_NEON_BLUE_PLANKS:
+        case BLOCK_NEON_BLUE_LEAVES:
+            lightType = LIGHT_NEON_BLUE_10;
+            break;
+        case BLOCK_NEON_CYAN_PLANKS:
+        case BLOCK_NEON_CYAN_LEAVES:
+            lightType = LIGHT_NEON_CYAN_10;
+            break;
+        case BLOCK_NEON_MAGENTA_PLANKS:
+        case BLOCK_NEON_MAGENTA_LEAVES:
+            lightType = LIGHT_NEON_MAGENTA_10;
+            break;
+        case BLOCK_NEON_YELLOW_PLANKS:
+        case BLOCK_NEON_YELLOW_LEAVES:
+            lightType = LIGHT_NEON_YELLOW_10;
+            break;
+        case BLOCK_NEON_GRAY_PLANKS:
+        case BLOCK_NEON_GRAY_LEAVES:
+            lightType = LIGHT_NEON_GRAY_10;
+            break;
+        case BLOCK_NEON_STONE:
+            lightType = LIGHT_NEON_STONE;
+            break;
+        case BLOCK_NEON_DIRT:
+            lightType = LIGHT_NEON_DIRT;
+            break;
+        case BLOCK_NEON_GRASS_BLOCK:
+            lightType = LIGHT_NEON_GRASS;
+            break;
+    }
+
     #if DYN_LIGHT_REDSTONE != DYN_LIGHT_BLOCK_NONE
         switch (blockId) {
             case BLOCK_COMPARATOR_LIT:
