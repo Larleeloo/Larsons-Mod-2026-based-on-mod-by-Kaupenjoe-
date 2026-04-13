@@ -55,5 +55,9 @@ void GetBlockWavingRangeAttachment(const in uint blockId, out float range, out u
             break;
     }
 
-    if (blockId == BLOCK_LEAVES || blockId == BLOCK_LEAVES_CHERRY) range = 0.06;
+    if (blockId == BLOCK_LEAVES || blockId == BLOCK_LEAVES_CHERRY
+        || blockId == BLOCK_NEON_RED_LEAVES || blockId == BLOCK_NEON_GREEN_LEAVES
+        || blockId == BLOCK_NEON_BLUE_LEAVES || blockId == BLOCK_NEON_CYAN_LEAVES
+        || blockId == BLOCK_NEON_MAGENTA_LEAVES || blockId == BLOCK_NEON_YELLOW_LEAVES
+        || blockId == BLOCK_NEON_GRAY_LEAVES) range = 0.06;
 }
