@@ -208,4 +208,27 @@
 #define LIGHT_YELLOW_CANDLES_3 212u
 #define LIGHT_YELLOW_CANDLES_4 213u
 
+// Larson's Mod - Neon Wood (range 12)
+#define LIGHT_NEON_RED_WOOD 220u
+#define LIGHT_NEON_GREEN_WOOD 221u
+#define LIGHT_NEON_BLUE_WOOD 222u
+#define LIGHT_NEON_CYAN_WOOD 223u
+#define LIGHT_NEON_MAGENTA_WOOD 224u
+#define LIGHT_NEON_YELLOW_WOOD 225u
+#define LIGHT_NEON_GRAY_WOOD 226u
+
+// Larson's Mod - Neon Planks & Leaves (range 10)
+#define LIGHT_NEON_RED_10 227u
+#define LIGHT_NEON_GREEN_10 228u
+#define LIGHT_NEON_BLUE_10 229u
+#define LIGHT_NEON_CYAN_10 230u
+#define LIGHT_NEON_MAGENTA_10 231u
+#define LIGHT_NEON_YELLOW_10 232u
+#define LIGHT_NEON_GRAY_10 233u
+
+// Larson's Mod - Neon Terrain
+#define LIGHT_NEON_STONE 234u
+#define LIGHT_NEON_DIRT 235u
+#define LIGHT_NEON_GRASS 236u
+
 #define LIGHT_IGNORED 255u

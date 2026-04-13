@@ -207,5 +207,67 @@ uint GetItemLightId(const in int itemId) {
             break;
     }
 
+    // Larson's Mod - Neon Items
+    switch (itemId) {
+        case ITEM_NEON_RED_WOOD:
+            lightId = LIGHT_NEON_RED_WOOD;
+            break;
+        case ITEM_NEON_GREEN_WOOD:
+            lightId = LIGHT_NEON_GREEN_WOOD;
+            break;
+        case ITEM_NEON_BLUE_WOOD:
+            lightId = LIGHT_NEON_BLUE_WOOD;
+            break;
+        case ITEM_NEON_CYAN_WOOD:
+            lightId = LIGHT_NEON_CYAN_WOOD;
+            break;
+        case ITEM_NEON_MAGENTA_WOOD:
+            lightId = LIGHT_NEON_MAGENTA_WOOD;
+            break;
+        case ITEM_NEON_YELLOW_WOOD:
+            lightId = LIGHT_NEON_YELLOW_WOOD;
+            break;
+        case ITEM_NEON_GRAY_WOOD:
+            lightId = LIGHT_NEON_GRAY_WOOD;
+            break;
+        case ITEM_NEON_RED_PLANKS:
+        case ITEM_NEON_RED_LEAVES:
+            lightId = LIGHT_NEON_RED_10;
+            break;
+        case ITEM_NEON_GREEN_PLANKS:
+        case ITEM_NEON_GREEN_LEAVES:
+            lightId = LIGHT_NEON_GREEN_10;
+            break;
+        case ITEM_NEON_BLUE_PLANKS:
+        case ITEM_NEON_BLUE_LEAVES:
+            lightId = LIGHT_NEON_BLUE_10;
+            break;
+        case ITEM_NEON_CYAN_PLANKS:
+        case ITEM_NEON_CYAN_LEAVES:
+            lightId = LIGHT_NEON_CYAN_10;
+            break;
+        case ITEM_NEON_MAGENTA_PLANKS:
+        case ITEM_NEON_MAGENTA_LEAVES:
+            lightId = LIGHT_NEON_MAGENTA_10;
+            break;
+        case ITEM_NEON_YELLOW_PLANKS:
+        case ITEM_NEON_YELLOW_LEAVES:
+            lightId = LIGHT_NEON_YELLOW_10;
+            break;
+        case ITEM_NEON_GRAY_PLANKS:
+        case ITEM_NEON_GRAY_LEAVES:
+            lightId = LIGHT_NEON_GRAY_10;
+            break;
+        case ITEM_NEON_STONE:
+            lightId = LIGHT_NEON_STONE;
+            break;
+        case ITEM_NEON_DIRT:
+            lightId = LIGHT_NEON_DIRT;
+            break;
+        case ITEM_NEON_GRASS_BLOCK:
+            lightId = LIGHT_NEON_GRASS;
+            break;
+    }
+
     return lightId;
 }

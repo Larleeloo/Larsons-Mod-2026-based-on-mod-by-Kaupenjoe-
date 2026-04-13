@@ -387,6 +387,47 @@
                 break;
         }
 
+        // Larson's Mod - Neon Block Colors
+        switch (lightType) {
+            case LIGHT_NEON_RED_WOOD:
+            case LIGHT_NEON_RED_10:
+                lightColor = vec3(1.000, 0.100, 0.100);
+                break;
+            case LIGHT_NEON_GREEN_WOOD:
+            case LIGHT_NEON_GREEN_10:
+                lightColor = vec3(0.100, 1.000, 0.100);
+                break;
+            case LIGHT_NEON_BLUE_WOOD:
+            case LIGHT_NEON_BLUE_10:
+                lightColor = vec3(0.100, 0.100, 1.000);
+                break;
+            case LIGHT_NEON_CYAN_WOOD:
+            case LIGHT_NEON_CYAN_10:
+                lightColor = vec3(0.000, 1.000, 1.000);
+                break;
+            case LIGHT_NEON_MAGENTA_WOOD:
+            case LIGHT_NEON_MAGENTA_10:
+                lightColor = vec3(1.000, 0.000, 1.000);
+                break;
+            case LIGHT_NEON_YELLOW_WOOD:
+            case LIGHT_NEON_YELLOW_10:
+                lightColor = vec3(1.000, 1.000, 0.000);
+                break;
+            case LIGHT_NEON_GRAY_WOOD:
+            case LIGHT_NEON_GRAY_10:
+                lightColor = vec3(0.600, 0.600, 0.600);
+                break;
+            case LIGHT_NEON_STONE:
+                lightColor = vec3(0.500, 0.400, 0.600);
+                break;
+            case LIGHT_NEON_DIRT:
+                lightColor = vec3(0.500, 0.400, 0.300);
+                break;
+            case LIGHT_NEON_GRASS:
+                lightColor = vec3(0.200, 0.800, 0.300);
+                break;
+        }
+
         // #ifdef MAGNIFICENT_COLORS
         //     if (lightType == LIGHT_SEA_LANTERN) lightColor = vec3(0.2, 0.8, 1.0) * .5;
         //     if (lightType == LIGHT_GLOWSTONE) lightColor = vec3(1.0, 0.7, 0.4);
@@ -677,6 +718,37 @@
                 break;
         }
 
+        // Larson's Mod - Neon Block Ranges
+        switch (lightType) {
+            case LIGHT_NEON_RED_WOOD:
+            case LIGHT_NEON_GREEN_WOOD:
+            case LIGHT_NEON_BLUE_WOOD:
+            case LIGHT_NEON_CYAN_WOOD:
+            case LIGHT_NEON_MAGENTA_WOOD:
+            case LIGHT_NEON_YELLOW_WOOD:
+            case LIGHT_NEON_GRAY_WOOD:
+                lightRange = 12.0;
+                break;
+            case LIGHT_NEON_RED_10:
+            case LIGHT_NEON_GREEN_10:
+            case LIGHT_NEON_BLUE_10:
+            case LIGHT_NEON_CYAN_10:
+            case LIGHT_NEON_MAGENTA_10:
+            case LIGHT_NEON_YELLOW_10:
+            case LIGHT_NEON_GRAY_10:
+                lightRange = 10.0;
+                break;
+            case LIGHT_NEON_STONE:
+                lightRange = 3.0;
+                break;
+            case LIGHT_NEON_DIRT:
+                lightRange = 2.0;
+                break;
+            case LIGHT_NEON_GRASS:
+                lightRange = 5.0;
+                break;
+        }
+
         #ifdef LIGHTING_COLORED_CANDLES
             switch (lightType) {
                 case LIGHT_CANDLES_1:
@@ -851,6 +923,23 @@
             case LIGHT_AMETHYST_CLUSTER:
             case LIGHT_CRYING_OBSIDIAN:
             case LIGHT_CREATE_XP:
+            case LIGHT_NEON_RED_WOOD:
+            case LIGHT_NEON_GREEN_WOOD:
+            case LIGHT_NEON_BLUE_WOOD:
+            case LIGHT_NEON_CYAN_WOOD:
+            case LIGHT_NEON_MAGENTA_WOOD:
+            case LIGHT_NEON_YELLOW_WOOD:
+            case LIGHT_NEON_GRAY_WOOD:
+            case LIGHT_NEON_RED_10:
+            case LIGHT_NEON_GREEN_10:
+            case LIGHT_NEON_BLUE_10:
+            case LIGHT_NEON_CYAN_10:
+            case LIGHT_NEON_MAGENTA_10:
+            case LIGHT_NEON_YELLOW_10:
+            case LIGHT_NEON_GRAY_10:
+            case LIGHT_NEON_STONE:
+            case LIGHT_NEON_DIRT:
+            case LIGHT_NEON_GRASS:
             case LIGHT_FIRE:
             case LIGHT_FROGLIGHT_OCHRE:
             case LIGHT_FROGLIGHT_PEARLESCENT:
