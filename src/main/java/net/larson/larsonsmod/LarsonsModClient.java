@@ -2,7 +2,7 @@ package net.larson.larsonsmod;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.larson.larsonsmod.block.ModBlocks;
@@ -26,18 +26,19 @@ public class LarsonsModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         // Cutout render layer for cross-model blocks (transparency in textures)
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHESTNUT_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DAHLIA, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_DAHLIA, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_RED_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_GREEN_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_BLUE_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_CYAN_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_MAGENTA_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_YELLOW_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NEON_GRAY_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RUBY_DOOR, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RUBY_TRAPDOOR, RenderLayer.getCutout());
+        // In 1.21.6+ the API moved to client.rendering.v1 and uses static putBlock()
+        BlockRenderLayerMap.putBlock(ModBlocks.CHESTNUT_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.DAHLIA, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.POTTED_DAHLIA, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_RED_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_GREEN_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_BLUE_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_CYAN_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_MAGENTA_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_YELLOW_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.NEON_GRAY_SAPLING, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.RUBY_DOOR, RenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.RUBY_TRAPDOOR, RenderLayer.CUTOUT);
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
