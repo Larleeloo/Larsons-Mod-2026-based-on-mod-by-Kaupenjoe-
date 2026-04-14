@@ -1,0 +1,7 @@
+{
+  "type": "larsonsmod:ruby_shrine",
+  "biomes": "#larsonsmod:has_structure/ruby_shrine",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}
