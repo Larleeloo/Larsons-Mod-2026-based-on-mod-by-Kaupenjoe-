@@ -13,7 +13,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.StructureAccessor;
 
 /**
