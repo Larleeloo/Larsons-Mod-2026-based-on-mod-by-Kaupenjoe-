@@ -134,7 +134,7 @@ public class ModBlocks {
 
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.CHESTNUT, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque());
 
     // Neon Wood Logs (7 colors)
     public static final Block NEON_RED_WOOD = registerBlock("neon_red_wood",
@@ -195,25 +195,25 @@ public class ModBlocks {
     // Neon Saplings (7 colors)
     public static final Block NEON_RED_SAPLING = registerBlock("neon_red_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_RED, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
     public static final Block NEON_GREEN_SAPLING = registerBlock("neon_green_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_GREEN, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
     public static final Block NEON_BLUE_SAPLING = registerBlock("neon_blue_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_BLUE, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
     public static final Block NEON_CYAN_SAPLING = registerBlock("neon_cyan_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_CYAN, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
     public static final Block NEON_MAGENTA_SAPLING = registerBlock("neon_magenta_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_MAGENTA, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
     public static final Block NEON_YELLOW_SAPLING = registerBlock("neon_yellow_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_YELLOW, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
     public static final Block NEON_GRAY_SAPLING = registerBlock("neon_gray_sapling",
             settings -> new SaplingBlock(ModSaplingGenerators.NEON_GRAY, settings),
-            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 8));
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque().luminance(state -> 8));
 
     private static LeavesBlock createSimpleLeaves(AbstractBlock.Settings settings) {
         return new SimpleLeavesBlock(settings);
