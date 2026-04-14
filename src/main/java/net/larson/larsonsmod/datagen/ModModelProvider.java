@@ -78,14 +78,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_YELLOW_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_GRAY_LEAVES);
 
-        // Neon Saplings (cross-shaped plant models)
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_RED_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_GREEN_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_BLUE_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_CYAN_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_MAGENTA_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_YELLOW_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.NEON_GRAY_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        // Neon Saplings: models are defined manually in resources/assets with
+        // render_type: "minecraft:cutout" for proper transparency.
+        // See blockstates/ and models/block/ and models/item/ JSON files.
 
         // Neon Dimension Terrain Blocks
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEON_STONE);

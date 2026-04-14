@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "larsonsmod:block/neon_magenta_sapling"
+  }
+}
