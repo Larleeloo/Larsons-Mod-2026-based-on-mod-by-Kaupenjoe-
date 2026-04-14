@@ -1,0 +1,7 @@
+{
+  "type": "larsonsmod:neon_tower",
+  "biomes": "#larsonsmod:has_structure/neon_tower",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

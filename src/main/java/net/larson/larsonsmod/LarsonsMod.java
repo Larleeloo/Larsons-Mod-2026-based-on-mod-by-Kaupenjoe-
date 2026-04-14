@@ -22,6 +22,7 @@ import net.larson.larsonsmod.util.ModCustomTrades;
 import net.larson.larsonsmod.util.ModLootTableModifiers;
 import net.larson.larsonsmod.villager.ModVillagers;
 import net.larson.larsonsmod.world.gen.ModWorldGeneration;
+import net.larson.larsonsmod.world.structure.ModStructures;
 import net.larson.larsonsmod.world.tree.ModFoliagePlacerTypes;
 import net.larson.larsonsmod.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
@@ -96,6 +97,7 @@ public class LarsonsMod implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.NEON_GRAY_LEAVES, 30, 60);
 
 		ModBoats.registerBoats();
+		ModStructures.register();
 		ModWorldGeneration.generateModWorldGen();
 
 		// TODO: Custom Portal API removed (incompatible with 1.21.11).
